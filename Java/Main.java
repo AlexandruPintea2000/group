@@ -1,3 +1,9 @@
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.stream.Stream;
+import java.util.Scanner;
 
 class CountryLanguage
 {
@@ -266,10 +272,150 @@ public class Main
     private Country countries[];
     private CountryLanguage languages[];
 
+	private static void show_file ( String filename )
+	{
+        Path path = Paths.get("../data_files/" + filename + ".txt"); // compiled file is in "compiled" folder
+        try (Stream<String> lines = Files.lines(path)) {
+            lines.forEach( line -> System.out.println( line ) );
+        } catch (IOException ex) {
+          // do something or re-throw...
+        }
+	}
+
+	
+
     public static void main( String[] args )
     {
-        System.out.print( "java" );
-        System.out.print( "comples" );
+		show_file( "options_main" );
+
+		Scanner scan = new Scanner(System.in);
+		String choice = scan.nextLine();
+
+		if ( choice.equals( "1" ) )
+		{
+			show_file( "options_1" );
+			choice = scan.nextLine();
+
+			if ( choice.equals( "1" ) )
+			{
+				System.out.print( "Country:" );
+				choice = scan.nextLine();
+			}
+
+			if ( choice.equals( "2" ) )
+			{
+				System.out.print( "City:" );
+				choice = scan.nextLine();
+			}
+
+			if ( choice.equals( "3" ) )
+			{
+				System.out.print( "Capital City:" );
+				choice = scan.nextLine();
+			}
+		}
+		
+
+		if ( choice.equals( "2" ) )
+		{
+			show_file( "options_2" );
+			choice = scan.nextLine();
+
+			if ( choice.equals( "1" ) )
+			{
+				// For Earth
+			}
+
+			if ( choice.equals( "2" ) )
+			{
+				System.out.print( "Continent:" );
+				choice = scan.nextLine();
+			}
+
+			if ( choice.equals( "3" ) )
+			{
+				System.out.print( "Region:" );
+				choice = scan.nextLine();
+			}
+
+			if ( choice.equals( "4" ) )
+			{
+				System.out.print( "Country:" );
+				choice = scan.nextLine();
+			}
+
+			if ( choice.equals( "5" ) )
+			{
+				System.out.print( "District:" );
+				choice = scan.nextLine();
+			}
+
+			if ( choice.equals( "6" ) )
+			{
+				System.out.print( "City:" );
+				choice = scan.nextLine();
+			}
+		}	
+
+		if ( choice.equals( "3" ) )
+		{
+			show_file( "options_3" );
+			choice = scan.nextLine();
+
+			if ( choice.equals( "1" ) )
+			{
+				// For Earth
+			}
+
+			if ( choice.equals( "2" ) )
+			{
+				System.out.print( "Continent:" );
+				choice = scan.nextLine();
+			}
+
+			if ( choice.equals( "3" ) )
+			{
+				System.out.print( "Region:" );
+				choice = scan.nextLine();
+			}
+
+			if ( choice.equals( "4" ) )
+			{
+				System.out.print( "Country:" );
+				choice = scan.nextLine();
+			}
+
+			if ( choice.equals( "5" ) )
+			{
+				System.out.print( "District:" );
+				choice = scan.nextLine();
+			}
+
+			if ( choice.equals( "6" ) )
+			{
+				System.out.print( "City:" );
+				choice = scan.nextLine();
+			}
+		}	
+
+		if ( choice.equals( "4" ) )
+		{
+			show_file( "options_4" );
+			choice = scan.nextLine();
+
+			if ( choice.equals( "1" ) )
+			{
+				System.out.print( "Languages ( Delimitate with ' ' ):" );
+				choice = scan.nextLine();
+				// Move data to array
+			}
+
+			if ( choice.equals( "2" ) )
+			{
+				// Use predefined languages ( Chinese, English, Hindi, Spanish and Arabic )
+			}
+		}	
+
     }
 }
 
