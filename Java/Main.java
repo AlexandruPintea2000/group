@@ -275,20 +275,34 @@ public class Main
 	// show file text for a file in "data_files" folder
 	private static void show_file ( String filename )
 	{
-        Path path = Paths.get("../data_files/" + filename + ".txt"); // compiled file is in "compiled" folder
+		Path path = Paths.get("../data_files/" + filename + ".txt"); // compiled file is in "compiled" folder
 
 		// output
-        try (Stream<String> lines = Files.lines(path)) {
-            lines.forEach( line -> System.out.println( line ) );
-        } catch (IOException ex) {
-          // do something or re-throw...
-        }
+		try (Stream<String> lines = Files.lines(path)) {
+			lines.forEach( line -> System.out.println( line ) );
+		} catch (IOException ex) {
+			// do something or re-throw...
+		}
 	}
 
-	
+	public static void get_data ()
+	{
+		Runtime r = Runtime.getRuntime();
+		try 
+		{
+			r.exec("printf $PWD > fle45; mariadb -N -B world < ../sql/get_city.sql > sql_response");
+		}
+		catch ( IOException e ) 
+		{
+			System.out.println( "Exec invalid." );
+		}
+	}
+
 	// main
 	public static void main( String[] args )
 	{
+		get_data();
+
 		// show options using text files
 		// related to user choice
 
@@ -324,7 +338,7 @@ public class Main
 		}
 		
 
-		// Population statistics (  )
+		// Population statistics
 		if ( choice.equals( "2" ) )
 		{
 			show_file( "options_2" );
