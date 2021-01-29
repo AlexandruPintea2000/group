@@ -10,10 +10,7 @@ __Sprint review and retrpspective__: 10:15 AM
 ( 1 sprint = 1 week )
 
 
-[__Contributions__](https://docs.google.com/spreadsheets/d/1USTz3se9sA-V-TirK4KPPEFqEpkOSsTltzj0S9YaBiI/edit?usp=sharing)
-( what each of us has done )
-
-[__Product Backlog__](https://docs.google.com/spreadsheets/d/1jDgYzGWdSvxJWKj4kr0p9f-xVH9wF1E7LJI6Ym2p2U4/edit?usp=sharing)
+[__Product Backlog, Kamban, Individual contribution, Requirements__](https://docs.google.com/spreadsheets/d/1jDgYzGWdSvxJWKj4kr0p9f-xVH9wF1E7LJI6Ym2p2U4/edit?usp=sharing)
 ( what we have done and will do )
 
 __Code of Conduct__
