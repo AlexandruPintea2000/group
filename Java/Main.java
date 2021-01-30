@@ -290,7 +290,6 @@ public class Main
 		Runtime r = Runtime.getRuntime();
 		try 
 		{
-			r.exec("printf $PWD > fle45; mariadb -N -B world < ../sql/get_city.sql > sql_response");
 		}
 		catch ( IOException e ) 
 		{
