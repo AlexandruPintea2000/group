@@ -1,4 +1,4 @@
-package com.napier.group;
+package com.napier.sem;
 
 public class Main {
 
