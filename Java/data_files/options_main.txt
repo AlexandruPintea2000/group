@@ -1,0 +1,30 @@
+
+Welcome to human statistics application!
+
+  1. Largest to smallest ( by population )
+
+     For countries, cities, capital cities, 
+     Either globally, in a continent or a region. ( Optional specified count )
+
+     For 'Country':       Code / Name    / Continent / Region     / Population / Capital
+     For 'City':          Name / Country / District  / Population
+     For 'Capital City':  Code / Name    / Continent / Region     / Population / Capital
+
+
+  2. Get population statistics ( continent, country ... )
+
+     For specified:       Name / Population / City residents ( num & percent ) / Countryside residents ( num & percent )
+
+
+  3. Get population ( continent, country ... )
+
+     Only shows population for a specified continent, country ...
+
+
+  4. Population by spoken language
+
+     For a language:      Language / Population / Percentage
+
+     Ordered by population count.
+
+Choice: 
