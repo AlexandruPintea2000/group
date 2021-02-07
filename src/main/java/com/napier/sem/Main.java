@@ -1,24 +1,19 @@
 package com.napier.sem;
 
 import java.sql.*;
-import com.mysql.*;
-import com.mysql.cj.MysqlConnection;
-import com.mysql.cj.jdbc.MysqlXAConnection;
+import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args){
-        // Test SQL Connection
-        try{
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/world", "root", "admin");
-            Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("select Name from world.country");
-            while(rs.next())
-                System.out.println(rs.getString(1));
-            con.close();
-        } catch (Exception e){
-            System.out.println(e);
-        }
+        int choice;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please select one of the following options: ");
+        System.out.println("1. Generate all the countries in the world organised by largest population to smallest");
+        System.out.println("2. Generate all the countries in a continent organised by largest population to smallest");
+        System.out.println("3. Generate all the countries in a region organised by largest population to smallest.");
+        choice = sc.nextInt();
+
+        System.out.println("You selected " + choice);
     }
 }
