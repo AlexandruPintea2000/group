@@ -1,9 +1,9 @@
 package com.napier.sem;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
+import com.mysql.*;
+import com.mysql.cj.MysqlConnection;
+import com.mysql.cj.jdbc.MysqlXAConnection;
 
 public class Main {
 

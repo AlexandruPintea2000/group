@@ -8,3 +8,7 @@ services:
 after_success:
   - docker build -t group .
   - docker run group
+  - docker pull mysql/mysql-server:tag
+  - docker run --name=mysql1 -d mysql/mysql-server:tag --network group
+  - docker build -t group .
+  - docker run --network group group
