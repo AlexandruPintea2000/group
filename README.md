@@ -21,13 +21,14 @@ In order to produce an application that takes care of population statistics, we 
 
 __Standards__
 
-__Positive behviour is beneficial to our goul in that we:__
+__Positive behviour is beneficial to our goal in that we:__
 - only talk one at a time
 - behave with politeness, empathy and respect
 - only address matters related to the project
 - accept constructive criticism
 - put common goals first
 - share everything we do with each other
+- support each other when others do not understand
 
 __Negative behaviour is not toleated__
 - Insults of any kind are not toleated
