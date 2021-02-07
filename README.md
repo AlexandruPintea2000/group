@@ -1,5 +1,6 @@
 ## SEM Coursework ## 
 Master Build Status [![Build Status](https://travis-ci.com/AlexPintea/group.svg?branch=master)](https://travis-ci.com/AlexPintea/group)
+Develop Build Status [![Build Status](https://travis-ci.com/AlexPintea/group.svg?branch=develop)](https://travis-ci.com/AlexPintea/group)
 - - - -
 
 __Details of the group__
