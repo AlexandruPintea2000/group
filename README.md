@@ -1,3 +1,7 @@
+## SEM Coursework ## 
+Master Build Status [![Build Status](https://travis-ci.com/AlexPintea/group.svg?branch=master)](https://travis-ci.com/AlexPintea/group)
+- - - -
+
 __Details of the group__
 
 __Daily standup:__ 10 AM
