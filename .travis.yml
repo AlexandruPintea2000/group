@@ -1,4 +1,10 @@
+sudo: required
+
 language: java
-install: true
-script:
-  - mvn install
+
+services:
+  - docker
+
+after_success:
+  - docker build -t group .
+  - docker run group
