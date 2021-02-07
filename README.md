@@ -1,5 +1,9 @@
 ## SEM Coursework ## 
 Master Build Status [![Build Status](https://travis-ci.com/AlexPintea/group.svg?branch=master)](https://travis-ci.com/AlexPintea/group)
+<br />
+License [![LICENSE](https://img.shields.io/github/license/AlexPintea/group.svg?style=flat-square)](https://github.com/AlexPintea/group/blob/master/LICENSE)
+<br />
+Release [![Releases](https://img.shields.io/github/release/AlexPintea/group/all.svg?style=flat-square)](https://github.com/AlexPintea/group/releases)
 - - - -
 
 __Details of the group__
