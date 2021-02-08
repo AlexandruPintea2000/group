@@ -1,13 +1,3 @@
-## SEM Coursework ## 
-Master Build Status [![Build Status](https://travis-ci.com/AlexPintea/group.svg?branch=master)](https://travis-ci.com/AlexPintea/group)
-<br />
-Develop Build Status [![Build Status](https://travis-ci.com/AlexPintea/group.svg?branch=develop)](https://travis-ci.com/AlexPintea/group)
-<br />
-License [![LICENSE](https://img.shields.io/github/license/AlexPintea/group.svg?style=flat-square)](https://github.com/AlexPintea/group/blob/master/LICENSE)
-<br />
-Release [![Releases](https://img.shields.io/github/release/AlexPintea/group/all.svg?style=flat-square)](https://github.com/AlexPintea/group/releases)
-- - - -
-
 __Details of the group__
 
 __Daily standup:__ 10 AM
@@ -16,7 +6,7 @@ __Daily standup:__ 10 AM
 __Sprint planning session__: 10:15 AM
 ( decide what backlog tasks each of us does the sprint to follow )
 
-__Sprint review and retrpspective__: 10:15 AM
+__Sprint review and retrospective__: 10:15 AM
 ( 1 sprint = 1 week )
 
 
@@ -25,30 +15,29 @@ __Sprint review and retrpspective__: 10:15 AM
 
 __Code of Conduct__
 
-__Pladge__
+__Pledge__
 
 In order to produce an application that takes care of population statistics, we set our slight differences aside and concentrate on our goal.
 
 __Standards__
 
-__Positive behviour is beneficial to our goal in that we:__
+__Positive behavior is beneficial to our goal in that we:__
 - only talk one at a time
 - behave with politeness, empathy and respect
 - only address matters related to the project
 - accept constructive criticism
 - put common goals first
 - share everything we do with each other
-- support each other when others do not understand
 
-__Negative behaviour is not toleated__
-- Insults of any kind are not toleated
+__Negative behavior is not tolerated__
+- Insults of any kind are not tolerated
 - Trolling is not an option
 
 __Responsibilities__
 Deciding on task distribution so as to achieve completion
 
 __Scope__
-Finalise an application that deals with population statistics
+Finalize an application that deals with population statistics
 
 __Enforcement__
-Misbehaviour that affect the team integrity in a major way can result in banning
+Misbehavior that affect the team integrity in a major way can result in banning
