@@ -1,3 +1,8 @@
+__Software Engineering Methods__
+- Master Build Status [![Build Status](https://travis-ci.com/AlexPintea/group.svg?branch=master)](https://travis-ci.com/AlexPintea/group)
+- Develop Build Status [![Build Status](https://travis-ci.com/AlexPintea/group.svg?branch=develop)](https://travis-ci.com/AlexPintea/group)
+- Licence License [![LICENSE](https://img.shields.io/github/license/AlexPintea/group.svg?style=flat-square)](https://github.com/AlexPintea/group/blob/master/LICENSE)
+
 __Details of the group__
 
 __Daily standup:__ 10 AM
