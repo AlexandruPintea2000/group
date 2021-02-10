@@ -1,0 +1,11 @@
+
+What do you want statistics for?
+
+1. Earth
+2. Continent
+3. Region
+4. Country
+5. District
+6. City
+
+Choice: 
