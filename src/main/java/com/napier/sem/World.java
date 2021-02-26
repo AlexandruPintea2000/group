@@ -11,12 +11,16 @@ public class World {
     private Connection con = null;
     private int worldPopulation;
 
-    public World(int worldPopulation){
-        this.worldPopulation = worldPopulation;
+    public World(Connection con){
+        this.con = con;
     }
 
     public World(){
 
+    }
+
+    public void setCon(Connection con){
+        this.con = con;
     }
 
     public int getWorldPopulation(){

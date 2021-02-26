@@ -10,6 +10,7 @@ public class App {
         World w = new World();
 
         // Connect to database
+        w.setCon(a.con);
         a.connect();
 
         // Returns the population of the world to the user
