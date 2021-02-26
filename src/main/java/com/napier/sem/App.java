@@ -8,13 +8,18 @@ public class App {
         // Create new Application
         App a = new App();
         World w = new World();
+        Country c = new Country();
 
         // Connect to database
         a.connect();
         w.setCon(a.con);
+        c.setCon(a.con);
+
+        c.setCountryCode("BRA");
 
         // Returns the population of the world to the user
         System.out.println("The world population is: " + w.generateWorldPopulation());
+        System.out.println("The population of " + c.getCountryName() + " is " + c.generateCountryPopulation("BRA"));
 
         // Disconnect from database
         a.disconnect();

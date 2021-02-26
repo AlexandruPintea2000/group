@@ -13,10 +13,10 @@ public class Country {
     private String countryName;
     private String countryContinent;
     private String countryRegion;
-    private int countryPopulation;
+    private long countryPopulation;
     private String countryCapital;
 
-    public Country(String countryCode, String countryName, String countryContinent, String countryRegion, int countryPopulation, String countryCapital){
+    public Country(String countryCode, String countryName, String countryContinent, String countryRegion, long countryPopulation, String countryCapital){
         this.countryCode = countryCode;
         this.countryName = countryName;
         this.countryContinent = countryContinent;
@@ -25,15 +25,63 @@ public class Country {
         this.countryCapital = countryCapital;
     }
 
-    public Country(String countryCode){
-        this.countryCode = countryCode;
-    }
-
     public Country(){
 
     }
 
-    public long getCountryPopulation(String code){
+    public void setCon(Connection con){
+        this.con = con;
+    }
+
+    public String getCountryCode(){
+        return countryCode;
+    }
+
+    public void setCountryCode(String countryCode){
+        this.countryCode = countryCode;
+    }
+
+    public String getCountryName(){
+        return countryName;
+    }
+
+    public void setCountryName(String countryName){
+        this.countryName = countryName;
+    }
+
+    public String getCountryContinent(){
+        return countryContinent;
+    }
+
+    public void setCountryContinent(String countryContinent){
+        this.countryContinent = countryContinent;
+    }
+
+    public String getCountryRegion(){
+        return countryRegion;
+    }
+
+    public void setCountryRegion(String countryRegion){
+        this.countryRegion = countryRegion;
+    }
+
+    public long getCountryPopulation(){
+        return countryPopulation;
+    }
+
+    public void setCountryPopulation(long countryPopulation){
+        this.countryPopulation = countryPopulation;
+    }
+
+    public String getCountryCapital(){
+        return countryCapital;
+    }
+
+    public void setCountryCapital(String countryCapital){
+        this.countryCapital = countryCapital;
+    }
+
+    public long generateCountryPopulation(String code){
         long countryPopulation = 0L;
 
         try {
