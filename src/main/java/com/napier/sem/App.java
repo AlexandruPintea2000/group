@@ -68,8 +68,8 @@ public class App {
         }
     }
 
-    public int getWorldPopulation() {
-        int worldPopulation = 0;
+    public long getWorldPopulation() {
+        long worldPopulation = 0L;
 
         try{
             Statement stmt = con.createStatement();
@@ -77,7 +77,7 @@ public class App {
                     "select sum(Population) from(select population from world.city union all select population from world.country) as population";
             ResultSet rset = stmt.executeQuery(strSelect);
             if(rset.next()){
-                worldPopulation = rset.getInt("sum(Population)");
+                worldPopulation = rset.getInt("sum(Population)" + "L");
             }
         } catch (Exception e) {
             e.printStackTrace();
