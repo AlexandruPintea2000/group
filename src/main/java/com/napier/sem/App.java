@@ -19,7 +19,7 @@ public class App {
 
         // Returns the population of the world to the user
         System.out.println("The world population is: " + w.generateWorldPopulation());
-        System.out.println("The population of " + c.getCountryName() + " is " + c.generateCountryPopulation("BRA"));
+        System.out.println("The population of " + c.getCountryName("BRA") + " is " + c.getCountryPopulation("BRA"));
 
         // Disconnect from database
         a.disconnect();

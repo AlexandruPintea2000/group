@@ -41,7 +41,19 @@ public class Country {
         this.countryCode = countryCode;
     }
 
-    public String getCountryName(){
+    public String getCountryName(String countryCode){
+        try {
+            Statement stmt = con.createStatement();
+            String strSelect =
+                    "select Name from world.country where code = '" + countryCode + "'";
+            ResultSet rset = stmt.executeQuery(strSelect);
+            if(rset.next()){
+                countryName = rset.getString("Name");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         return countryName;
     }
 
@@ -65,7 +77,19 @@ public class Country {
         this.countryRegion = countryRegion;
     }
 
-    public long getCountryPopulation(){
+    public long getCountryPopulation(String countryCode){
+        try {
+            Statement stmt = con.createStatement();
+            String strSelect =
+                    "select Population from world.country where code = '" + countryCode + "'";
+            ResultSet rset = stmt.executeQuery(strSelect);
+            if(rset.next()){
+                countryPopulation = rset.getLong("Population");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         return countryPopulation;
     }
 
@@ -79,23 +103,5 @@ public class Country {
 
     public void setCountryCapital(String countryCapital){
         this.countryCapital = countryCapital;
-    }
-
-    public long generateCountryPopulation(String code){
-        long countryPopulation = 0L;
-
-        try {
-            Statement stmt = con.createStatement();
-            String strSelect =
-                    "select Population from world.country where code = " + code + "";
-            ResultSet rset = stmt.executeQuery(strSelect);
-            if(rset.next()){
-                countryPopulation = rset.getLong("Population");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return countryPopulation;
     }
 }
