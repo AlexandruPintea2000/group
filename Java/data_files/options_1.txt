@@ -1,8 +1,0 @@
-
-What do you want statistics for?
-
-1. Country
-2. City
-3. Capital City
-
-Choice: 

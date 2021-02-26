@@ -1,7 +1,0 @@
-
-Options:
-
-1. Provide languages
-2. Use predefined languages ( Chinese, English, Hindi, Spanish and Arabic )
-
-Choice: 
