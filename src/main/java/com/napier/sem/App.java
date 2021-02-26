@@ -74,15 +74,7 @@ public class App {
         try{
             Statement stmt = con.createStatement();
             String strSelect =
-                    "select sum(Population)" +
-                            "from" +
-                            "(" +
-                            "select population" +
-                            "from world.city" +
-                            "union all" +
-                            "select population" +
-                            "from world.country" +
-                            ") as population";
+                    "select sum(Population) from(select population from world.city union all select population from world.country) as population";
             ResultSet rset = stmt.executeQuery(strSelect);
             if(rset.next()){
                 worldPopulation = rset.getInt("sum(Population)");
