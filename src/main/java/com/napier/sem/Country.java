@@ -155,9 +155,9 @@ public class Country {
 
         System.out.println("Country Code: " + countryCode);
         System.out.println("Country Name: " + countryName);
-        System.out.println("Country Continent " + countryContinent);
-        System.out.println("Country Region " + countryRegion);
-        System.out.println("Country Population " + countryPopulation);
-        System.out.println("Country Capital " + countryCapital);
+        System.out.println("Country Continent: " + countryContinent);
+        System.out.println("Country Region: " + countryRegion);
+        System.out.println("Country Population: " + countryPopulation);
+        System.out.println("Country Capital: " + countryCapital);
     }
 }
