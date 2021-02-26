@@ -14,9 +14,9 @@ public class Country {
     private String countryContinent;
     private String countryRegion;
     private long countryPopulation;
-    private String countryCapital;
+    private int countryCapital;
 
-    public Country(String countryCode, String countryName, String countryContinent, String countryRegion, long countryPopulation, String countryCapital){
+    public Country(String countryCode, String countryName, String countryContinent, String countryRegion, long countryPopulation, int countryCapital){
         this.countryCode = countryCode;
         this.countryName = countryName;
         this.countryContinent = countryContinent;
@@ -41,11 +41,11 @@ public class Country {
         this.countryCode = countryCode;
     }
 
-    public String getCountryName(String countryCode){
+    public String getCountryName(){
         try {
             Statement stmt = con.createStatement();
             String strSelect =
-                    "select Name from world.country where code = '" + countryCode + "'";
+                    "select Name from world.country where Code = '" + countryCode + "'";
             ResultSet rset = stmt.executeQuery(strSelect);
             if(rset.next()){
                 countryName = rset.getString("Name");
@@ -53,7 +53,6 @@ public class Country {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         return countryName;
     }
 
@@ -62,6 +61,17 @@ public class Country {
     }
 
     public String getCountryContinent(){
+        try {
+            Statement stmt = con.createStatement();
+            String strSelect =
+                    "select Continent from world.country where Code = '" + countryCode + "'";
+            ResultSet rset = stmt.executeQuery(strSelect);
+            if(rset.next()){
+                countryContinent = rset.getString("Continent");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return countryContinent;
     }
 
@@ -70,6 +80,17 @@ public class Country {
     }
 
     public String getCountryRegion(){
+        try {
+            Statement stmt = con.createStatement();
+            String strSelect =
+                    "select Region from world.country where Code = '" + countryCode + "'";
+            ResultSet rset = stmt.executeQuery(strSelect);
+            if(rset.next()){
+                countryRegion = rset.getString("Region");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return countryRegion;
     }
 
@@ -77,7 +98,7 @@ public class Country {
         this.countryRegion = countryRegion;
     }
 
-    public long getCountryPopulation(String countryCode){
+    public long getCountryPopulation(){
         try {
             Statement stmt = con.createStatement();
             String strSelect =
@@ -89,7 +110,6 @@ public class Country {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         return countryPopulation;
     }
 
@@ -97,11 +117,47 @@ public class Country {
         this.countryPopulation = countryPopulation;
     }
 
-    public String getCountryCapital(){
+    public int getCountryCapital(){
+        try {
+            Statement stmt = con.createStatement();
+            String strSelect =
+                    "select Capital from world.country where Code = '" + countryCode + "'";
+            ResultSet rset = stmt.executeQuery(strSelect);
+            if(rset.next()){
+                countryCapital = rset.getInt("Capital");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return countryCapital;
     }
 
-    public void setCountryCapital(String countryCapital){
+    public void setCountryCapital(int countryCapital){
         this.countryCapital = countryCapital;
+    }
+
+    public void generateCountryReport(){
+        try {
+            Statement stmt = con.createStatement();
+            String strSelect =
+                    "select * from world.country where Code = '" + countryCode + "'";
+            ResultSet rset = stmt.executeQuery(strSelect);
+            if(rset.next()){
+                countryName = rset.getString("Name");
+                countryContinent = rset.getString("Continent");
+                countryRegion = rset.getString("Region");
+                countryPopulation = rset.getLong("Population");
+                countryCapital = rset.getInt("Capital");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("Country Code: " + countryCode);
+        System.out.println("Country Name: " + countryName);
+        System.out.println("Country Continent " + countryContinent);
+        System.out.println("Country Region " + countryRegion);
+        System.out.println("Country Population " + countryPopulation);
+        System.out.println("Country Capital " + countryCapital);
     }
 }
