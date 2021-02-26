@@ -7,12 +7,13 @@ public class App {
     public static void main(String[] args) {
         // Create new Application
         App a = new App();
+        World w = new World();
 
         // Connect to database
         a.connect();
 
         // Returns the population of the world to the user
-        System.out.println("The world population is: " + a.getWorldPopulation());
+        System.out.println("The world population is: " + w.generateWorldPopulation());
 
         // Disconnect from database
         a.disconnect();
@@ -66,23 +67,5 @@ public class App {
                 System.out.println("Error closing connection to database");
             }
         }
-    }
-
-    public long getWorldPopulation() {
-        long worldPopulation = 0L;
-
-        try{
-            Statement stmt = con.createStatement();
-            String strSelect =
-                    "select sum(Population) from(select population from world.city union all select population from world.country) as population";
-            ResultSet rset = stmt.executeQuery(strSelect);
-            if(rset.next()){
-                worldPopulation = rset.getLong("sum(Population)");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return worldPopulation;
     }
 }
