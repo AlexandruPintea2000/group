@@ -195,12 +195,11 @@ public class Country {
         try{
             Statement stmt = con.createStatement();
             String strSelect =
-                    "select Code, Name, Population"
-                    + "from world.country "
-                    + "order by Population desc";
+                    "select Code, Name, Population from world.country order by Population desc";
             ResultSet rset = stmt.executeQuery(strSelect);
             while(rset.next()){
                 Country ctry = new Country();
+                ctry.countryCode = rset.getString("Code");
                 ctry.countryName = rset.getString("Name");
                 ctry.countryPopulation = rset.getLong("Population");
                 countryList.add(ctry);
