@@ -1,10 +1,10 @@
-# USE CASE:  Produce a Report on Cities in a Region Organised by Largest Population to Smallest
+# USE CASE:  Produce a Report on Cities in a District Organised by Largest Population to Smallest
 
 ## CHARACTERISTIC INFORMATION
 
 ### Goal in Context
 
-As a government advisor I want to be able to view sorted data on the population of cities in a region, so I can make informed suggestions on government policy.
+As a government advisor I want to be able to view sorted data on the population of cities in a district, so I can make informed suggestions on government policy.
 
 ### Scope
 
@@ -16,7 +16,7 @@ Primary Task
 
 ### Preconditions
 
-The database contains information on the required regions and the application has the ability to produce that information sorted.
+The database contains information on the required districts and the application has the ability to produce that information sorted.
 ### Success End Condition
 
 The data is provided to be used in the decision-making process.
