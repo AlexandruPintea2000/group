@@ -21,6 +21,7 @@ public class App {
         System.out.println("The world population is: " + w.generateWorldPopulation());
         System.out.println("The population of " + c.getCountryName() + " is " + c.getCountryPopulation());
         c.generateCountryReport();
+        c.generateLargestToSmallest();
 
         // Disconnect from database
         a.disconnect();

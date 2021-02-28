@@ -1,21 +1,31 @@
 package com.napier.sem;
 
+import javax.xml.transform.Result;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 /**
  * Class for Country
  */
 public class Country {
+    // Placeholder for SQL connection
     private Connection con = null;
+    // Country code
     private String countryCode;
+    // Country name
     private String countryName;
+    // Country continent
     private String countryContinent;
+    // Country region
     private String countryRegion;
+    // Country population
     private long countryPopulation;
+    // Country capital
     private int countryCapital;
 
+    // Country constructor to initialise an instance of Country object (holding information regarding code, name, continent, region, population and capital
     public Country(String countryCode, String countryName, String countryContinent, String countryRegion, long countryPopulation, int countryCapital){
         this.countryCode = countryCode;
         this.countryName = countryName;
@@ -41,6 +51,7 @@ public class Country {
         this.countryCode = countryCode;
     }
 
+    // Returns the name of a country where code is specified
     public String getCountryName(){
         try {
             Statement stmt = con.createStatement();
@@ -60,6 +71,7 @@ public class Country {
         this.countryName = countryName;
     }
 
+    // Returns continent of a country where code is specified
     public String getCountryContinent(){
         try {
             Statement stmt = con.createStatement();
@@ -79,6 +91,7 @@ public class Country {
         this.countryContinent = countryContinent;
     }
 
+    // Returns region of a country where code is specified
     public String getCountryRegion(){
         try {
             Statement stmt = con.createStatement();
@@ -98,6 +111,7 @@ public class Country {
         this.countryRegion = countryRegion;
     }
 
+    // Returns the population of a country where code is specified
     public long getCountryPopulation(){
         try {
             Statement stmt = con.createStatement();
@@ -117,6 +131,7 @@ public class Country {
         this.countryPopulation = countryPopulation;
     }
 
+    // Returns the capital of a country where code is specified
     public int getCountryCapital(){
         try {
             Statement stmt = con.createStatement();
@@ -136,6 +151,15 @@ public class Country {
         this.countryCapital = countryCapital;
     }
 
+    /*
+    Generates a full report of a country where code is specified, in the following format
+    Country Code: {countryCode}
+    Country Name: {countryName}
+    Country Continent: {countryContinent}
+    Country Region: {countryRegion}
+    Country Population: {countryPopulation}
+    Country Capital: {countryCapital}
+     */
     public void generateCountryReport(){
         try {
             Statement stmt = con.createStatement();
@@ -159,5 +183,35 @@ public class Country {
         System.out.println("Country Region: " + countryRegion);
         System.out.println("Country Population: " + countryPopulation);
         System.out.println("Country Capital: " + countryCapital);
+    }
+
+    /*
+    Generates a list of all countries stored in the database in the following format
+    Code            Name            Population
+    {countryCode}   {countryName}   {countryPopulation}
+     */
+    public void generateLargestToSmallest(){
+        ArrayList<Country> countryList = new ArrayList<Country>();
+        try{
+            Statement stmt = con.createStatement();
+            String strSelect =
+                    "select Code, Name, Population"
+                    + "from world.country "
+                    + "order by Population desc";
+            ResultSet rset = stmt.executeQuery(strSelect);
+            while(rset.next()){
+                Country ctry = new Country();
+                ctry.countryName = rset.getString("Name");
+                ctry.countryPopulation = rset.getLong("Population");
+                countryList.add(ctry);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        for(Country ctry : countryList){
+            System.out.println("Code \t\t\t\t Name \t\t\t\t Population");
+            System.out.println(ctry.countryCode + " \t\t\t\t " + ctry.countryName + " \t\t\t\t " + ctry.countryPopulation);
+        }
     }
 }
