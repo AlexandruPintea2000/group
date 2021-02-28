@@ -9,7 +9,7 @@ import java.sql.Statement;
  */
 public class World {
     private Connection con = null;
-    private int worldPopulation;
+    private long worldPopulation;
 
     public World(){
 
@@ -19,29 +19,20 @@ public class World {
         this.con = con;
     }
 
-    public int getWorldPopulation(){
-        return worldPopulation;
-    }
-
-    public void setWorldPopulation(int worldPopulation){
-        this.worldPopulation = worldPopulation;
-    }
-
-    public long generateWorldPopulation() {
-        long worldPop = 0L;
-
+    // Returns the population of the world
+    public long getWorldPopulation(){
         try{
             Statement stmt = con.createStatement();
             String strSelect =
                     "select sum(Population) from(select population from world.city union all select population from world.country) as population";
             ResultSet rset = stmt.executeQuery(strSelect);
             if(rset.next()){
-                worldPop = rset.getLong("sum(Population)");
+                worldPopulation = rset.getLong("sum(Population)");
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        return worldPop;
+        return worldPopulation;
     }
 }

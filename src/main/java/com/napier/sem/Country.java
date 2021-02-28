@@ -189,6 +189,8 @@ public class Country {
     Generates a list of all countries stored in the database in the following format
     Code            Name            Population
     {countryCode}   {countryName}   {countryPopulation}
+    {countryCode}   {countryName}   {countryPopulation}
+    {countryCode}   {countryName}   {countryPopulation}
      */
     public void generateLargestToSmallest(){
         ArrayList<Country> countryList = new ArrayList<Country>();
@@ -208,8 +210,8 @@ public class Country {
             e.printStackTrace();
         }
 
+        System.out.println("Code \t\t\t\t Name \t\t\t\t Population");
         for(Country ctry : countryList){
-            System.out.println("Code \t\t\t\t Name \t\t\t\t Population");
             System.out.println(ctry.countryCode + " \t\t\t\t " + ctry.countryName + " \t\t\t\t " + ctry.countryPopulation);
         }
     }

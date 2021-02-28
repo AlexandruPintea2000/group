@@ -6,25 +6,34 @@ public class App {
 
     public static void main(String[] args) {
         // Create new Application
-        App a = new App();
-        World w = new World();
-        Country c = new Country();
+        App app = new App();
+        // New world object
+        World world = new World();
+        // New Country object to access information regarding a list of countries
+        Country country = new Country();
+        // New Country object to hold information regarding Brazil
+        Country brazil = new Country();
 
-        // Connect to database
-        a.connect();
-        w.setCon(a.con);
-        c.setCon(a.con);
+        // Establishing SQL connection for objects
+        app.connect();
+        world.setCon(app.con);
+        brazil.setCon(app.con);
+        country.setCon(app.con);
 
-        c.setCountryCode("BRA");
+        // Sets the Country object to the code that corresponds to Brazil
+        brazil.setCountryCode("BRA");
 
         // Returns the population of the world to the user
-        System.out.println("The world population is: " + w.generateWorldPopulation());
-        System.out.println("The population of " + c.getCountryName() + " is " + c.getCountryPopulation());
-        c.generateCountryReport();
-        c.generateLargestToSmallest();
+        System.out.println("The world population is: " + world.getWorldPopulation());
+        // Returns the population of Brazil
+        System.out.println("The population of " + brazil.getCountryName() + " is " + brazil.getCountryPopulation());
+        // Generates a report containing information about Brazil
+        brazil.generateCountryReport();
+        // Generates a list of all countries in the database
+        country.generateLargestToSmallest();
 
         // Disconnect from database
-        a.disconnect();
+        app.disconnect();
     }
 
     /**
