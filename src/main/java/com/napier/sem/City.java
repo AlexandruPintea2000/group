@@ -171,7 +171,7 @@ public class City {
         try{
             Statement stmt = con.createStatement();
             String strSelect =
-                    "select ID, Name, Population from world.city order by Population desc;";
+                    "select ID, Name, Population from world.city order by Population desc";
             ResultSet rset = stmt.executeQuery(strSelect);
             while(rset.next()){
                 City city = new City();
@@ -184,6 +184,38 @@ public class City {
             e.printStackTrace();
         }
 
+        System.out.println("ID \t\t\t\t Name \t\t\t\t Population");
+        for(City city : cityList){
+            System.out.println(city.cityID + " \t\t\t\t " + city.cityName + " \t\t\t\t " + city.cityPopulation);
+        }
+    }
+
+    /*
+    Generates a list of the top N populated cities (where N is specified by the user) in the following format:
+    ID               Name            Population
+    {cityID}        {cityName}      {cityPopulation}
+    {cityID}        {cityName}      {cityPopulation}
+    {cityID}        {cityName}      {cityPopulation}
+     */
+    public void generateTopN(int number){
+        ArrayList<City> cityList = new ArrayList<City>();
+        try{
+            Statement stmt = con.createStatement();
+            String strSelect =
+                    "select ID, Name, Population from world.city order by Population desc limit " + number;
+            ResultSet rset = stmt.executeQuery(strSelect);
+            while(rset.next()){
+                City city = new City();
+                city.cityID = rset.getInt("ID");
+                city.cityName = rset.getString("Name");
+                city.cityPopulation = rset.getLong("Population");
+                cityList.add(city);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("TOP " + number + " POPULATED CITIES");
         System.out.println("ID \t\t\t\t Name \t\t\t\t Population");
         for(City city : cityList){
             System.out.println(city.cityID + " \t\t\t\t " + city.cityName + " \t\t\t\t " + city.cityPopulation);

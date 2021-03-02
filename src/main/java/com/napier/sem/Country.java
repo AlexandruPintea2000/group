@@ -216,6 +216,13 @@ public class Country {
         }
     }
 
+    /*
+    Generates a list of the top N populated countries (where N is specified by the user) in the following format:
+    Code            Name            Population
+    {countryCode}   {countryName}   {countryPopulation}
+    {countryCode}   {countryName}   {countryPopulation}
+    {countryCode}   {countryName}   {countryPopulation}
+     */
     public void generateTopN(int number){
         ArrayList<Country> countryList = new ArrayList<Country>();
         try{
