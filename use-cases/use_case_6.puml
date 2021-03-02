@@ -1,0 +1,15 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+
+actor Sts as "Statistician"
+rectangle "Data" {
+rectangle Database
+ usecase UC4 as "Create data layouts"
+ UC4 <..> Database : Take data from
+ usecase UCa as "Suitable format"
+ UC4 ..> UCa : provide
+
+ Sts ..> UC4
+
+
+@enduml

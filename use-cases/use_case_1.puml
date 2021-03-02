@@ -1,0 +1,18 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+
+
+actor HR as "HR Advisor"
+
+rectangle Database
+rectangle "HR System" {
+
+HR -> Database : << createRequest >>
+    usecase UC4 as "Get Statistics"
+
+usecase UCa as "Data"
+UC4 ..> UCa : provide
+HR - UC4
+UC4 - Database
+
+@enduml

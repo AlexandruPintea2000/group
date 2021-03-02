@@ -4,7 +4,7 @@
 
 ### Goal in Context
 
-Being a -HR advisor- I want -abilities to organise statistical data based on as many resonable (primary) criteria as possible- so that -I am able to provide others with the data requirement they might have (which adheres to their own possibly complicated requests)-.
+Being a -HR advisor- I want -abilities to organise statistical data based on as many reasonable (primary) criteria as possible- so that -I am able to provide others with the data requirement they might have (which adheres to their own possibly complicated requests)-.
 
 ### Scope
 
@@ -32,11 +32,11 @@ HR advisor
 
 ### Trigger
 
-The advisor is asked about certain data that velongs to a certain category and has to provide the correct data fast.
+The advisor is asked about certain data that belongs to a certain category and has to provide the correct data fast.
 
 ## MAIN SUCCESS SCENARIO
 
-1. HR advisor recieves data request
+1. HR advisor receives data request
 2. HR advisor runs the application using the criteria provided by the request
 3. HR advisor is able to copy the data and reply to the request
 4. Whoever requested data is satisfied with what they got

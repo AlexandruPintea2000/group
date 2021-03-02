@@ -1,0 +1,16 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+
+actor Cst as "Consultant"
+
+rectangle "Code Development" {
+rectangle CODE
+ usecase UC4 as "Maintain code integrity"
+usecase UCa as "Organised Code"
+Cst-> CODE : << clean >>
+UC4 ..> UCa : provide
+
+Cst ..> UC4
+
+UC4 - CODE
+@enduml

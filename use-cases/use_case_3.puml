@@ -1,0 +1,15 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+
+actor Mrk as "Marketer"
+rectangle Interface
+rectangle "Interface system" {
+
+ usecase UC4 as "unrelated info"
+Mrk -> Interface : << clean >>
+
+
+Mrk ..> UC4 : remove
+
+UC4 - Interface
+@enduml

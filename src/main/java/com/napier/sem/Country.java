@@ -186,7 +186,7 @@ public class Country {
     }
 
     /*
-    Generates a list of all countries stored in the database in the following format
+    Generates a list of all countries (ordered from population largest - smallest) stored in the database in the following format
     Code            Name            Population
     {countryCode}   {countryName}   {countryPopulation}
     {countryCode}   {countryName}   {countryPopulation}
@@ -210,6 +210,37 @@ public class Country {
             e.printStackTrace();
         }
 
+        System.out.println("Code \t\t\t\t Name \t\t\t\t Population");
+        for(Country ctry : countryList){
+            System.out.println(ctry.countryCode + " \t\t\t\t " + ctry.countryName + " \t\t\t\t " + ctry.countryPopulation);
+        }
+    }
+
+    /*
+    Generates a list of the top N populated countries (where N is specified by the user) in the following format:
+    Code            Name            Population
+    {countryCode}   {countryName}   {countryPopulation}
+    {countryCode}   {countryName}   {countryPopulation}
+    {countryCode}   {countryName}   {countryPopulation}
+     */
+    public void generateTopN(int number){
+        ArrayList<Country> countryList = new ArrayList<Country>();
+        try{
+            Statement stmt = con.createStatement();
+            String strSelect =
+                    "select Code, Name, Population from world.country order by Population desc limit " + number;
+            ResultSet rset = stmt.executeQuery(strSelect);
+            while(rset.next()){
+                Country ctry = new Country();
+                ctry.countryCode = rset.getString("Code");
+                ctry.countryName = rset.getString("Name");
+                ctry.countryPopulation = rset.getLong("Population");
+                countryList.add(ctry);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        System.out.println("TOP " + number + " POPULATED COUNTRIES");
         System.out.println("Code \t\t\t\t Name \t\t\t\t Population");
         for(Country ctry : countryList){
             System.out.println(ctry.countryCode + " \t\t\t\t " + ctry.countryName + " \t\t\t\t " + ctry.countryPopulation);

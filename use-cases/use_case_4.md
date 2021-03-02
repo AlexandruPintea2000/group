@@ -24,7 +24,7 @@ We are able to provide percentages for certain data
 
 ### Failed End Condition
 
-Percentages are inaccurate for cartain data
+Percentages are inaccurate for certain data
 
 ### Primary Actor
 

@@ -1,0 +1,15 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+
+actor Mng as "Manager"
+rectangle Database
+rectangle "Manager Database" {
+
+Mng -> Database :  create Request
+usecase UC5 as " of Data(statistics)"
+note right of UC5
+"data needed is drawn from the database"
+end note
+
+UC5 <.> Database : Understanding
+@enduml

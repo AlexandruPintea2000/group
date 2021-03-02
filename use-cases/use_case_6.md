@@ -4,7 +4,7 @@
 
 ### Goal in Context
 
-Being a -Statistician- I want -easity convertable data layouts- so that -I am able to include the application results in the studies I have to provide-.
+Being a -Statistician- I want -easily convertable data layouts- so that -I am able to include the application results in the studies I have to provide-.
 
 ### Scope
 

@@ -4,7 +4,7 @@
 
 ### Goal in Context
 
-Being a researcher I need to produce a report on the population of a region to provide evidence to my researches conclusion.
+Being a researcher I need to produce a report on the population of cities in a region to provide evidence to my researches conclusion.
 
 ### Scope
 

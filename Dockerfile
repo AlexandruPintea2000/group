@@ -1,4 +1,4 @@
 FROM openjdk:latest
-COPY ./target/group-0.1.0.5-jar-with-dependencies.jar /tmp
+COPY ./target/group-0.1.0.6-jar-with-dependencies.jar /tmp
 WORKDIR /tmp
-ENTRYPOINT ["java", "-jar", "group-0.1.0.5-jar-with-dependencies.jar"]
+ENTRYPOINT ["java", "-jar", "group-0.1.0.6-jar-with-dependencies.jar"]
