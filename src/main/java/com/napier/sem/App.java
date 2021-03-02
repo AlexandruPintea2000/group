@@ -48,6 +48,8 @@ public class App {
         mumbai.generateCityReport();
         // Generates a list of all cities in the database
         city.generateLargestToSmallest();
+        // Generates top 20 populated country
+        country.generateTopN(20);
         // Disconnect from database
         app.disconnect();
     }
