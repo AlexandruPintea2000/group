@@ -7,20 +7,27 @@ public class App {
     public static void main(String[] args) {
         // Create new Application
         App app = new App();
-        // New world object
+        // World object
         World world = new World();
-        // New Country object to access information regarding a list of countries
+        // Country object to access information regarding a list of countries
         Country country = new Country();
-        // New Country object to hold information regarding Brazil
+        // City object to access information regarding a list of cities
+        City city = new City();
+        // Country object to hold information regarding Brazil
         Country brazil = new Country();
+        // City object to hold information regarding Mumbai (Bombay)
+        City mumbai = new City();
 
         // Establishing SQL connection for objects
         app.connect();
         world.setCon(app.con);
         brazil.setCon(app.con);
         country.setCon(app.con);
+        mumbai.setCon(app.con);
+        city.setCon(app.con);
 
-        // Sets the Country object to the code that corresponds to Brazil
+        /*
+        // Sets the brazil object to the code that corresponds to Brazil
         brazil.setCountryCode("BRA");
 
         // Returns the population of the world to the user
@@ -31,7 +38,16 @@ public class App {
         brazil.generateCountryReport();
         // Generates a list of all countries in the database
         country.generateLargestToSmallest();
+        */
 
+        // Sets the mumbai object to the code that corresponds to Mumbai
+        mumbai.setCityID(1024);
+        // Returns the population of Mumbai
+        System.out.println("The population of " + mumbai.getCityName() + " is " + mumbai.getCityPopulation());
+        // Generates a report containing information about Mumbai
+        mumbai.generateCityReport();
+        // Generates a list of all cities in the database
+        city.generateLargestToSmallest();
         // Disconnect from database
         app.disconnect();
     }
