@@ -20,7 +20,7 @@ Functional user interface to clean, which we have.
 
 ### Success End Condition
 
-Any person that is asked to explain what they make of teh application options identifies their purpose correctly without being distracted by any unnecesary interface text.
+Any person that is asked to explain what they make of the application options identifies their purpose correctly without being distracted by any unnecesary interface text.
 
 ### Failed End Condition
 
