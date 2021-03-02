@@ -1,0 +1,16 @@
+@startuml
+
+actor A as "department advisor"
+
+rectangle Database
+
+rectangle System {
+usecase UC1 as "get precise data"
+usecase UC2 as "print data"
+
+A - UC1
+UC1 - Database
+UC1 ..> UC2 : include
+}
+
+@enduml

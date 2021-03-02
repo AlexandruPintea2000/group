@@ -1,0 +1,24 @@
+@startuml
+
+    actor A as "marketer"
+
+    rectangle Database
+
+    rectangle OS1 {
+        rectangle System1 {
+
+            }
+    }
+
+    rectangle 0S2 {
+        rectangle System2 {
+
+        }
+    }
+
+    A - OS1
+    A - 0S2
+    System1 - Database
+    System2 - Database
+
+    @enduml

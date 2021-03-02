@@ -1,0 +1,16 @@
+@startuml
+
+actor A as "statistician"
+
+rectangle Database
+
+rectangle System {
+usecase UC1 as "get data"
+usecase UC2 as "provide data background"
+
+A - UC1
+UC1 - Database
+UC1 ..> UC2 : include
+}
+
+@enduml

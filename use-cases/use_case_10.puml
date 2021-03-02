@@ -1,0 +1,18 @@
+@startuml
+
+actor A as "department advisor"
+
+rectangle Database
+
+rectangle System {
+usecase UC3 as "present interface that explains options"
+usecase UC1 as "get data"
+usecase UC2 as "print data"
+
+A - UC3
+UC1 - Database
+UC1 ..> UC2 : include
+UC3 - UC1
+}
+
+@enduml
