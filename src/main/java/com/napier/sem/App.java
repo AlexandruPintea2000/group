@@ -50,6 +50,8 @@ public class App {
         city.generateLargestToSmallest();
         // Generates top 20 populated country
         country.generateTopN(20);
+        // Generates top 5 populated cities
+        city.generateTopN(5);
         // Disconnect from database
         app.disconnect();
     }
