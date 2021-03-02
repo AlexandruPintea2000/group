@@ -26,10 +26,9 @@ public class App {
         mumbai.setCon(app.con);
         city.setCon(app.con);
 
-        /*
+
         // Sets the brazil object to the code that corresponds to Brazil
         brazil.setCountryCode("BRA");
-
         // Returns the population of the world to the user
         System.out.println("The world population is: " + world.getWorldPopulation());
         // Returns the population of Brazil
@@ -38,8 +37,6 @@ public class App {
         brazil.generateCountryReport();
         // Generates a list of all countries in the database
         country.generateLargestToSmallest();
-        */
-
         // Sets the mumbai object to the code that corresponds to Mumbai
         mumbai.setCityID(1024);
         // Returns the population of Mumbai
