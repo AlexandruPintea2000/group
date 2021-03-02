@@ -1,0 +1,14 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+left to right direction
+actor Mng as "Manager"
+rectangle "Data Organization" {
+
+ usecase UC4 as "organise data"
+ usecase UCa as "Better Understanding"
+ UC4 ..> UCa : provide
+
+ Mng ..> UC4
+
+ UC4 - Mng
+@enduml
