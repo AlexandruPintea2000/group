@@ -186,7 +186,7 @@ public class Country {
     }
 
     /*
-    Generates a list of all countries stored in the database in the following format
+    Generates a list of all countries (ordered from population largest - smallest) stored in the database in the following format
     Code            Name            Population
     {countryCode}   {countryName}   {countryPopulation}
     {countryCode}   {countryName}   {countryPopulation}
