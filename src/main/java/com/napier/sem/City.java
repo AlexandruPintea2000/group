@@ -222,6 +222,9 @@ public class City {
         }
     }
 
+    /*
+    Generates a list of the cities in a country organised by largest population to smallest
+     */
     public void generateCityPopulation(String countryCode){
         ArrayList<City> cityList = new ArrayList<City>();
         try{
@@ -239,6 +242,32 @@ public class City {
             e.printStackTrace();
         }
         System.out.println("Name \t\t\t\t Population");
+        for(City city : cityList){
+            System.out.println(city.cityName + " \t\t\t\t " + city.cityPopulation);
+        }
+    }
+
+    /**
+     * Generates a list of all the capital cities in a continent organised by largest population to smallest
+     * @param continent
+     */
+    public void generateCapitalPopulationInContinent(String continent){
+        ArrayList<City> cityList = new ArrayList<City>();
+        try{
+            Statement stmt = con.createStatement();
+            String strSelect =
+                    "select country.Name AS 'Country', city.Name AS 'CapitalCity', city.Population from city inner join country on city.Id = country.capital where Continent = '"+continent+"' order by city.Population desc";
+            ResultSet rset = stmt.executeQuery(strSelect);
+            while (rset.next()){
+                City city = new City();
+                city.cityName = rset.getString("Name");
+                city.cityPopulation = rset.getLong("Population");
+                cityList.add(city);
+            }
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+        System.out.println("City \t\t\t\t Population");
         for(City city : cityList){
             System.out.println(city.cityName + " \t\t\t\t " + city.cityPopulation);
         }
