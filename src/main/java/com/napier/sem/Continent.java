@@ -4,6 +4,10 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+/**
+ * Class for Continent
+ */
+
 public class Continent {
     // Placeholder for SQL connection
     private Connection con = null;
@@ -32,6 +36,7 @@ public class Continent {
         this.continentName = continentName;
     }
 
+    // Returns the sum population of a continent
     public long getContinentPopulation() {
         try {
             Statement stmt = con.createStatement();
@@ -39,7 +44,7 @@ public class Continent {
                     "select Continent, sum(Population) as Population from country where Continent = '"+continentName+"'";
             ResultSet rset = stmt.executeQuery(strSelect);
             if(rset.next()){
-                continentPopulation = rset.getInt("Population");
+                continentPopulation = rset.getLong("Population");
             }
         } catch (Exception e) {
             e.printStackTrace();
