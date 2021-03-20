@@ -246,28 +246,4 @@ public class Country {
             System.out.println(ctry.countryCode + " \t\t\t\t " + ctry.countryName + " \t\t\t\t " + ctry.countryPopulation);
         }
     }
-
-    public void generateCityPopulation(){
-        ArrayList<City> cityList = new ArrayList<City>();
-        try{
-            Statement stmt = con.createStatement();
-            String strSelect =
-                    "select Name, Population from city where CountryCode = '" + countryCode + "' order by Population desc";
-            ResultSet rset = stmt.executeQuery(strSelect);
-            while (rset.next()){
-                City city = new City();
-                city.setCityName(rset.getString("Name"));
-                city.setCityPopulation(rset.getLong("Population"));
-                cityList.add(city);
-            }
-        } catch(Exception e){
-
-        }
-        System.out.println("Name \t\t\t\t Population");
-        for(City city : cityList){
-            String cityName = city.getCityName();
-            long cityPopulation = city.getCityPopulation();
-            System.out.println(cityName + " \t\t\t\t " + cityPopulation);
-        }
-    }
 }

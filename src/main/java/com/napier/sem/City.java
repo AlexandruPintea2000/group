@@ -221,4 +221,26 @@ public class City {
             System.out.println(city.cityID + " \t\t\t\t " + city.cityName + " \t\t\t\t " + city.cityPopulation);
         }
     }
+
+    public void generateCityPopulation(String countryCode){
+        ArrayList<City> cityList = new ArrayList<City>();
+        try{
+            Statement stmt = con.createStatement();
+            String strSelect =
+                    "select Name, Population from city where CountryCode = '" + countryCode + "' order by Population desc";
+            ResultSet rset = stmt.executeQuery(strSelect);
+            while (rset.next()){
+                City city = new City();
+                city.setCityName(rset.getString("Name"));
+                city.setCityPopulation(rset.getLong("Population"));
+                cityList.add(city);
+            }
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+        System.out.println("Name \t\t\t\t Population");
+        for(City city : cityList){
+            System.out.println(city.getCityName() + " \t\t\t\t " + city.getCityPopulation());
+        }
+    }
 }
