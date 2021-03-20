@@ -59,6 +59,7 @@ public class App {
         asia.setContinentName("Asia");
         System.out.println("Population of " + asia.getContinentName() + ": " + asia.getContinentPopulation());
         // Generates population of Middle East
+        middleEast.setRegionName("Middle East");
         System.out.println("Population of " + middleEast.getRegionName() + ": " + middleEast.getRegionPopulation());
         // Disconnect from database
         app.disconnect();
