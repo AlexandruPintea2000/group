@@ -252,7 +252,7 @@ public class Country {
         try{
             Statement stmt = con.createStatement();
             String strSelect =
-                    "select Name, Population from city where CountryCode = '" + countryCode + "'";
+                    "select Name, Population from city where CountryCode = '" + countryCode + "' order by Population desc";
             ResultSet rset = stmt.executeQuery(strSelect);
             while (rset.next()){
                 City city = new City();
