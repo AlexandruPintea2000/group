@@ -54,7 +54,7 @@ public class App {
         city.generateTopN(5);
         // Generates population of Asia
         asia.setContinentName("Asia");
-        asia.getContinentPopulation();
+        System.out.println("Population of " + asia.getContinentName() + ": " + asia.getContinentPopulation());
         // Disconnect from database
         app.disconnect();
     }
