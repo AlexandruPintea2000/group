@@ -67,6 +67,8 @@ public class App {
         // Generates population of Texas
         texas.setDistrictName("Texas");
         System.out.println("Population of " + texas.getDistrictName() + ": " + texas.getDistrictPopulation());
+        // Generates a list of cities in Brazil, ordered by population (largest - smallest)
+        brazil.generateCityPopulation();
         // Disconnect from database
         app.disconnect();
     }
