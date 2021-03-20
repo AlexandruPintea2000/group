@@ -17,6 +17,8 @@ public class App {
         Country brazil = new Country();
         // City object to hold information regarding Mumbai (Bombay)
         City mumbai = new City();
+        // Continent object
+        Continent asia = new Continent();
 
         // Establishing SQL connection for objects
         app.connect();
@@ -25,6 +27,7 @@ public class App {
         country.setCon(app.con);
         mumbai.setCon(app.con);
         city.setCon(app.con);
+        asia.setCon(app.con);
 
 
         // Sets the brazil object to the code that corresponds to Brazil
@@ -49,6 +52,9 @@ public class App {
         country.generateTopN(20);
         // Generates top 5 populated cities
         city.generateTopN(5);
+        // Generates population of Asia
+        asia.setContinentName("Asia");
+        asia.getContinentPopulation();
         // Disconnect from database
         app.disconnect();
     }
