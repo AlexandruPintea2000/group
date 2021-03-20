@@ -231,8 +231,8 @@ public class City {
             ResultSet rset = stmt.executeQuery(strSelect);
             while (rset.next()){
                 City city = new City();
-                city.setCityName(rset.getString("Name"));
-                city.setCityPopulation(rset.getLong("Population"));
+                city.cityName = rset.getString("Name");
+                city.cityPopulation = rset.getLong("Population");
                 cityList.add(city);
             }
         } catch(Exception e){
@@ -240,7 +240,7 @@ public class City {
         }
         System.out.println("Name \t\t\t\t Population");
         for(City city : cityList){
-            System.out.println(city.getCityName() + " \t\t\t\t " + city.getCityPopulation());
+            System.out.println(city.cityName + " \t\t\t\t " + city.cityPopulation);
         }
     }
 }
