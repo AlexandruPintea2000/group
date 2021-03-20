@@ -6,8 +6,8 @@ import java.sql.Statement;
 
 /**
  * Class for Continent
+ * @author Suparno Deb, Alexandru Pintea, Stephen Messer, Vassilis Papadodimas
  */
-
 public class Continent {
     // Placeholder for SQL connection
     private Connection con = null;
@@ -16,6 +16,9 @@ public class Continent {
     // Continent Population
     private long continentPopulation;
 
+    /**
+     * Constructor for Continent
+     */
     public Continent(){
 
     }
@@ -36,7 +39,10 @@ public class Continent {
         this.continentName = continentName;
     }
 
-    // Returns the sum population of a continent
+    /**
+     * Returns the sum population of a continent
+     * @return
+     */
     public long getContinentPopulation() {
         try {
             Statement stmt = con.createStatement();

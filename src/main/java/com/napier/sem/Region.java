@@ -6,8 +6,8 @@ import java.sql.Statement;
 
 /**
  * Class for Region
+ * @author Suparno Deb, Alexandru Pintea, Stephen Messer, Vassilis Papadodimas
  */
-
 public class Region {
     // Placeholder for SQL connection
     private Connection con = null;
@@ -16,10 +16,17 @@ public class Region {
     // Region Population
     private long regionPopulation;
 
+    /**
+     * Region Constructor
+     * @param regionName
+     */
     public Region(String regionName){
         this.regionName = regionName;
     }
 
+    /**
+     * Region Constructor
+     */
     public Region(){
 
     }
@@ -40,7 +47,10 @@ public class Region {
         this.regionName = regionName;
     }
 
-    // Returns sum population of a region
+    /**
+     * Returns sum population of a region
+     * @return
+     */
     public long getRegionPopulation() {
         try {
             Statement stmt = con.createStatement();

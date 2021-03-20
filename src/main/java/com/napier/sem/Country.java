@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 /**
  * Class for Country
+ * @author Suparno Deb, Alexandru Pintea, Stephen Messer, Vassilis Papadodimas
  */
 public class Country {
     // Placeholder for SQL connection
@@ -25,7 +26,15 @@ public class Country {
     // Country capital
     private int countryCapital;
 
-    // Country constructor to initialise an instance of Country object (holding information regarding code, name, continent, region, population and capital
+    /**
+     * Country Constructor
+     * @param countryCode
+     * @param countryName
+     * @param countryContinent
+     * @param countryRegion
+     * @param countryPopulation
+     * @param countryCapital
+     */
     public Country(String countryCode, String countryName, String countryContinent, String countryRegion, long countryPopulation, int countryCapital){
         this.countryCode = countryCode;
         this.countryName = countryName;
@@ -35,6 +44,9 @@ public class Country {
         this.countryCapital = countryCapital;
     }
 
+    /**
+     * Country Constructor
+     */
     public Country(){
 
     }
@@ -51,7 +63,10 @@ public class Country {
         this.countryCode = countryCode;
     }
 
-    // Returns the name of a country where code is specified
+    /**
+     * Returns the name of a country where code is specified
+     * @return
+     */
     public String getCountryName(){
         try {
             Statement stmt = con.createStatement();
@@ -71,7 +86,10 @@ public class Country {
         this.countryName = countryName;
     }
 
-    // Returns continent of a country where code is specified
+    /**
+     * Returns continent of a country where code is specified
+     * @return
+     */
     public String getCountryContinent(){
         try {
             Statement stmt = con.createStatement();
@@ -91,7 +109,10 @@ public class Country {
         this.countryContinent = countryContinent;
     }
 
-    // Returns region of a country where code is specified
+    /**
+     * Returns region of a country where code is specified
+     * @return
+     */
     public String getCountryRegion(){
         try {
             Statement stmt = con.createStatement();
@@ -111,7 +132,10 @@ public class Country {
         this.countryRegion = countryRegion;
     }
 
-    // Returns the population of a country where code is specified
+    /**
+     * Returns the population of a country where code is specified
+     * @return
+     */
     public long getCountryPopulation(){
         try {
             Statement stmt = con.createStatement();
@@ -131,7 +155,10 @@ public class Country {
         this.countryPopulation = countryPopulation;
     }
 
-    // Returns the capital of a country where code is specified
+    /**
+     * Returns the capital of a country where code is specified
+     * @return
+     */
     public int getCountryCapital(){
         try {
             Statement stmt = con.createStatement();
@@ -151,7 +178,7 @@ public class Country {
         this.countryCapital = countryCapital;
     }
 
-    /*
+    /**
     Generates a full report of a country where code is specified, in the following format
     Country Code: {countryCode}
     Country Name: {countryName}
@@ -185,12 +212,8 @@ public class Country {
         System.out.println("Country Capital: " + countryCapital);
     }
 
-    /*
-    Generates a list of all countries (ordered from population largest - smallest) stored in the database in the following format
-    Code            Name            Population
-    {countryCode}   {countryName}   {countryPopulation}
-    {countryCode}   {countryName}   {countryPopulation}
-    {countryCode}   {countryName}   {countryPopulation}
+    /**
+     * Generates a list of all countries (ordered from population largest - smallest)
      */
     public void generateLargestToSmallest(){
         ArrayList<Country> countryList = new ArrayList<Country>();
@@ -216,12 +239,9 @@ public class Country {
         }
     }
 
-    /*
-    Generates a list of the top N populated countries (where N is specified by the user) in the following format:
-    Code            Name            Population
-    {countryCode}   {countryName}   {countryPopulation}
-    {countryCode}   {countryName}   {countryPopulation}
-    {countryCode}   {countryName}   {countryPopulation}
+    /**
+     * Generates a list of the top N populated countries (where N is specified by the user)
+     * @param number
      */
     public void generateTopN(int number){
         ArrayList<Country> countryList = new ArrayList<Country>();

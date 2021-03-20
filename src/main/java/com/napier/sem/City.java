@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 /**
  * Class for City
+ * @author Suparno Deb, Alexandru Pintea, Stephen Messer, Vassilis Papadodimas
  */
 public class City {
     // Placeholder for SQL Connection
@@ -22,7 +23,14 @@ public class City {
     // City population
     private long cityPopulation;
 
-    // City constructor to initialise an instance of City object (holding information regarding city code, name, country code, city district and population)
+    /**
+     * City Constructor
+     * @param cityID
+     * @param cityName
+     * @param countryCode
+     * @param cityDistrict
+     * @param cityPopulation
+     */
     public City(int cityID, String cityName, String countryCode, String cityDistrict, long cityPopulation){
         this.cityID = cityID;
         this.cityName = cityName;
@@ -31,6 +39,9 @@ public class City {
         this.cityPopulation = cityPopulation;
     }
 
+    /**
+     * City Constructor
+     */
     public City(){
 
     }
@@ -47,7 +58,10 @@ public class City {
         this.cityID = cityID;
     }
 
-    // Returns the name of the city where ID is specified
+    /**
+     * Returns the name of the city where ID is specified
+     * @return
+     */
     public String getCityName() {
         try {
             Statement stmt = con.createStatement();
@@ -67,7 +81,10 @@ public class City {
         this.cityName = cityName;
     }
 
-    // Returns the country code of the city where ID is specified
+    /**
+     * Returns the country code of the city where ID is specified
+     * @return
+     */
     public String getCountryCode() {
         try {
             Statement stmt = con.createStatement();
@@ -87,7 +104,10 @@ public class City {
         this.countryCode = countryCode;
     }
 
-    // Returns the district of the city where ID is specified
+    /**
+     * Returns the district of the city where ID is specified
+     * @return
+     */
     public String getCityDistrict() {
         try {
             Statement stmt = con.createStatement();
@@ -107,7 +127,10 @@ public class City {
         this.cityDistrict = cityDistrict;
     }
 
-    // Returns the population of the city where ID is specified
+    /**
+     * Returns the population of the city where ID is specified
+     * @return
+     */
     public long getCityPopulation() {
         try {
             Statement stmt = con.createStatement();
@@ -127,7 +150,7 @@ public class City {
         this.cityPopulation = cityPopulation;
     }
 
-    /*
+    /**
     Generates a full report of a city where ID is specified, in the following format
     City ID: {cityID}
     City Name: {cityName}
@@ -159,12 +182,8 @@ public class City {
         System.out.println("City Population: " + cityPopulation);
     }
 
-    /*
-    Generates a list of all cities (ordered from population largest - smallest) stored in the database in the following format
-    ID               Name            Population
-    {cityID}        {cityName}      {cityPopulation}
-    {cityID}        {cityName}      {cityPopulation}
-    {cityID}        {cityName}      {cityPopulation}
+    /**
+     * Generates a list of all cities (ordered from population largest - smallest)
      */
     public void generateLargestToSmallest(){
         ArrayList<City> cityList = new ArrayList<City>();
@@ -190,12 +209,9 @@ public class City {
         }
     }
 
-    /*
-    Generates a list of the top N populated cities (where N is specified by the user) in the following format:
-    ID               Name            Population
-    {cityID}        {cityName}      {cityPopulation}
-    {cityID}        {cityName}      {cityPopulation}
-    {cityID}        {cityName}      {cityPopulation}
+    /**
+     * Generates a list of the top N populated cities (where N is specified by the user)
+     * @param number
      */
     public void generateTopN(int number){
         ArrayList<City> cityList = new ArrayList<City>();
@@ -222,8 +238,9 @@ public class City {
         }
     }
 
-    /*
-    Generates a list of the cities in a country organised by largest population to smallest
+    /**
+     * Generates a list of the cities in a country organised by largest population to smallest
+     * @param countryCode
      */
     public void generateCityPopulation(String countryCode){
         ArrayList<City> cityList = new ArrayList<City>();

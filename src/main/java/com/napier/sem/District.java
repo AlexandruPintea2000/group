@@ -5,9 +5,9 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 /**
- * CLass for District
+ * Class for District
+ * @author Suparno Deb, Alexandru Pintea, Stephen Messer, Vassilis Papadodimas
  */
-
 public class District {
     // Placeholder for SQL connection
     private Connection con = null;
@@ -16,10 +16,17 @@ public class District {
     // District Population
     private long districtPopulation;
 
+    /**
+     * District Constructor
+     * @param districtName
+     */
     public District(String districtName){
         this.districtName = districtName;
     }
 
+    /**
+     * District Constructor
+     */
     public District(){
 
     }
@@ -40,7 +47,10 @@ public class District {
         this.districtName = districtName;
     }
 
-    // Returns the population of a district
+    /**
+     * Returns the population of a district
+     * @return
+     */
     public long getDistrictPopulation() {
         try {
             Statement stmt = con.createStatement();
