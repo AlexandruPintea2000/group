@@ -20,9 +20,9 @@ public class App {
         // Continent object
         Continent asia = new Continent();
         // Region object
-        Region middleEast = new Region();
+        Region middleEast = new Region("Middle East");
         // District object
-        District texas = new District();
+        District texas = new District("Texas");
 
         // Establishing SQL connection for objects
         app.connect();
@@ -62,10 +62,8 @@ public class App {
         asia.setContinentName("Asia");
         System.out.println("Population of " + asia.getContinentName() + ": " + asia.getContinentPopulation());
         // Generates population of Middle East
-        middleEast.setRegionName("Middle East");
         System.out.println("Population of " + middleEast.getRegionName() + ": " + middleEast.getRegionPopulation());
         // Generates population of Texas
-        texas.setDistrictName("Texas");
         System.out.println("Population of " + texas.getDistrictName() + ": " + texas.getDistrictPopulation());
         // Generates a list of cities in Brazil, ordered by population (largest - smallest)
         brazil.generateCityPopulation();

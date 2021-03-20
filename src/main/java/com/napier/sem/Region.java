@@ -16,6 +16,10 @@ public class Region {
     // Region Population
     private long regionPopulation;
 
+    public Region(String regionName){
+        this.regionName = regionName;
+    }
+
     public Region(){
 
     }

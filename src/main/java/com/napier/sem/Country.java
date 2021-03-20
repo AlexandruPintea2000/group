@@ -261,11 +261,13 @@ public class Country {
                 cityList.add(city);
             }
         } catch(Exception e){
-            e.printStackTrace();
+
         }
         System.out.println("Name \t\t\t\t Population");
         for(City city : cityList){
-            System.out.println(city.getCityName() + " \t\t\t\t " + city.getCityPopulation());
+            String cityName = city.getCityName();
+            long cityPopulation = city.getCityPopulation();
+            System.out.println(cityName + " \t\t\t\t " + cityPopulation);
         }
     }
 }

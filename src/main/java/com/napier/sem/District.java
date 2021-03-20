@@ -16,6 +16,10 @@ public class District {
     // District Population
     private long districtPopulation;
 
+    public District(String districtName){
+        this.districtName = districtName;
+    }
+
     public District(){
 
     }
