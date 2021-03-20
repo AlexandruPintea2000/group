@@ -260,7 +260,7 @@ public class City {
             ResultSet rset = stmt.executeQuery(strSelect);
             while (rset.next()){
                 City city = new City();
-                city.cityName = rset.getString("Name");
+                city.cityName = rset.getString("CapitalCity");
                 city.cityPopulation = rset.getLong("Population");
                 cityList.add(city);
             }
