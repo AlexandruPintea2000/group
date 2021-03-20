@@ -21,6 +21,8 @@ public class App {
         Continent asia = new Continent();
         // Region object
         Region middleEast = new Region();
+        // District object
+        District texas = new District();
 
         // Establishing SQL connection for objects
         app.connect();
@@ -31,6 +33,7 @@ public class App {
         city.setCon(app.con);
         asia.setCon(app.con);
         middleEast.setCon(app.con);
+        texas.setCon(app.con);
 
 
         // Sets the brazil object to the code that corresponds to Brazil
@@ -61,6 +64,9 @@ public class App {
         // Generates population of Middle East
         middleEast.setRegionName("Middle East");
         System.out.println("Population of " + middleEast.getRegionName() + ": " + middleEast.getRegionPopulation());
+        // Generates population of Texas
+        texas.setDistrictName("Texas");
+        System.out.println("Population of " + texas.getDistrictName() + ": " + texas.getDistrictPopulation());
         // Disconnect from database
         app.disconnect();
     }
