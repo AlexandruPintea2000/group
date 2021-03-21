@@ -18,6 +18,8 @@ public class City {
     private String cityName;
     // Country code
     private String countryCode;
+    // Country name
+    private String countryName;
     // City district
     private String cityDistrict;
     // City population
@@ -56,6 +58,14 @@ public class City {
 
     public void setCityID(int cityID) {
         this.cityID = cityID;
+    }
+
+    public String getCountryName() {
+        return countryName;
+    }
+
+    public void setCountryName(String countryName) {
+        this.countryName = countryName;
     }
 
     /**
@@ -262,6 +272,34 @@ public class City {
         System.out.println("Name \t\t\t\t Population");
         for(City city : cityList){
             System.out.println(city.cityName + " \t\t\t\t " + city.cityPopulation);
+        }
+    }
+
+    /**
+     * Generates a list on all the cities in a continent organised by largest population to smallest
+     * @param continent
+     */
+    public void generateCityPopulationInContinent(String continent){
+        ArrayList<City> cityList = new ArrayList<City>();
+        try{
+            Statement stmt = con.createStatement();
+            String strSelect =
+                    "select city.Name AS 'City', country.Name AS 'Country', city.Population from city inner join country on city.CountryCode = country.Code where country.Continent = '"+continent+"' order by city.Population desc";
+            ResultSet rset = stmt.executeQuery(strSelect);
+            while (rset.next()){
+                City city = new City();
+                city.cityName = rset.getString("City");
+                city.countryName = rset.getString("Country");
+                city.cityPopulation = rset.getLong("Population");
+                cityList.add(city);
+            }
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+        System.out.println("CITY REPORTS IN " + continent);
+        System.out.println("City \t\t\t\t Country \t\t\t\t Population");
+        for(City city : cityList){
+            System.out.println(city.cityName + " \t\t\t\t " + city.countryName + " \t\t\t\t " + city.cityPopulation);
         }
     }
 

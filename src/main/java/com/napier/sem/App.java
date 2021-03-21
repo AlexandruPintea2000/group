@@ -73,6 +73,8 @@ public class App {
         city.generateTopNCapitalPopulationInContinent("Europe",5);
         // Generate top 10 populated capital cities in the world
         city.generateTopNCapitalCities(10);
+        // Generate all cities in Europe ordered by population (largest - smallest)
+        city.generateCityPopulationInContinent("Europe");
         // Disconnect from database
         app.disconnect();
     }
