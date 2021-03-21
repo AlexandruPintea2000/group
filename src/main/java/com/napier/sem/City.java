@@ -302,7 +302,7 @@ public class City {
         try{
             Statement stmt = con.createStatement();
             String strSelect =
-                    "select city.Name AS 'CapitalCity', city.Population from city inner join country on city.Id = country.capital where Continent = '"+continent+"' order by city.Population desc limit" + number;
+                    "select city.Name AS 'CapitalCity', city.Population from city inner join country on city.Id = country.capital where Continent = '"+continent+"' order by city.Population desc limit " + number;
             ResultSet rset = stmt.executeQuery(strSelect);
             while (rset.next()){
                 City city = new City();
