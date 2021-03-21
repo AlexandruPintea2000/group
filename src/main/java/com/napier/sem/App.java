@@ -17,6 +17,12 @@ public class App {
         Country brazil = new Country();
         // City object to hold information regarding Mumbai (Bombay)
         City mumbai = new City();
+        // Continent object
+        Continent asia = new Continent();
+        // Region object
+        Region middleEast = new Region("Middle East");
+        // District object
+        District texas = new District("Texas");
 
         // Establishing SQL connection for objects
         app.connect();
@@ -25,6 +31,9 @@ public class App {
         country.setCon(app.con);
         mumbai.setCon(app.con);
         city.setCon(app.con);
+        asia.setCon(app.con);
+        middleEast.setCon(app.con);
+        texas.setCon(app.con);
 
 
         // Sets the brazil object to the code that corresponds to Brazil
@@ -49,6 +58,23 @@ public class App {
         country.generateTopN(20);
         // Generates top 5 populated cities
         city.generateTopN(5);
+        // Generates population of Asia
+        asia.setContinentName("Asia");
+        System.out.println("Population of " + asia.getContinentName() + ": " + asia.getContinentPopulation());
+        // Generates population of Middle East
+        System.out.println("Population of " + middleEast.getRegionName() + ": " + middleEast.getRegionPopulation());
+        // Generates population of Texas
+        System.out.println("Population of " + texas.getDistrictName() + ": " + texas.getDistrictPopulation());
+        // Generates a list of cities in Brazil, ordered by population (largest - smallest)
+        city.generateCityPopulation("BRA");
+        // Generates a list of capital cities in Asia ordered by population (largest - smallest)
+        city.generateCapitalPopulationInContinent("Asia");
+        // Generate top 5 populated capital cities in Europe
+        city.generateTopNCapitalPopulationInContinent("Europe",5);
+        // Generate top 10 populated capital cities in the world
+        city.generateTopNCapitalCities(10);
+        // Generate all cities in Europe ordered by population (largest - smallest)
+        city.generateCityPopulationInContinent("Europe");
         // Disconnect from database
         app.disconnect();
     }
