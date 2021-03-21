@@ -202,7 +202,7 @@ public class City {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+        System.out.println("ALL CITIES");
         System.out.println("ID \t\t\t\t Name \t\t\t\t Population");
         for(City city : cityList){
             System.out.println(city.cityID + " \t\t\t\t " + city.cityName + " \t\t\t\t " + city.cityPopulation);
@@ -258,6 +258,7 @@ public class City {
         } catch(Exception e){
             e.printStackTrace();
         }
+        System.out.println("CITIES");
         System.out.println("Name \t\t\t\t Population");
         for(City city : cityList){
             System.out.println(city.cityName + " \t\t\t\t " + city.cityPopulation);
@@ -284,6 +285,35 @@ public class City {
         } catch(Exception e){
             e.printStackTrace();
         }
+        System.out.println("CAPITAL CITIES IN " + continent);
+        System.out.println("City \t\t\t\t Population");
+        for(City city : cityList){
+            System.out.println(city.cityName + " \t\t\t\t " + city.cityPopulation);
+        }
+    }
+
+    /**
+     * Generate a list on the top N populated capital cities in a continent where N is provided by the user
+     * @param continent
+     * @param number
+     */
+    public void generateTopNCapitalPopulationInContinent(String continent, int number){
+        ArrayList<City> cityList = new ArrayList<City>();
+        try{
+            Statement stmt = con.createStatement();
+            String strSelect =
+                    "select city.Name AS 'CapitalCity', city.Population from city inner join country on city.Id = country.capital where Continent = '"+continent+"' order by city.Population desc limit" + number;
+            ResultSet rset = stmt.executeQuery(strSelect);
+            while (rset.next()){
+                City city = new City();
+                city.cityName = rset.getString("CapitalCity");
+                city.cityPopulation = rset.getLong("Population");
+                cityList.add(city);
+            }
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+        System.out.println("TOP " + number + " POPULATED CAPITAL CITIES IN " + continent);
         System.out.println("City \t\t\t\t Population");
         for(City city : cityList){
             System.out.println(city.cityName + " \t\t\t\t " + city.cityPopulation);

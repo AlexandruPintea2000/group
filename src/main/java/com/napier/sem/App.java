@@ -69,6 +69,8 @@ public class App {
         city.generateCityPopulation("BRA");
         // Generates a list of capital cities in Asia ordered by population (largest - smallest)
         city.generateCapitalPopulationInContinent("Asia");
+        // Generate top 5 populated capital cities in Europe
+        city.generateTopNCapitalPopulationInContinent("Europe",5);
         // Disconnect from database
         app.disconnect();
     }
