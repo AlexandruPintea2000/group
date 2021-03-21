@@ -319,4 +319,31 @@ public class City {
             System.out.println(city.cityName + " \t\t\t\t " + city.cityPopulation);
         }
     }
+
+    /**
+     * Generate a list of the top N populated capital cities in the world where N is provided by the user
+     * @param number
+     */
+    public void generateTopNCapitalCities(int number){
+        ArrayList<City> cityList = new ArrayList<City>();
+        try{
+            Statement stmt = con.createStatement();
+            String strSelect =
+                    "select city.Name AS 'CapitalCity', city.Population from city inner join country on city.Id = country.capital order by city.Population desc limit " + number;
+            ResultSet rset = stmt.executeQuery(strSelect);
+            while (rset.next()) {
+                City city = new City();
+                city.cityName = rset.getString("CapitalCity");
+                city.cityPopulation = rset.getLong("Population");
+                cityList.add(city);
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        System.out.println("TOP " + number + " POPULATED CAPITAL CITIES IN THE WORLD");
+        System.out.println("City \t\t\t\t Population");
+        for(City city : cityList){
+            System.out.println(city.cityName + " \t\t\t\t " + city.cityPopulation);
+        }
+    }
 }
