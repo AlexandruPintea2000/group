@@ -11,13 +11,16 @@ import java.sql.SQLException;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CountryTest {
+    static Country country;
+
+    @BeforeAll
+    static void init(){
+        country = new Country();
+    }
+
     @Test
     void getCountryNameTest(){
-        App app = new App();
-        app.connect();
-        Country country = new Country();
-        country.setCon(app.con);
-        country.setCountryCode("BRA");
+        country.setCountryName("Brazil");
         assertEquals("Brazil", country.getCountryName());
     }
 }
