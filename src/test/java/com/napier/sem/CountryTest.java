@@ -11,15 +11,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class CountryTest {
     static Country country;
     static App app;
-    private static Connection con = null;
 
     @BeforeAll
     static void init(){
         country = new Country();
         app = new App();
         app.connect();
+        country.setCon(app.con);
         country.setCountryCode("BRA");
-        country.setCon(con);
     }
 
     @Test

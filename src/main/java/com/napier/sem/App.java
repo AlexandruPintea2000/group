@@ -82,7 +82,7 @@ public class App {
     /**
      * Connection to MySQL database.
      */
-    private Connection con = null;
+    public Connection con = null;
 
     /**
      * Connect to the MySQL database.
