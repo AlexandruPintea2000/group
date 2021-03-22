@@ -16,11 +16,11 @@ public class CountryTest {
     @BeforeAll
     static void init(){
         country = new Country();
+        country.setCountryCode("BRA");
     }
 
     @Test
     void getCountryNameTest(){
-        country.setCountryName("Brazil");
         assertEquals("Brazil", country.getCountryName());
     }
 }
