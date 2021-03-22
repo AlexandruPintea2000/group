@@ -18,7 +18,7 @@ public class CountryTest {
     static void init(){
         country = new Country();
         app = new App();
-        app.connect("localhost:3306");
+        app.connect("localhost:33060");
         country.setCountryCode("BRA");
     }
 
