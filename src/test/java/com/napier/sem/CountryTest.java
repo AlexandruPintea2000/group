@@ -12,15 +12,18 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CountryTest {
     static Country country;
+    static App app;
 
     @BeforeAll
     static void init(){
         country = new Country();
+        app = new App();
+        app.connect("localhost:3306");
         country.setCountryCode("BRA");
     }
 
     @Test
-    void getCountryNameTest(){
+    void countryNameTest(){
         assertEquals("Brazil", country.getCountryName());
     }
 }
