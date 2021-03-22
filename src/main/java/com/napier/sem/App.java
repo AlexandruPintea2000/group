@@ -3,24 +3,27 @@ package com.napier.sem;
 import java.sql.*;
 
 public class App {
+    private Connection con = null;
 
     public static void main(String[] args) {
         // Create new Application
         App app = new App();
 
         // Establishing SQL connection for objects
-        app.connect("localhost:3306");
+        if (args.length < 1)
+        {
+            app.connect("localhost:3306");
+        }
+        else
+        {
+            app.connect(args[0]);
+        }
         City city = new City();
         city.setCityID(4079);
         app.generateCityReport(city);
 
         app.disconnect();
     }
-
-    /**
-     * Connection to MySQL database.
-     */
-    private Connection con = null;
 
     /**
      * Connect to the MySQL database.
@@ -78,7 +81,7 @@ public class App {
     }
 
     /**
-     * METHODS FOR CITY
+     ********************************************** METHODS FOR CITY *********************************************
      */
     public void generateCityReport(City city){
         try {
@@ -103,4 +106,7 @@ public class App {
         System.out.println("City District: " + city.getCityDistrict());
         System.out.println("City Population: " + city.getCityPopulation());
     }
+    /**
+     ********************************************** END OF METHODS FOR CITY *********************************************
+     */
 }
