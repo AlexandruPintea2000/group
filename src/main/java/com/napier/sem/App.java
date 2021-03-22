@@ -1,6 +1,7 @@
 package com.napier.sem;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class App {
     private Connection con = null;
@@ -20,7 +21,9 @@ public class App {
         }
         City city = new City();
         city.setCityID(4079);
+
         app.generateCityReport(city);
+        app.printList(app.generateLargestToSmallest());
 
         app.disconnect();
     }
@@ -83,6 +86,14 @@ public class App {
     /**
      ********************************************** METHODS FOR CITY *********************************************
      */
+    /**
+     Generates a full report of a city where ID is specified, in the following format
+     City ID: {cityID}
+     City Name: {cityName}
+     Country Code: {countryCode}
+     City District: {cityDistrict}
+     City Population: {cityPopulation}
+     */
     public void generateCityReport(City city){
         try {
             Statement stmt = con.createStatement();
@@ -105,6 +116,60 @@ public class App {
         System.out.println("Country Code: " + city.getCountryCode());
         System.out.println("City District: " + city.getCityDistrict());
         System.out.println("City Population: " + city.getCityPopulation());
+    }
+
+
+    /**
+     * Generates a list of all cities (ordered from population largest - smallest)
+     */
+    public ArrayList<City> generateLargestToSmallest(){
+        ArrayList<City> cityList = new ArrayList<City>();
+        try{
+            Statement stmt = con.createStatement();
+            String strSelect =
+                    "select ID, Name, Population from world.city order by Population desc";
+            ResultSet rset = stmt.executeQuery(strSelect);
+            while(rset.next()){
+                City city = new City();
+                city.setCityID(rset.getInt("ID"));
+                city.setCityName(rset.getString("Name"));
+                city.setCityPopulation(rset.getLong("Population"));
+                cityList.add(city);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return cityList;
+    }
+
+    /**
+     * Generates a list of the top N populated cities (where N is specified by the user)
+     * @param number
+     */
+    public ArrayList<City> generateTopN(int number){
+        ArrayList<City> cityList = new ArrayList<City>();
+        try{
+            Statement stmt = con.createStatement();
+            String strSelect =
+                    "select ID, Name, Population from world.city order by Population desc limit " + number;
+            ResultSet rset = stmt.executeQuery(strSelect);
+            while(rset.next()){
+                City city = new City();
+                city.setCityID(rset.getInt("ID"));
+                city.setCityName(rset.getString("Name"));
+                city.setCityPopulation(rset.getLong("Population"));
+                cityList.add(city);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return cityList;
+    }
+
+    public void printList(ArrayList<City> cityList){
+        for(City city : cityList){
+            System.out.println(city.getCityName() + " \t\t\t\t " + city.getCityPopulation());
+        }
     }
     /**
      ********************************************** END OF METHODS FOR CITY *********************************************
