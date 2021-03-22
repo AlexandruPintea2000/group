@@ -12,7 +12,7 @@ public class App {
         // Establishing SQL connection for objects
         if (args.length < 1)
         {
-            app.connect("localhost:3306");
+            app.connect("db:3306");
         }
         else
         {
