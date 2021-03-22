@@ -48,7 +48,11 @@ public class City {
 
     }
 
-    public void setCon(Connection con){
+    public Connection getCon() {
+        return con;
+    }
+
+    public void setCon(Connection con) {
         this.con = con;
     }
 
@@ -60,6 +64,22 @@ public class City {
         this.cityID = cityID;
     }
 
+    public String getCityName() {
+        return cityName;
+    }
+
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
+    }
+
+    public String getCountryCode() {
+        return countryCode;
+    }
+
+    public void setCountryCode(String countryCode) {
+        this.countryCode = countryCode;
+    }
+
     public String getCountryName() {
         return countryName;
     }
@@ -68,68 +88,7 @@ public class City {
         this.countryName = countryName;
     }
 
-    /**
-     * Returns the name of the city where ID is specified
-     * @return
-     */
-    public String getCityName() {
-        try {
-            Statement stmt = con.createStatement();
-            String strSelect =
-                    "select Name from world.city where ID = '" + cityID + "'";
-            ResultSet rset = stmt.executeQuery(strSelect);
-            if(rset.next()){
-                cityName = rset.getString("Name");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return cityName;
-    }
-
-    public void setCityName(String cityName) {
-        this.cityName = cityName;
-    }
-
-    /**
-     * Returns the country code of the city where ID is specified
-     * @return
-     */
-    public String getCountryCode() {
-        try {
-            Statement stmt = con.createStatement();
-            String strSelect =
-                    "select CountryCode from world.city where ID = '" + cityID + "'";
-            ResultSet rset = stmt.executeQuery(strSelect);
-            if(rset.next()){
-                countryCode = rset.getString("CountryCode");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return countryCode;
-    }
-
-    public void setCountryCode(String countryCode) {
-        this.countryCode = countryCode;
-    }
-
-    /**
-     * Returns the district of the city where ID is specified
-     * @return
-     */
     public String getCityDistrict() {
-        try {
-            Statement stmt = con.createStatement();
-            String strSelect =
-                    "select District from world.city where ID = '" + cityID + "'";
-            ResultSet rset = stmt.executeQuery(strSelect);
-            if(rset.next()){
-                cityDistrict = rset.getString("District");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
         return cityDistrict;
     }
 
@@ -137,22 +96,7 @@ public class City {
         this.cityDistrict = cityDistrict;
     }
 
-    /**
-     * Returns the population of the city where ID is specified
-     * @return
-     */
     public long getCityPopulation() {
-        try {
-            Statement stmt = con.createStatement();
-            String strSelect =
-                    "select Population from world.city where ID = '" + cityID + "'";
-            ResultSet rset = stmt.executeQuery(strSelect);
-            if(rset.next()){
-                cityPopulation = rset.getLong("Population");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
         return cityPopulation;
     }
 
