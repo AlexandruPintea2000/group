@@ -19,13 +19,14 @@ public class CountryTest {
     static void init(){
         country = new Country();
         CountryTest db = new CountryTest();
-        db.connect();
-        country.setCon(db.con);
-        country.setCountryCode("BRA");
     }
 
     @Test
     void getCountryNameTest(){
+        CountryTest db = new CountryTest();
+        db.connect();
+        country.setCon(db.con);
+        country.setCountryCode("BRA");
         assertEquals("Brazil", country.getCountryName());
     }
 
