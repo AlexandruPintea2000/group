@@ -12,7 +12,7 @@ public class IntegrationTest {
     @BeforeAll
     static void init(){
         app = new App();
-        app.connect("db:3306");
+        app.connect("db:33060");
     }
 
     /******************************
