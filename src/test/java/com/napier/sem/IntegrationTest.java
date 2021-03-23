@@ -41,4 +41,33 @@ public class IntegrationTest {
         assertEquals(1024, first.getCityID());
         assertEquals(2912, last.getCityID());
     }
+
+    @Test
+    void testGenerateCityTopN(){
+        City first = app.generateCityTopN(3).get(0);
+        City second = app.generateCityTopN(3).get(1);
+        City third = app.generateCityTopN(3).get(2);
+
+        assertEquals(1024, first.getCityID());
+        assertEquals(2331, second.getCityID());
+        assertEquals(206, third.getCityID());
+    }
+
+    @Test
+    void testGenerateCityPopulation(){
+       City city = app.generateCityPopulation("GBR").get(0);
+
+       assertEquals(7285000, city.getCityPopulation());
+       assertEquals(81, app.generateCityPopulation("GBR").size());
+    }
+
+    @Test
+    void testGenerateCityPopulationInContinent(){
+        City first = app.generateCityPopulationInContinent("Asia").get(0);
+        City last = app.generateCityPopulationInContinent("Asia").get(app.generateCityPopulationInContinent("Asia").size() - 1);
+
+        assertEquals(1766, app.generateCityPopulationInContinent("Asia").size());
+        assertEquals(1024, first.getCityID());
+        assertEquals(538, last.getCityID());
+    }
 }
