@@ -6,7 +6,7 @@ import org.junit.jupiter.api.TestInstance;
 import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class AppTest {
+public class UnitTest {
     static App app;
 
     @BeforeAll
