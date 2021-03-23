@@ -136,6 +136,7 @@ public class IntegrationTest {
     void testGenerateCountryReport(){
         Country country = new Country();
         country.setCountryCode("GBR");
+        app.generateCountryReport(country);
 
         assertEquals("GBR", country.getCountryCode());
         assertEquals("United Kingdom", country.getCountryName());
@@ -152,5 +153,16 @@ public class IntegrationTest {
         assertEquals(239, app.generateCountryLargestToSmallest().size());
         assertEquals("CHN", first.getCountryCode());
         assertEquals("PCN", last.getCountryCode());
+    }
+
+    @Test
+    void testGenerateCountryTopN(){
+        Country first = app.generateCountryTopN(3).get(0);
+        Country second = app.generateCountryTopN(3).get(1);
+        Country third = app.generateCountryTopN(3).get(2);
+
+        assertEquals("CHN", first.getCountryCode());
+        assertEquals("IND", second.getCountryCode());
+        assertEquals("USA", third.getCountryCode());
     }
 }
