@@ -305,8 +305,14 @@ public class App {
      * @param cityList
      */
     public void printCityList(ArrayList<City> cityList){
+        if((cityList == null)){
+            System.out.println("Empty Set");
+            return;
+        }
         System.out.println(String.format("%-10s %-15s %-20s %-15s", "ID", "CountryCode", "City", "Population"));
         for(City city : cityList){
+            if(city == null)
+                continue;
             String cityString =
                     String.format("%-10s %-15s %-20s %-15s",
                             city.getCityID(), city.getCountryCode(), city.getCityName(), city.getCityPopulation());
@@ -413,8 +419,14 @@ public class App {
      * @param countryList
      */
     public void printCountryList(ArrayList<Country> countryList){
+        if((countryList == null) || (countryList.isEmpty())){
+            System.out.println("Empty");
+            return;
+        }
         System.out.println(String.format("%-10s %-15s %-20s", "Code", "Name", "Population"));
         for(Country ctry: countryList){
+            if(ctry == null)
+                continue;
             String cityString =
                     String.format("%-10s %-15s %-20s",
                             ctry.getCountryCode(), ctry.getCountryName(), ctry.getCountryPopulation());
@@ -435,6 +447,11 @@ public class App {
      *******************************************************************************************************************
      */
 
+    /**
+     * Returns the population of a specified continent
+     * @param continent
+     * @return continentPopulation
+     */
     public long continentPopulation(Continent continent){
         long continentPopulation = 0;
         try {
@@ -456,4 +473,107 @@ public class App {
      ********************************************** END OF METHODS FOR CONTINENT ***************************************
      *******************************************************************************************************************
      */
+
+
+    /**
+     *******************************************************************************************************************
+     ********************************************** METHODS FOR DISTRICT ***********************************************
+     *******************************************************************************************************************
+     */
+
+    /**
+     * Returns the population of a specified district
+     * @param district
+     * @return districtPopulation
+     */
+    public long districtPopulation(District district){
+        long districtPopulation = 0;
+        try {
+            Statement stmt = con.createStatement();
+            String strSelect =
+                    "select District, sum(Population) as Population from city where District = '"+district.getDistrictName()+"'";
+            ResultSet rset = stmt.executeQuery(strSelect);
+            if(rset.next()){
+                districtPopulation = rset.getLong("Population");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return districtPopulation;
+    }
+
+    /**
+     *******************************************************************************************************************
+     ********************************************** END OF METHODS FOR DISTRICT ****************************************
+     *******************************************************************************************************************
+     */
+
+
+    /**
+     *******************************************************************************************************************
+     ********************************************** METHODS FOR REGION *************************************************
+     *******************************************************************************************************************
+     */
+
+    /**
+     * Returns the population of a specified region
+     * @param region
+     * @return regionPopulation
+     */
+    public long regionPopulation(Region region){
+        long regionPopulation = 0;
+        try {
+            Statement stmt = con.createStatement();
+            String strSelect =
+                    "select Region, sum(Population) as Population from country where Region = '"+region.getRegionName()+"'";
+            ResultSet rset = stmt.executeQuery(strSelect);
+            if(rset.next()){
+                regionPopulation = rset.getLong("Population");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return regionPopulation;
+    }
+
+    /**
+     *******************************************************************************************************************
+     ********************************************** END OF METHODS FOR REGION ******************************************
+     *******************************************************************************************************************
+     */
+
+
+    /**
+     *******************************************************************************************************************
+     ********************************************** METHODS FOR WORLD **************************************************
+     *******************************************************************************************************************
+     */
+
+    /**
+     * Returns the population of the world
+     * @return worldPopulation
+     */
+    public long worldPopulation(){
+        long worldPopulation = 0;
+        try{
+            Statement stmt = con.createStatement();
+            String strSelect =
+                    "select sum(Population) from(select population from world.city union all select population from world.country) as population";
+            ResultSet rset = stmt.executeQuery(strSelect);
+            if(rset.next()){
+                worldPopulation = rset.getLong("sum(Population)");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return worldPopulation;
+    }
+
+    /**
+     *******************************************************************************************************************
+     ********************************************** END OF METHODS FOR WORLD *******************************************
+     *******************************************************************************************************************
+     */
+
 }
