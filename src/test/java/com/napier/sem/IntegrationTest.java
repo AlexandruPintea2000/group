@@ -19,6 +19,9 @@ public class IntegrationTest {
      ******* TESTS FOR CITY *******
      ******************************/
 
+    /**
+     * Testing generateCityReport() to check if it returns the expected values
+     */
     @Test
     void testGenerateCityReport(){
         City city = new City();
@@ -32,6 +35,9 @@ public class IntegrationTest {
         assertEquals(107000, city.getCityPopulation());
     }
 
+    /**
+     * Testing generateCityLargestToSmallest() to check if it returns the expected values
+     */
     @Test
     void testGenerateCityLargestToSmallest(){
         City first = app.generateCityLargestToSmallest().get(0);
@@ -42,6 +48,9 @@ public class IntegrationTest {
         assertEquals(2912, last.getCityID());
     }
 
+    /**
+     * Testing generateCityTopN() to check if it returns the expected values
+     */
     @Test
     void testGenerateCityTopN(){
         City first = app.generateCityTopN(3).get(0);
@@ -53,6 +62,9 @@ public class IntegrationTest {
         assertEquals(206, third.getCityID());
     }
 
+    /**
+     * Testing generateCityPopulation() to check if it returns the expected values
+     */
     @Test
     void testGenerateCityPopulation(){
        City city = app.generateCityPopulation("GBR").get(0);
@@ -61,6 +73,9 @@ public class IntegrationTest {
        assertEquals(81, app.generateCityPopulation("GBR").size());
     }
 
+    /**
+     * Testing generateCityPopulationInContinent() to check if it returns the expected values
+     */
     @Test
     void testGenerateCityPopulationInContinent(){
         City first = app.generateCityPopulationInContinent("Asia").get(0);
@@ -69,5 +84,46 @@ public class IntegrationTest {
         assertEquals(1766, app.generateCityPopulationInContinent("Asia").size());
         assertEquals(1024, first.getCityID());
         assertEquals(538, last.getCityID());
+    }
+
+    /**
+     * Testing generateCapitalPopulationInContinent() to check if it returns the expected values
+     */
+    @Test
+    void testGenerateCapitalPopulationInContinent(){
+        City first = app.generateCapitalPopulationInContinent("Europe").get(0);
+        City last = app.generateCapitalPopulationInContinent("Europe").get(app.generateCapitalPopulationInContinent("Europe").size()- 1);
+
+        assertEquals(46, app.generateCapitalPopulationInContinent("Europe").size());
+        assertEquals(3580, first.getCityID());
+        assertEquals(3538, last.getCityID());
+    }
+
+    /**
+     * Testing generateTopNCapitalPopulationInContinent() to check if it returns the expected values
+     */
+    @Test
+    void testGenerateTopNCapitalPopulationInContinent(){
+        City first = app.generateTopNCapitalPopulationInContinent("Oceania", 3).get(0);
+        City second = app.generateTopNCapitalPopulationInContinent("Oceania", 3).get(1);
+        City third = app.generateTopNCapitalPopulationInContinent("Oceania", 3).get(2);
+
+        assertEquals(135, first.getCityID());
+        assertEquals(2884, second.getCityID());
+        assertEquals(3499, third.getCityID());
+    }
+
+    /**
+     * Testing generateTopNCapitalCities() to check if it returns the expected values
+     */
+    @Test
+    void testGenerateTopNCapitalCities(){
+        City first = app.generateTopNCapitalCities(3).get(0);
+        City second = app.generateTopNCapitalCities(3).get(1);
+        City third = app.generateTopNCapitalCities(3).get(2);
+
+        assertEquals(2331, first.getCityID());
+        assertEquals(938, second.getCityID());
+        assertEquals(2515, third.getCityID());
     }
 }
