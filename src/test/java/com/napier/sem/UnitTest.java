@@ -6,6 +6,10 @@ import org.junit.jupiter.api.TestInstance;
 import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Unit Tests for methods in App
+ * @author Suparno Deb, Alexandru Pintea, Stephen Messer, Vassilis Papadodimas
+ */
 public class UnitTest {
     static App app;
 

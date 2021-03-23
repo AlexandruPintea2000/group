@@ -6,6 +6,10 @@ import org.junit.jupiter.api.TestInstance;
 import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Integration Tests for methods in App
+ * @author Suparno Deb, Alexandru Pintea, Stephen Messer, Vassilis Papadodimas
+ */
 public class IntegrationTest {
     static App app;
 
@@ -132,6 +136,9 @@ public class IntegrationTest {
      ******* TESTS FOR COUNTRY *******
      *********************************/
 
+    /**
+     * Testing generateCountryReport() to check if it returns the expected value
+     */
     @Test
     void testGenerateCountryReport(){
         Country country = new Country();
@@ -145,6 +152,9 @@ public class IntegrationTest {
         assertEquals(456, country.getCountryCapital());
     }
 
+    /**
+     * Testing generateCountryLargestToSmallest() to check if it returns the expected value
+     */
     @Test
     void testGenerateCountryLargestToSmallest(){
         Country first = app.generateCountryLargestToSmallest().get(0);
@@ -155,6 +165,9 @@ public class IntegrationTest {
         assertEquals("PCN", last.getCountryCode());
     }
 
+    /**
+     * Testing generateCountryTopN() to check if it returns the expected value
+     */
     @Test
     void testGenerateCountryTopN(){
         Country first = app.generateCountryTopN(3).get(0);
@@ -171,6 +184,9 @@ public class IntegrationTest {
      ******* TESTS FOR CONTINENT *****
      *********************************/
 
+    /**
+     * Testing continentPopulation() to check if it returns the expected value
+     */
     @Test
     void testContinentPopulation(){
         Continent continent = new Continent();
@@ -184,6 +200,9 @@ public class IntegrationTest {
      ******* TESTS FOR DISTRICT ******
      *********************************/
 
+    /**
+     * Testing districtPopulation() to check if it returns the expected value
+     */
     @Test
     void testDistrictPopulation(){
         District district = new District();
@@ -197,6 +216,9 @@ public class IntegrationTest {
      ******* TESTS FOR REGION ********
      *********************************/
 
+    /**
+     * Testing regionPopulation() to check if it returns the expected value
+     */
     @Test
     void testRegionPopulation(){
         Region region = new Region();
@@ -210,6 +232,9 @@ public class IntegrationTest {
      ******* TESTS FOR WORLD *********
      *********************************/
 
+    /**
+     * Testing worldPopulation() to check if it returns the expected value
+     */
     @Test
     void testWorldPopulation(){
         long worldPopulation = 7508309334L;
