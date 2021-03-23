@@ -308,7 +308,10 @@ public class App {
     public void printCityList(ArrayList<City> cityList){
         System.out.println(String.format("%-10s %-15s %-20s %-8s", "ID", "CountryCode", "City", "Population"));
         for(City city : cityList){
-            //System.out.println(city.getCityName() + " \t\t\t\t " + city.getCityPopulation());
+            String cityString =
+                    String.format("%-10s %-15s %-20s %-8s",
+                            city.getCityID(), city.getCountryCode(), city.getCityName(), city.getCityPopulation());
+            System.out.println(cityString);
         }
     }
 
