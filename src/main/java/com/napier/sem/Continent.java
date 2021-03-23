@@ -39,22 +39,7 @@ public class Continent {
         this.continentName = continentName;
     }
 
-    /**
-     * Returns the sum population of a continent
-     * @return
-     */
     public long getContinentPopulation() {
-        try {
-            Statement stmt = con.createStatement();
-            String strSelect =
-                    "select Continent, sum(Population) as Population from country where Continent = '"+continentName+"'";
-            ResultSet rset = stmt.executeQuery(strSelect);
-            if(rset.next()){
-                continentPopulation = rset.getLong("Population");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
         return continentPopulation;
     }
 

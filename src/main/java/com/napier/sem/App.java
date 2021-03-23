@@ -21,13 +21,13 @@ public class App {
         }
         City city = new City();
         Country country = new Country();
+        Continent continent = new Continent();
+        continent.setContinentName("Europe");
         country.setCountryCode("IND");
         city.setCityID(4079);
 
 
-        app.generateCountryReport(country);
-        app.printCountryList(app.generateCountryLargestToSmallest());
-        app.printCountryList(app.generateCountryTopN(5));
+        System.out.println(app.continentPopulation(continent));
         app.disconnect();
     }
 
@@ -422,10 +422,38 @@ public class App {
         }
     }
 
-
     /**
      *******************************************************************************************************************
      ********************************************** END OF METHODS FOR COUNTRY *****************************************
+     *******************************************************************************************************************
+     */
+
+
+    /**
+     *******************************************************************************************************************
+     ********************************************** METHODS FOR CONTINENT **********************************************
+     *******************************************************************************************************************
+     */
+
+    public long continentPopulation(Continent continent){
+        long continentPopulation = 0;
+        try {
+            Statement stmt = con.createStatement();
+            String strSelect =
+                    "select Continent, sum(Population) as Population from country where Continent = '"+continent.getContinentName()+"'";
+            ResultSet rset = stmt.executeQuery(strSelect);
+            if(rset.next()){
+                continentPopulation = rset.getLong("Population");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return continentPopulation;
+    }
+
+    /**
+     *******************************************************************************************************************
+     ********************************************** END OF METHODS FOR CONTINENT ***************************************
      *******************************************************************************************************************
      */
 }
