@@ -51,219 +51,59 @@ public class Country {
 
     }
 
-    public void setCon(Connection con){
+    public Connection getCon() {
+        return con;
+    }
+
+    public void setCon(Connection con) {
         this.con = con;
     }
 
-    public String getCountryCode(){
+    public String getCountryCode() {
         return countryCode;
     }
 
-    public void setCountryCode(String countryCode){
+    public void setCountryCode(String countryCode) {
         this.countryCode = countryCode;
     }
 
-    /**
-     * Returns the name of a country where code is specified
-     * @return
-     */
-    public String getCountryName(){
-        try {
-            Statement stmt = con.createStatement();
-            String strSelect =
-                    "select Name from world.country where Code = '" + countryCode + "'";
-            ResultSet rset = stmt.executeQuery(strSelect);
-            if(rset.next()){
-                countryName = rset.getString("Name");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public String getCountryName() {
         return countryName;
     }
 
-    public void setCountryName(String countryName){
+    public void setCountryName(String countryName) {
         this.countryName = countryName;
     }
 
-    /**
-     * Returns continent of a country where code is specified
-     * @return
-     */
-    public String getCountryContinent(){
-        try {
-            Statement stmt = con.createStatement();
-            String strSelect =
-                    "select Continent from world.country where Code = '" + countryCode + "'";
-            ResultSet rset = stmt.executeQuery(strSelect);
-            if(rset.next()){
-                countryContinent = rset.getString("Continent");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public String getCountryContinent() {
         return countryContinent;
     }
 
-    public void setCountryContinent(String countryContinent){
+    public void setCountryContinent(String countryContinent) {
         this.countryContinent = countryContinent;
     }
 
-    /**
-     * Returns region of a country where code is specified
-     * @return
-     */
-    public String getCountryRegion(){
-        try {
-            Statement stmt = con.createStatement();
-            String strSelect =
-                    "select Region from world.country where Code = '" + countryCode + "'";
-            ResultSet rset = stmt.executeQuery(strSelect);
-            if(rset.next()){
-                countryRegion = rset.getString("Region");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public String getCountryRegion() {
         return countryRegion;
     }
 
-    public void setCountryRegion(String countryRegion){
+    public void setCountryRegion(String countryRegion) {
         this.countryRegion = countryRegion;
     }
 
-    /**
-     * Returns the population of a country where code is specified
-     * @return
-     */
-    public long getCountryPopulation(){
-        try {
-            Statement stmt = con.createStatement();
-            String strSelect =
-                    "select Population from world.country where code = '" + countryCode + "'";
-            ResultSet rset = stmt.executeQuery(strSelect);
-            if(rset.next()){
-                countryPopulation = rset.getLong("Population");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public long getCountryPopulation() {
         return countryPopulation;
     }
 
-    public void setCountryPopulation(long countryPopulation){
+    public void setCountryPopulation(long countryPopulation) {
         this.countryPopulation = countryPopulation;
     }
 
-    /**
-     * Returns the capital of a country where code is specified
-     * @return
-     */
-    public int getCountryCapital(){
-        try {
-            Statement stmt = con.createStatement();
-            String strSelect =
-                    "select Capital from world.country where Code = '" + countryCode + "'";
-            ResultSet rset = stmt.executeQuery(strSelect);
-            if(rset.next()){
-                countryCapital = rset.getInt("Capital");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public int getCountryCapital() {
         return countryCapital;
     }
 
-    public void setCountryCapital(int countryCapital){
+    public void setCountryCapital(int countryCapital) {
         this.countryCapital = countryCapital;
-    }
-
-    /**
-    Generates a full report of a country where code is specified, in the following format
-    Country Code: {countryCode}
-    Country Name: {countryName}
-    Country Continent: {countryContinent}
-    Country Region: {countryRegion}
-    Country Population: {countryPopulation}
-    Country Capital: {countryCapital}
-     */
-    public void generateCountryReport(){
-        try {
-            Statement stmt = con.createStatement();
-            String strSelect =
-                    "select * from world.country where Code = '" + countryCode + "'";
-            ResultSet rset = stmt.executeQuery(strSelect);
-            if(rset.next()){
-                countryName = rset.getString("Name");
-                countryContinent = rset.getString("Continent");
-                countryRegion = rset.getString("Region");
-                countryPopulation = rset.getLong("Population");
-                countryCapital = rset.getInt("Capital");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        System.out.println("Country Code: " + countryCode);
-        System.out.println("Country Name: " + countryName);
-        System.out.println("Country Continent: " + countryContinent);
-        System.out.println("Country Region: " + countryRegion);
-        System.out.println("Country Population: " + countryPopulation);
-        System.out.println("Country Capital: " + countryCapital);
-    }
-
-    /**
-     * Generates a list of all countries (ordered from population largest - smallest)
-     */
-    public void generateLargestToSmallest(){
-        ArrayList<Country> countryList = new ArrayList<Country>();
-        try{
-            Statement stmt = con.createStatement();
-            String strSelect =
-                    "select Code, Name, Population from world.country order by Population desc";
-            ResultSet rset = stmt.executeQuery(strSelect);
-            while(rset.next()){
-                Country ctry = new Country();
-                ctry.countryCode = rset.getString("Code");
-                ctry.countryName = rset.getString("Name");
-                ctry.countryPopulation = rset.getLong("Population");
-                countryList.add(ctry);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        System.out.println("Code \t\t\t\t Name \t\t\t\t Population");
-        for(Country ctry : countryList){
-            System.out.println(ctry.countryCode + " \t\t\t\t " + ctry.countryName + " \t\t\t\t " + ctry.countryPopulation);
-        }
-    }
-
-    /**
-     * Generates a list of the top N populated countries (where N is specified by the user)
-     * @param number
-     */
-    public void generateTopN(int number){
-        ArrayList<Country> countryList = new ArrayList<Country>();
-        try{
-            Statement stmt = con.createStatement();
-            String strSelect =
-                    "select Code, Name, Population from world.country order by Population desc limit " + number;
-            ResultSet rset = stmt.executeQuery(strSelect);
-            while(rset.next()){
-                Country ctry = new Country();
-                ctry.countryCode = rset.getString("Code");
-                ctry.countryName = rset.getString("Name");
-                ctry.countryPopulation = rset.getLong("Population");
-                countryList.add(ctry);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        System.out.println("TOP " + number + " POPULATED COUNTRIES");
-        System.out.println("Code \t\t\t\t Name \t\t\t\t Population");
-        for(Country ctry : countryList){
-            System.out.println(ctry.countryCode + " \t\t\t\t " + ctry.countryName + " \t\t\t\t " + ctry.countryPopulation);
-        }
     }
 }

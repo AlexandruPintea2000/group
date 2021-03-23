@@ -47,22 +47,7 @@ public class District {
         this.districtName = districtName;
     }
 
-    /**
-     * Returns the population of a district
-     * @return
-     */
     public long getDistrictPopulation() {
-        try {
-            Statement stmt = con.createStatement();
-            String strSelect =
-                    "select District, sum(Population) as Population from city where District = '"+districtName+"'";
-            ResultSet rset = stmt.executeQuery(strSelect);
-            if(rset.next()){
-                districtPopulation = rset.getLong("Population");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
         return districtPopulation;
     }
 
