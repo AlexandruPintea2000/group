@@ -123,7 +123,12 @@ public class IntegrationTest {
         City third = app.generateTopNCapitalCities(3).get(2);
 
         assertEquals(2331, first.getCityID());
-        assertEquals(938, second.getCityID());
+        assertEquals(939, second.getCityID());
         assertEquals(2515, third.getCityID());
     }
+
+
+    /*********************************
+     ******* TESTS FOR COUNTRY *******
+     *********************************/
 }
