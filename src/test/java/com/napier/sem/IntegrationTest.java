@@ -131,4 +131,26 @@ public class IntegrationTest {
     /*********************************
      ******* TESTS FOR COUNTRY *******
      *********************************/
+
+    @Test
+    void testGenerateCountryReport(){
+        Country country = new Country();
+        country.setCountryCode("IND");
+
+        assertEquals("IND", country.getCountryCode());
+        assertEquals("India", country.getCountryName());
+        assertEquals("Southern and Central Asia", country.getCountryRegion());
+        assertEquals(1013662000, country.getCountryPopulation());
+        assertEquals(1109, country.getCountryCapital());
+    }
+
+    @Test
+    void testGenerateCountryLargestToSmallest(){
+        Country first = app.generateCountryLargestToSmallest().get(0);
+        Country last = app.generateCountryLargestToSmallest().get(app.generateCountryLargestToSmallest().size() - 1);
+
+        assertEquals(239, app.generateCountryLargestToSmallest().size());
+        assertEquals("CHN", first.getCountryCode());
+        assertEquals("ATA", last.getCountryCode());
+    }
 }
