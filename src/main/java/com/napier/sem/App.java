@@ -20,15 +20,14 @@ public class App {
             app.connect(args[0]);
         }
         City city = new City();
+        Country country = new Country();
+        country.setCountryCode("IND");
         city.setCityID(4079);
 
-        app.generateCityReport(city);
-        app.printCityList(app.generateCityLargestToSmallest());
-        app.printCityList(app.generateCapitalPopulationInContinent("Asia"));
-        app.printCityList(app.generateCityPopulation("IND"));
-        app.printCityList(app.generateCityPopulationInContinent("Europe"));
-        app.printCityList(app.generateCityTopN(5));
-        app.printCityList(app.generateTopNCapitalCities(5));
+
+        app.generateCountryReport(country);
+        app.printCountryList(app.generateCountryLargestToSmallest());
+        app.printCountryList(app.generateCountryTopN(5));
         app.disconnect();
     }
 
@@ -306,10 +305,10 @@ public class App {
      * @param cityList
      */
     public void printCityList(ArrayList<City> cityList){
-        System.out.println(String.format("%-10s %-15s %-20s %-8s", "ID", "CountryCode", "City", "Population"));
+        System.out.println(String.format("%-10s %-15s %-20s %-15s", "ID", "CountryCode", "City", "Population"));
         for(City city : cityList){
             String cityString =
-                    String.format("%-10s %-15s %-20s %-8s",
+                    String.format("%-10s %-15s %-20s %-15s",
                             city.getCityID(), city.getCountryCode(), city.getCityName(), city.getCityPopulation());
             System.out.println(cityString);
         }
@@ -407,6 +406,20 @@ public class App {
             e.printStackTrace();
         }
         return countryList;
+    }
+
+    /**
+     * Prints the ArrayList containing information regarding Country to console
+     * @param countryList
+     */
+    public void printCountryList(ArrayList<Country> countryList){
+        System.out.println(String.format("%-10s %-15s %-20s", "Code", "Name", "Population"));
+        for(Country ctry: countryList){
+            String cityString =
+                    String.format("%-10s %-15s %-20s",
+                            ctry.getCountryCode(), ctry.getCountryName(), ctry.getCountryPopulation());
+            System.out.println(cityString);
+        }
     }
 
 
