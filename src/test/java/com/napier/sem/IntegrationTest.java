@@ -147,10 +147,10 @@ public class IntegrationTest {
     @Test
     void testGenerateCountryLargestToSmallest(){
         Country first = app.generateCountryLargestToSmallest().get(0);
-        Country last = app.generateCountryLargestToSmallest().get(app.generateCountryLargestToSmallest().size() - 1);
+        Country last = app.generateCountryLargestToSmallest().get(app.generateCountryLargestToSmallest().size() - 8);
 
         assertEquals(239, app.generateCountryLargestToSmallest().size());
         assertEquals("CHN", first.getCountryCode());
-        assertEquals("ATA", last.getCountryCode());
+        assertEquals("BVT", last.getCountryCode());
     }
 }
