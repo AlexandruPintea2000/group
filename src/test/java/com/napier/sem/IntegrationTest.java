@@ -165,4 +165,54 @@ public class IntegrationTest {
         assertEquals("IND", second.getCountryCode());
         assertEquals("USA", third.getCountryCode());
     }
+
+
+    /*********************************
+     ******* TESTS FOR CONTINENT *****
+     *********************************/
+
+    @Test
+    void testContinentPopulation(){
+        Continent continent = new Continent();
+        continent.setContinentName("Oceania");
+
+        assertEquals(30401150, app.continentPopulation(continent));
+    }
+
+
+    /*********************************
+     ******* TESTS FOR DISTRICT ******
+     *********************************/
+
+    @Test
+    void testDistrictPopulation(){
+        District district = new District();
+        district.setDistrictName("Texas");
+
+        assertEquals(9208281, app.districtPopulation(district));
+    }
+
+
+    /*********************************
+     ******* TESTS FOR REGION ********
+     *********************************/
+
+    @Test
+    void testRegionPopulation(){
+        Region region = new Region();
+        region.setRegionName("Caribbean");
+
+        assertEquals(38140000, app.regionPopulation(region));
+    }
+
+
+    /*********************************
+     ******* TESTS FOR WORLD *********
+     *********************************/
+
+    @Test
+    void testWorldPopulation(){
+        long worldPopulation = 7508309334L;
+        assertEquals(worldPopulation, app.worldPopulation());
+    }
 }
