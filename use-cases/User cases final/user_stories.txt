@@ -1,0 +1,10 @@
+Being a -role- I want -feature- so that -value-. // model
+
+
+Being a -HR advisor- I want -the ability to sort data based on population- so that -I am able to provide details for every entry, in the order that they matter-.
+
+Being a -Statistician- I want -detailed population details- so that -I am able to provide those details to whoever is interested-.
+
+Being a -Department advisor- I want -quick statistics on population- so that -we can concetrate on decisions rather than on details-.
+
+Being a -Marketer- I want -statistics realted to spoken languages- so that -I am able to decide what languages to consider the most when marketing-.
