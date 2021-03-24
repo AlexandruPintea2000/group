@@ -9,8 +9,6 @@ import java.sql.Statement;
  * @author Suparno Deb, Alexandru Pintea, Stephen Messer, Vassilis Papadodimas
  */
 public class Region {
-    // Placeholder for SQL connection
-    private Connection con = null;
     // Region Name
     private String regionName;
     // Region Population
@@ -31,26 +29,34 @@ public class Region {
 
     }
 
-    public Connection getCon() {
-        return con;
-    }
-
-    public void setCon(Connection con) {
-        this.con = con;
-    }
-
+    /**
+     * Returns the Region Name
+     * @return regionName
+     */
     public String getRegionName() {
         return regionName;
     }
 
+    /**
+     * Sets a value for the Region Name
+     * @param regionName
+     */
     public void setRegionName(String regionName) {
         this.regionName = regionName;
     }
 
+    /**
+     * Returns the Region Population
+     * @return regionPopulation
+     */
     public long getRegionPopulation() {
         return regionPopulation;
     }
 
+    /**
+     * Sets a value for Region Population
+     * @param regionPopulation
+     */
     public void setRegionPopulation(long regionPopulation) {
         this.regionPopulation = regionPopulation;
     }

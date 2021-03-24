@@ -21,17 +21,27 @@ public class UnitTest {
     /******************************
      ******* TESTS FOR CITY *******
      ******************************/
+
+    /**
+     * Testing to check printCityList(null) does not throw error
+     */
     @Test
     void printNullCityListTest(){
         app.printCityList(null);
     }
 
+    /**
+     * Testing to check empty printCityList() does not throw error
+     */
     @Test
     void printEmptyCityListTest(){
         ArrayList<City> cityList = new ArrayList<City>();
         app.printCityList(cityList);
     }
 
+    /**
+     * Testing to check empty object in printCityList() does not throw error
+     */
     @Test
     void printCityListContainsNull(){
         ArrayList<City> cityList = new ArrayList<City>();
@@ -39,6 +49,9 @@ public class UnitTest {
         app.printCityList(cityList);
     }
 
+    /**
+     * Testing to check the methods in City works
+     */
     @Test
     void printCityReport(){
         City city = new City();
@@ -55,6 +68,9 @@ public class UnitTest {
         assertEquals(7285000, city.getCityPopulation());
     }
 
+    /**
+     * Testing to check the printCityList() method works
+     */
     @Test
     void printCityList(){
         ArrayList<City> cityList = new ArrayList<City>();
@@ -94,12 +110,19 @@ public class UnitTest {
     /*********************************
      ******* TESTS FOR COUNTRY *******
      *********************************/
+
+    /**
+     * Testing to check printCountryList() does not throw error with empty list
+     */
     @Test
     void printEmptyCountryListTest(){
         ArrayList<Country> countryList = new ArrayList<Country>();
         app.printCountryList(countryList);
     }
 
+    /**
+     * Testing to check printCountryList() does not throw error with null list
+     */
     @Test
     void printCountryListContainsNull(){
         ArrayList<Country> countryList = new ArrayList<Country>();
@@ -107,6 +130,9 @@ public class UnitTest {
         app.printCountryList(countryList);
     }
 
+    /**
+     * Testing to check Country methods work
+     */
     @Test
     void printCountryReport(){
         Country country = new Country();
@@ -123,6 +149,9 @@ public class UnitTest {
         assertEquals(150, country.getCountryCapital());
     }
 
+    /**
+     * Testing to check printCountryList() works
+     */
     @Test
     void printCountryList(){
         ArrayList<Country> countryList = new ArrayList<Country>();
