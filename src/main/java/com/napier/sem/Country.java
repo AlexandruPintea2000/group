@@ -90,33 +90,57 @@ public class Country {
     }
 
     /**
-     *
+     * Sets a value for Country Continent
      * @param countryContinent
      */
     public void setCountryContinent(String countryContinent) {
         this.countryContinent = countryContinent;
     }
 
+    /**
+     * Returns the Country Region
+     * @return countryRegion
+     */
     public String getCountryRegion() {
         return countryRegion;
     }
 
+    /**
+     * Sets a value for Country Region
+     * @param countryRegion
+     */
     public void setCountryRegion(String countryRegion) {
         this.countryRegion = countryRegion;
     }
 
+    /**
+     * Returns the Country Population
+     * @return countryPopulation
+     */
     public long getCountryPopulation() {
         return countryPopulation;
     }
 
+    /**
+     * Sets a value for Country Population
+     * @param countryPopulation
+     */
     public void setCountryPopulation(long countryPopulation) {
         this.countryPopulation = countryPopulation;
     }
 
+    /**
+     * Returns the Country Capital
+     * @return countryCapital
+     */
     public int getCountryCapital() {
         return countryCapital;
     }
 
+    /**
+     * Sets a value for Country Capital
+     * @param countryCapital
+     */
     public void setCountryCapital(int countryCapital) {
         this.countryCapital = countryCapital;
     }

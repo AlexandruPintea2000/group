@@ -9,8 +9,6 @@ import java.sql.Statement;
  * @author Suparno Deb, Alexandru Pintea, Stephen Messer, Vassilis Papadodimas
  */
 public class District {
-    // Placeholder for SQL connection
-    private Connection con = null;
     // District Name
     private String districtName;
     // District Population
@@ -31,26 +29,34 @@ public class District {
 
     }
 
-    public Connection getCon() {
-        return con;
-    }
-
-    public void setCon(Connection con) {
-        this.con = con;
-    }
-
+    /**
+     * Returns the District Name
+     * @return districtName
+     */
     public String getDistrictName() {
         return districtName;
     }
 
+    /**
+     * Sets a value for District Name
+     * @param districtName
+     */
     public void setDistrictName(String districtName) {
         this.districtName = districtName;
     }
 
+    /**
+     * Returns the District Population
+     * @return districtPopulation
+     */
     public long getDistrictPopulation() {
         return districtPopulation;
     }
 
+    /**
+     * Sets a value for the District Population
+     * @param districtPopulation
+     */
     public void setDistrictPopulation(long districtPopulation) {
         this.districtPopulation = districtPopulation;
     }
