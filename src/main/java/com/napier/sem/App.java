@@ -31,7 +31,11 @@ public class App {
         city.setCityID(4079);
 
 
-        System.out.println(app.continentPopulation(continent));
+        System.out.println("The population of Europe: " + app.continentPopulation(continent));
+        app.generateCityReport(city);
+        app.generateCountryReport(country);
+        app.printCityList(app.generateCityTopN(3));
+        app.printCountryList(app.generateCountryTopN(3));
         app.disconnect();
     }
 
