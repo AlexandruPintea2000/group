@@ -1,0 +1,14 @@
+@startuml
+
+actor A as "Statitician"
+
+rectangle Database
+
+rectangle System {
+usecase UC1 as "get population details of specific regions"
+
+A - UC1
+UC1 - Database
+}
+
+@enduml

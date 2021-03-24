@@ -1,0 +1,18 @@
+@startuml
+
+actor A as "Marketer"
+
+rectangle Database
+
+rectangle System {
+usecase UC1 as "choose from predefined languages"
+usecase UC2 as "get statistics on specific languages"
+usecase UC3 as "sort data by language"
+
+A - UC1
+UC2 - Database
+UC1 - UC2
+UC2 - UC3
+}
+
+@enduml

@@ -1,0 +1,14 @@
+@startuml
+
+actor A as "Department advisor"
+
+rectangle Database
+
+rectangle System {
+usecase UC1 as "get population statistics on different areas"
+
+A - UC1
+UC1 - Database
+}
+
+@enduml
