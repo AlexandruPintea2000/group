@@ -1,0 +1,16 @@
+@startuml
+
+actor A as "HR Advisor"
+
+rectangle Database
+
+rectangle System {
+usecase UC1 as "get population data of areas by countries, cities and  capital cities"
+usecase UC2 as "sort data"
+
+A - UC1
+UC1 - Database
+UC1 ..> UC2 : include
+}
+
+@enduml
