@@ -11,8 +11,6 @@ import java.util.ArrayList;
  * @author Suparno Deb, Alexandru Pintea, Stephen Messer, Vassilis Papadodimas
  */
 public class Country {
-    // Placeholder for SQL connection
-    private Connection con = null;
     // Country code
     private String countryCode;
     // Country name
@@ -51,34 +49,50 @@ public class Country {
 
     }
 
-    public Connection getCon() {
-        return con;
-    }
-
-    public void setCon(Connection con) {
-        this.con = con;
-    }
-
+    /**
+     * Returns the Country Code
+     * @return countryCode
+     */
     public String getCountryCode() {
         return countryCode;
     }
 
+    /**
+     * Sets a value for the Country Code
+     * @param countryCode
+     */
     public void setCountryCode(String countryCode) {
         this.countryCode = countryCode;
     }
 
+    /**
+     * Returns the Country Name
+     * @return countryName
+     */
     public String getCountryName() {
         return countryName;
     }
 
+    /**
+     * Sets a value for the Country Name
+     * @param countryName
+     */
     public void setCountryName(String countryName) {
         this.countryName = countryName;
     }
 
+    /**
+     * Returns the Country Continent
+     * @return countryContinent
+     */
     public String getCountryContinent() {
         return countryContinent;
     }
 
+    /**
+     *
+     * @param countryContinent
+     */
     public void setCountryContinent(String countryContinent) {
         this.countryContinent = countryContinent;
     }

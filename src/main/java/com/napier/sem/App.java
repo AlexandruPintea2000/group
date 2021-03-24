@@ -3,6 +3,10 @@ package com.napier.sem;
 import java.sql.*;
 import java.util.ArrayList;
 
+/**
+ * Main Interaction Class for program
+ * @author Suparno Deb, Alexandru Pintea, Stephen Messer, Vassilis Papadodimas
+ */
 public class App {
     private Connection con = null;
 

@@ -9,8 +9,6 @@ import java.sql.Statement;
  * @author Suparno Deb, Alexandru Pintea, Stephen Messer, Vassilis Papadodimas
  */
 public class Continent {
-    // Placeholder for SQL connection
-    private Connection con = null;
     // Continent Name
     private String continentName;
     // Continent Population
@@ -23,26 +21,34 @@ public class Continent {
 
     }
 
-    public Connection getCon() {
-        return con;
-    }
-
-    public void setCon(Connection con) {
-        this.con = con;
-    }
-
+    /**
+     * Returns the Continent Name
+     * @return continentName
+     */
     public String getContinentName() {
         return continentName;
     }
 
+    /**
+     * Sets a value for Continent Name
+     * @param continentName
+     */
     public void setContinentName(String continentName) {
         this.continentName = continentName;
     }
 
+    /**
+     * Returns the Continent Population
+     * @return continentPopulation
+     */
     public long getContinentPopulation() {
         return continentPopulation;
     }
 
+    /**
+     * Sets a value for Continent Population
+     * @param continentPopulation
+     */
     public void setContinentPopulation(long continentPopulation) {
         this.continentPopulation = continentPopulation;
     }
