@@ -1,0 +1,23 @@
+@startuml
+
+actor A as "Marketer"
+
+rectangle Database
+
+rectangle System {
+usecase UC1 as "get population data of areas by countries, cities and  capital cities"
+usecase UC2 as "get population details of specific regions"
+usecase UC3 as "get population statistics on different areas"
+usecase UC4 as "get statistics on specific languages"
+
+A - UC1
+A - UC2
+A - UC3
+A - UC4
+UC1 - Database
+UC2 - Database
+UC3 - Database
+UC4 - Database
+}
+
+@enduml
