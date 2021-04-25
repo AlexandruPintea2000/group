@@ -547,6 +547,32 @@ public class App {
     }
 
     /**
+     * Generates a list of all the capital cities in a region organised by largest population to smallest
+     * @param region
+     * @return
+     */
+    public ArrayList<City> generateCapitalPopulationInRegionLargestToSmallest(String region){
+        ArrayList<City> cityList = new ArrayList<City>();
+        try{
+            Statement stmt = con.createStatement();
+            String strSelect =
+                    "select city.ID AS 'ID', city.CountryCode AS 'CountryCode', city.Name AS 'CapitalCity', city.Population from city inner join country on city.Id = country.capital where Region = '"+region+"' order by city.Population desc";
+            ResultSet rset = stmt.executeQuery(strSelect);
+            while (rset.next()) {
+                City city = new City();
+                city.setCityID(rset.getInt("ID"));
+                city.setCountryCode(rset.getString("CountryCode"));
+                city.setCityName(rset.getString("CapitalCity"));
+                city.setCityPopulation(rset.getLong("Population"));
+                cityList.add(city);
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return cityList;
+    }
+
+    /**
      *******************************************************************************************************************
      ********************************************** END OF METHODS FOR CITY ********************************************
      *******************************************************************************************************************
