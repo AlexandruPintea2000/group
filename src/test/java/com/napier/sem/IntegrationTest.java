@@ -145,6 +145,17 @@ public class IntegrationTest {
         assertEquals(144, third.getCityID());
     }
 
+    @Test
+    void testGenerateTopNCityPopulationInRegion(){
+        City first = app.generateTopNCityPopulationInRegion("Middle East", 3).get(0);
+        City second = app.generateTopNCityPopulationInRegion("Middle East", 3).get(1);
+        City third = app.generateTopNCityPopulationInRegion("Middle East", 3).get(3);
+
+        assertEquals(3357, first.getCityID());
+        assertEquals(1365, second.getCityID());
+        assertEquals(3173, third.getCityID());
+    }
+
 
     /*********************************
      ******* TESTS FOR COUNTRY *******
