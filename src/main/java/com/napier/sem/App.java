@@ -329,6 +329,33 @@ public class App {
     }
 
     /**
+     * Generates a list of the top N populated capital cities in a region where N is provided by the user
+     * @param region
+     * @param number
+     * @return
+     */
+    public ArrayList<City> generateTopNCapitalPopulationInRegion(String region, int number){
+        ArrayList<City> cityList = new ArrayList<City>();
+        try{
+            Statement stmt = con.createStatement();
+            String strSelect =
+                    "select city.ID AS 'ID', city.CountryCode AS 'CountryCode', city.Name AS 'CapitalCity', city.Population from city inner join country on city.Id = country.capital where Region = '"+region+"' order by country.Region desc limit " +number;
+            ResultSet rset = stmt.executeQuery(strSelect);
+            while (rset.next()) {
+                City city = new City();
+                city.setCityID(rset.getInt("ID"));
+                city.setCountryCode(rset.getString("CountryCode"));
+                city.setCityName(rset.getString("CapitalCity"));
+                city.setCityPopulation(rset.getLong("Population"));
+                cityList.add(city);
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return cityList;
+    }
+
+    /**
      *******************************************************************************************************************
      ********************************************** END OF METHODS FOR CITY ********************************************
      *******************************************************************************************************************

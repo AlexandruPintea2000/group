@@ -131,6 +131,20 @@ public class IntegrationTest {
         assertEquals(2515, third.getCityID());
     }
 
+    /**
+     * Testing generateTopNCapitalPopulationInRegion() to check if it returns the expected values
+     */
+    @Test
+    void testGenerateTopNCapitalPopulatedInRegion(){
+        City first = app.generateTopNCapitalPopulationInRegion("Central Africa", 5).get(0);
+        City second = app.generateTopNCapitalPopulationInRegion("Central Africa", 5).get(1);
+        City third = app.generateTopNCapitalPopulationInRegion("Central Africa", 5).get(2);
+
+        assertEquals(56, first.getCityID());
+        assertEquals(1889, second.getCityID());
+        assertEquals(1804, third.getCityID());
+    }
+
 
     /*********************************
      ******* TESTS FOR COUNTRY *******
