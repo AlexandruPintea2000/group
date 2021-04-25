@@ -135,7 +135,7 @@ public class IntegrationTest {
      * Testing generateTopNCapitalPopulationInRegion() to check if it returns the expected values
      */
     @Test
-    void testGenerateTopNCapitalPopulatedInRegion(){
+    void testGenerateTopNCapitalPopulationInRegion(){
         City first = app.generateTopNCapitalPopulationInRegion("Central Africa", 5).get(0);
         City second = app.generateTopNCapitalPopulationInRegion("Central Africa", 5).get(1);
         City third = app.generateTopNCapitalPopulationInRegion("Central Africa", 5).get(2);
