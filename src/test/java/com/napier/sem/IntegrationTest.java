@@ -149,7 +149,7 @@ public class IntegrationTest {
     void testGenerateTopNCityPopulationInRegion(){
         City first = app.generateTopNCityPopulationInRegion("Middle East", 3).get(0);
         City second = app.generateTopNCityPopulationInRegion("Middle East", 3).get(1);
-        City third = app.generateTopNCityPopulationInRegion("Middle East", 3).get(3);
+        City third = app.generateTopNCityPopulationInRegion("Middle East", 3).get(2);
 
         assertEquals(3357, first.getCityID());
         assertEquals(1365, second.getCityID());
