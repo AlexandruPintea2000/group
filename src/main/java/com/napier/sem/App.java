@@ -471,12 +471,34 @@ public class App {
      * @param region
      * @return
      */
-    public ArrayList<City> generateCityPopulationInRegionLargestToSmallest(String region) {
+    public ArrayList<City> generateCityPopulationInRegionLargestToSmallest(String region){
         ArrayList<City> cityList = new ArrayList<City>();
         try {
             Statement stmt = con.createStatement();
             String strSelect =
                     "select city.ID AS 'ID', city.CountryCode AS 'CountryCode', city.Name AS 'City', city.Population from city inner join country on city.CountryCode = country.Code where country.Region = '" + region + "' order by city.Population desc";
+            ResultSet rset = stmt.executeQuery(strSelect);
+            while (rset.next()) {
+                City city = new City();
+                city.setCityID(rset.getInt("ID"));
+                city.setCountryCode(rset.getString("CountryCode"));
+                city.setCityName(rset.getString("City"));
+                city.setCityPopulation(rset.getLong("Population"));
+                cityList.add(city);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return cityList;
+    }
+
+    public ArrayList<City> generateCityPopulationInDistrictLargestToSmallest(String district){
+        ArrayList<City> cityList = new ArrayList<City>();
+        try {
+            Statement stmt = con.createStatement();
+            String strSelect =
+                    "select city.ID AS 'ID', city.CountryCode AS 'CountryCode', city.Name AS 'City', city.Population from city inner join country on city.CountryCode = country.Code where city.District = '"+district+"' order by city.Population desc";
             ResultSet rset = stmt.executeQuery(strSelect);
             while (rset.next()) {
                 City city = new City();
