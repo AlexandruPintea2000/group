@@ -766,6 +766,33 @@ public class App {
     }
 
     /**
+     * Generates a list of top N populated countries in a region where N is provided by the user
+     * @param region
+     * @param number
+     * @return
+     */
+    public ArrayList<Country> generateTopNCountryInRegion(String region, int number){
+        ArrayList<Country> countryList = new ArrayList<Country>();
+        try{
+            Statement stmt = con.createStatement();
+            String strSelect =
+                    "select Code, Name, Population from world.country where Region = '"+region+"' order by Population desc limit " + number;
+            ResultSet rset = stmt.executeQuery(strSelect);
+            while(rset.next()){
+                Country ctry = new Country();
+                ctry.setCountryCode(rset.getString("Code"));
+                ctry.setCountryName(rset.getString("Name"));
+                ctry.setCountryPopulation(rset.getLong("Population"));
+                countryList.add(ctry);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return countryList;
+    }
+
+    /**
      *******************************************************************************************************************
      ********************************************** END OF METHODS FOR COUNTRY *****************************************
      *******************************************************************************************************************
