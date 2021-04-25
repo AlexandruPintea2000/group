@@ -183,7 +183,7 @@ public class IntegrationTest {
         City third = app.generateTopNCityPopulationInContinent("Europe", 3).get(2);
 
         assertEquals(3580, first.getCityID());
-        assertEquals(450, second.getCityID());
+        assertEquals(456, second.getCityID());
         assertEquals(3581, third.getCityID());
     }
 
