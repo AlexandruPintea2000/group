@@ -535,7 +535,7 @@ public class App {
                 City city = new City();
                 city.setCityID(rset.getInt("ID"));
                 city.setCountryCode(rset.getString("CountryCode"));
-                city.setCityName(rset.getString("City"));
+                city.setCityName(rset.getString("CapitalCity"));
                 city.setCityPopulation(rset.getLong("Population"));
                 cityList.add(city);
             }
