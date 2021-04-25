@@ -187,6 +187,20 @@ public class IntegrationTest {
         assertEquals(3581, third.getCityID());
     }
 
+    /**
+     * Testing generateTopNCityPopulationInDistrict() to check if it returns the expected values
+     */
+    @Test
+    void testGenerateTopNCityPopulationInDistrict(){
+        City first = app.generateTopNCityPopulationInDistrict("Texas", 3).get(0);
+        City second = app.generateTopNCityPopulationInDistrict("Texas", 3).get(1);
+        City third = app.generateTopNCityPopulationInDistrict("Texas", 3).get(2);
+
+        assertEquals(3796, first.getCityID());
+        assertEquals(3800, second.getCityID());
+        assertEquals(3801, third.getCityID());
+    }
+
 
     /*********************************
      ******* TESTS FOR COUNTRY *******
