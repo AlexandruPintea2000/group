@@ -355,6 +355,12 @@ public class App {
         return cityList;
     }
 
+    /**
+     * Generates a list of the top N populated cities in a region where N is provided by the user
+     * @param region
+     * @param number
+     * @return
+     */
     public ArrayList<City> generateTopNCityPopulationInRegion(String region, int number){
         ArrayList<City> cityList = new ArrayList<City>();
         try{
@@ -373,6 +379,34 @@ public class App {
         } catch (Exception e){
             e.printStackTrace();
         }
+        return cityList;
+    }
+
+    /**
+     * Generates a list of the top N populated cities in a country where N is provided by the user
+     * @param country
+     * @param number
+     * @return
+     */
+    public ArrayList<City> generateTopNCityPopulationInCountry(String country, int number){
+        ArrayList<City> cityList = new ArrayList<City>();
+        try{
+            Statement stmt = con.createStatement();
+            String strSelect =
+                    "select city.ID AS 'ID', city.CountryCode AS 'CountryCode', city.Name AS 'City', city.Population from city inner join country on city.CountryCode = country.Code where country.Name = '"+country+"' order by city.Population desc limit " + number;
+            ResultSet rset = stmt.executeQuery(strSelect);
+            while (rset.next()) {
+                City city = new City();
+                city.setCityID(rset.getInt("ID"));
+                city.setCountryCode(rset.getString("CountryCode"));
+                city.setCityName(rset.getString("City"));
+                city.setCityPopulation(rset.getLong("Population"));
+                cityList.add(city);
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+
         return cityList;
     }
 

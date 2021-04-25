@@ -145,6 +145,9 @@ public class IntegrationTest {
         assertEquals(144, third.getCityID());
     }
 
+    /**
+     * Testing generateTopNCityPopulationInRegion() to check if it returns the expected values
+     */
     @Test
     void testGenerateTopNCityPopulationInRegion(){
         City first = app.generateTopNCityPopulationInRegion("Middle East", 3).get(0);
@@ -154,6 +157,20 @@ public class IntegrationTest {
         assertEquals(3357, first.getCityID());
         assertEquals(1365, second.getCityID());
         assertEquals(3173, third.getCityID());
+    }
+
+    /**
+     * Testing generateTopNCityPopulationInCountry() to check if it returns the expected values
+     */
+    @Test
+    void testGenerateTopNCityPopulationInCountry(){
+        City first = app.generateTopNCityPopulationInCountry("India", 3).get(0);
+        City second = app.generateTopNCityPopulationInCountry("India", 3).get(1);
+        City third = app.generateTopNCityPopulationInCountry("India", 3).get(2);
+
+        assertEquals(1024, first.getCityID());
+        assertEquals(1025, second.getCityID());
+        assertEquals(1026, third.getCityID());
     }
 
 
