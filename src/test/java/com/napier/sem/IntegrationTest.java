@@ -136,9 +136,9 @@ public class IntegrationTest {
      */
     @Test
     void testGenerateTopNCapitalPopulationInRegion(){
-        City first = app.generateTopNCapitalPopulationInRegion("Caribbean", 5).get(0);
-        City second = app.generateTopNCapitalPopulationInRegion("Caribbean", 5).get(1);
-        City third = app.generateTopNCapitalPopulationInRegion("Caribbean", 5).get(2);
+        City first = app.generateTopNCapitalPopulationInRegion("Caribbean", 3).get(0);
+        City second = app.generateTopNCapitalPopulationInRegion("Caribbean", 3).get(1);
+        City third = app.generateTopNCapitalPopulationInRegion("Caribbean", 3).get(2);
 
         assertEquals(129, first.getCityID());
         assertEquals(62, second.getCityID());
