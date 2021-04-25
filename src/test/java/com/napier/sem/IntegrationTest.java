@@ -333,6 +333,20 @@ public class IntegrationTest {
         assertEquals("SAU", third.getCountryCode());
     }
 
+    /**
+     * Testing generateTopNCountryInContinent() to check if it returns the expected value
+     */
+    @Test
+    void testGenerateTopNCountryInContinent(){
+        Country first = app.generateTopNCountryInContinent("Europe", 3).get(0);
+        Country second = app.generateTopNCountryInContinent("Europe", 3).get(1);
+        Country third = app.generateTopNCountryInContinent("Europe", 3).get(2);
+
+        assertEquals("RUS", first.getCountryCode());
+        assertEquals("DEU", second.getCountryCode());
+        assertEquals("GBR", third.getCountryCode());
+    }
+
 
     /*********************************
      ******* TESTS FOR CONTINENT *****
