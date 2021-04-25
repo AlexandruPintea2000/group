@@ -229,6 +229,20 @@ public class IntegrationTest {
         assertEquals(3801, third.getCityID());
     }
 
+    /**
+     * Testing generateCapitalPopulationInWorldLargestToSmallest() to check if it returns the expected values
+     */
+    @Test
+    void testGenerateCapitalPopulationInWorldLargestToSmallest(){
+        City first = app.generateCapitalPopulationInWorldLargestToSmallest().get(0);
+        City second = app.generateCapitalPopulationInWorldLargestToSmallest().get(1);
+        City third = app.generateCapitalPopulationInWorldLargestToSmallest().get(2);
+
+        assertEquals(2331, first.getCityID());
+        assertEquals(939, second.getCityID());
+        assertEquals(2515, third.getCityID());
+    }
+
 
     /*********************************
      ******* TESTS FOR COUNTRY *******
