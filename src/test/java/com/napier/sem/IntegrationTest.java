@@ -319,6 +319,20 @@ public class IntegrationTest {
         assertEquals("GBR", third.getCountryCode());
     }
 
+    /**
+     * Testing generateCountryPopulationInRegionLargestToSmallest() to check if it returns the expected value
+     */
+    @Test
+    void testGenerateCountryPopulationInRegionLargestToSmallest(){
+        Country first = app.generateCountryPopulationInRegionLargestToSmallest("Middle East").get(0);
+        Country second = app.generateCountryPopulationInRegionLargestToSmallest("Middle East").get(1);
+        Country third = app.generateCountryPopulationInRegionLargestToSmallest("Middle East").get(2);
+
+        assertEquals("TUR", first.getCountryCode());
+        assertEquals("IRQ", second.getCountryCode());
+        assertEquals("SAU", third.getCountryCode());
+    }
+
 
     /*********************************
      ******* TESTS FOR CONTINENT *****

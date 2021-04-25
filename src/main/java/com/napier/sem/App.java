@@ -687,7 +687,7 @@ public class App {
     }
 
     /**
-     * Generates a list of all the countries in a continent organised by largest population to smallest
+     * Generates a list of countries in a continent organised by largest population to smallest
      * @param continent
      * @return
      */
@@ -697,6 +697,32 @@ public class App {
             Statement stmt = con.createStatement();
             String strSelect =
                     "select Code, Name, Population from world.country where Continent = '"+continent+"' order by Population desc";
+            ResultSet rset = stmt.executeQuery(strSelect);
+            while(rset.next()){
+                Country ctry = new Country();
+                ctry.setCountryCode(rset.getString("Code"));
+                ctry.setCountryName(rset.getString("Name"));
+                ctry.setCountryPopulation(rset.getLong("Population"));
+                countryList.add(ctry);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return countryList;
+    }
+
+    /**
+     * Generates a list of countries in a region organised by largest population to smallest
+     * @param region
+     * @return
+     */
+    public ArrayList<Country> generateCountryPopulationInRegionLargestToSmallest(String region){
+        ArrayList<Country> countryList = new ArrayList<Country>();
+        try{
+            Statement stmt = con.createStatement();
+            String strSelect =
+                    "select Code, Name, Population from world.country where Region = '"+region+"' order by Population desc";
             ResultSet rset = stmt.executeQuery(strSelect);
             while(rset.next()){
                 Country ctry = new Country();
