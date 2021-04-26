@@ -28,10 +28,10 @@ jobs:
       script: mvn test -Dtest=com.napier.sem.IntegrationTest
     - stage: GitHub Release
         # We don't want to install
-                install: skip
+      install: skip
         # We will build the JAR
-                jdk: oraclejdk11
-                script:
+      jdk: oraclejdk11
+      script:
                   - echo "Deploying to GitHub Releases"
                   # Package (build) the JAR
                   - mvn package -DskipTests=true -Dmaven.javadoc.skip=true
