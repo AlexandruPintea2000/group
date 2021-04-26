@@ -945,7 +945,7 @@ public class App {
         try{
             Statement stmt = con.createStatement();
             String strSelect =
-                    "SELECT Language, SUM( Population * Percentage / 100 ) AS Language_Population , ( SUM( Population * Percentage / 100 ) / Total_Population * 100 ) AS Total_Percentage FROM country INNER JOIN countrylanguage ON CountryCode = Code, ( SELECT SUM( Population ) AS Total_Population FROM country ) AS Total_Population_Sum GROUP BY Language ORDER BY Total_Percentage DESC LIMIT 5; -- most spoken 5 languages ( same as requirement languages )";
+                    "SELECT Language, SUM( Population * Percentage / 100 ) AS Language_Population , ( SUM( Population * Percentage / 100 ) / Total_Population * 100 ) AS Total_Percentage FROM country INNER JOIN countrylanguage ON CountryCode = Code, ( SELECT SUM( Population ) AS Total_Population FROM country ) AS Total_Population_Sum GROUP BY Language ORDER BY Total_Percentage DESC LIMIT 5";
             ResultSet rset = stmt.executeQuery(strSelect);
             while(rset.next()){
                 Language lng = new Language();
