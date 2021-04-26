@@ -945,13 +945,13 @@ public class App {
         try{
             Statement stmt = con.createStatement();
             String strSelect =
-                    "SELECT world.countrylanguage.Language, SUM( country.Population * countrylanguage.Percentage / 100 ) AS Language_Population , ( SUM( country.Population * countrylanguage.Percentage / 100 ) / Total_Population * 100 ) AS Total_Percentage FROM country INNER JOIN countrylanguage ON countrylanguage.CountryCode = country.Code, ( SELECT SUM( country.Population ) AS Total_Population FROM country ) AS Total_Population_Sum GROUP BY world.countrylanguage.Language ORDER BY Total_Percentage DESC LIMIT 5";
+                    "SELECT cl.Language, ROUND(SUM((c.Population * cl.Percentage) / 100)) AS 'Population', (((ROUND(SUM((c.Population * cl.Percentage) / 100))) * 100) / (SELECT SUM(country.Population) FROM country)) AS 'TotalPercentage'FROM countrylanguage cl, country c WHERE (cl.Language = 'Chinese' OR cl.Language = 'English' OR cl.Language = 'Hindi' OR cl.Language = 'Spanish' OR cl.Language = 'Arabic') AND cl.CountryCode = c.Code GROUP BY cl.Language ORDER BY Population DESC";
             ResultSet rset = stmt.executeQuery(strSelect);
             while(rset.next()){
                 Language lng = new Language();
                 lng.setLanguage(rset.getString("Language"));
-                lng.setPopulation(rset.getLong("Language_Population"));
-                lng.setPercentage(rset.getFloat("Total_Percentage"));
+                lng.setPopulation(rset.getLong("Population"));
+                lng.setPercentage(rset.getFloat("TotalPercentage"));
                 languageList.add(lng);
             }
         } catch (Exception e) {
