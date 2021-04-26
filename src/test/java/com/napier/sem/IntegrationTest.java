@@ -377,6 +377,21 @@ public class IntegrationTest {
         assertEquals(30401150, app.continentPopulation(continent));
     }
 
+    /**
+     * Testing generateLivingInCityStatsInContinent() to check if it returns the expected value
+     */
+    @Test
+    void testGenerateLivingInCityStatsInContinent(){
+        InOrOutCity first = app.generateLivingInCityStatsInContinent("Europe").get(0);
+
+        assertEquals("Europe", first.getPlace());
+        assertEquals(730074600, first.getPopulation());
+        assertEquals(241942813, first.getInCityPopulation());
+        assertEquals(33.1395, first.getInCityPercentage());
+        assertEquals(488131787, first.getOutCityPopulation());
+        assertEquals(66.8605, first.getOutCityPercentage());
+    }
+
 
     /*********************************
      ******* TESTS FOR DISTRICT ******

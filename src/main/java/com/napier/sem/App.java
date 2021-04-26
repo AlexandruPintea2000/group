@@ -827,6 +827,35 @@ public class App {
     }
 
     /**
+     * Generates report on the population of people, people living in cities and people not living in cities in each continent
+     * @param continent
+     * @return
+     */
+    public ArrayList<InOrOutCity> generateLivingInCityStatsInContinent(String continent){
+        ArrayList<InOrOutCity> statsList = new ArrayList<InOrOutCity>();
+        try{
+            Statement stmt = con.createStatement();
+            String strSelect =
+                    "SELECT co.Continent, continentPop.Population, cityPop.Population AS 'InCitiesPopulation', (cityPop.Population * 100 / continentPop.Population) AS 'InCitiesPercentage', (continentPop.Population - cityPop.Population) AS 'OutCitiesPopulation', ((continentPop.Population - cityPop.Population) * 100 / continentPop.Population) AS 'OutCitiesPercentage' FROM country co, city ci, (SELECT SUM(ci.population) AS Population FROM country co, city ci WHERE co.continent = '\"+continent+\"' AND co.Code = ci.CountryCode) AS cityPop, (SELECT SUM(population) AS Population FROM country WHERE continent = '"+continent+"') AS continentPop WHERE co.Continent = '"+continent+"' AND co.Code = ci.CountryCode LIMIT 1";
+            ResultSet rset = stmt.executeQuery(strSelect);
+            while(rset.next()){
+                InOrOutCity iooc = new InOrOutCity();
+                iooc.setPlace(rset.getString("Continent"));
+                iooc.setPopulation(rset.getLong("Population"));
+                iooc.setInCityPopulation(rset.getLong("InCitiesPopulation"));
+                iooc.setInCityPercentage(rset.getFloat("InCitiesPercentage"));
+                iooc.setOutCityPopulation(rset.getLong("OutCitiesPopulation"));
+                iooc.setInCityPercentage(rset.getFloat("OutCitiesPercentage"));
+                statsList.add(iooc);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return statsList;
+    }
+
+    /**
      *******************************************************************************************************************
      ********************************************** END OF METHODS FOR CONTINENT ***************************************
      *******************************************************************************************************************
