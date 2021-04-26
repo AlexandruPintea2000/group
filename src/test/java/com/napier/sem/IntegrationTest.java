@@ -422,4 +422,27 @@ public class IntegrationTest {
         long worldPopulation = 7508309334L;
         assertEquals(worldPopulation, app.worldPopulation());
     }
+
+    /*********************************
+     ******* TESTS FOR LANGUAGE ******
+     *********************************/
+
+    /**
+     * Testing generateLanguageReport() to check if it returns the expected value
+     */
+
+    @Test
+    void testGenerateLanguageReport(){
+        Language first = app.generateLanguageReport().get(0);
+        Language second = app.generateLanguageReport().get(1);
+        Language third = app.generateLanguageReport().get(2);
+        Language fourth = app.generateLanguageReport().get(3);
+        Language fifth = app.generateLanguageReport().get(4);
+
+        assertEquals("Chinese", first.getLanguage());
+        assertEquals("Hindi", second.getLanguage());
+        assertEquals(5.840501600, third.getPercentage());
+        assertEquals(347077867.30000, fourth.getPopulation());
+        assertEquals(3.846831300, fifth.getPercentage());
+    }
 }
