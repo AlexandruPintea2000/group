@@ -30,7 +30,7 @@ jobs:
       install: skip
       jdk: oraclejdk11
       script:
-        - echo "Deploying to GitHub Releases"
+        - echo "Deploying to GitHub Release"
         - mvn package -DskipTests=true -Dmaven.javadoc.skip=true
       before_deploy:
         - git config --local user.name "SuparnoD"
