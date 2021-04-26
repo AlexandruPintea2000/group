@@ -26,7 +26,7 @@ jobs:
     - stage: integration tests
       jdk: oraclejdk11
       script: mvn test -Dtest=com.napier.sem.IntegrationTest
-      - stage: GitHub Release
+    - stage: GitHub Release
         # We don't want to install
                 install: skip
         # We will build the JAR
