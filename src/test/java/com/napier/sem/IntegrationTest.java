@@ -361,6 +361,24 @@ public class IntegrationTest {
         assertEquals("SAU", third.getCountryCode());
     }
 
+    /**
+     * Testing generateLivingInCityStatsInCountry() to check if it returns the expected value
+     */
+    @Test
+    void testGenerateLivingInCityStatsInCountry(){
+        InOrOutCity first = app.generateLivingInCityStatsInCountry("IND").get(0);
+
+        int x = (int)Math.ceil(first.getInCityPercentage());
+        int y = (int)Math.ceil(first.getOutCityPercentage());
+
+        assertEquals("India", first.getPlace());
+        assertEquals(1013662000, first.getPopulation());
+        assertEquals(123298526, first.getInCityPopulation());
+        assertEquals(13, x);
+        assertEquals(890363474, first.getOutCityPopulation());
+        assertEquals(88, y);
+    }
+
 
     /*********************************
      ******* TESTS FOR CONTINENT *****
@@ -375,6 +393,21 @@ public class IntegrationTest {
         continent.setContinentName("Oceania");
 
         assertEquals(30401150, app.continentPopulation(continent));
+    }
+
+    /**
+     * Testing generateLivingInCityStatsInContinent() to check if it returns the expected value
+     */
+    @Test
+    void testGenerateLivingInCityStatsInContinent(){
+        InOrOutCity first = app.generateLivingInCityStatsInContinent("Europe").get(0);
+
+        assertEquals("Europe", first.getPlace());
+        assertEquals(730074600, first.getPopulation());
+        assertEquals(241942813, first.getInCityPopulation());
+        assertEquals(33.13949966430664, first.getInCityPercentage());
+        assertEquals(488131787, first.getOutCityPopulation());
+        assertEquals(66.8604965209961, first.getOutCityPercentage());
     }
 
 
@@ -407,6 +440,21 @@ public class IntegrationTest {
         region.setRegionName("Caribbean");
 
         assertEquals(38140000, app.regionPopulation(region));
+    }
+
+    /**
+     * Testing generateLivingInCityStatsInRegion() to check if it returns the expected value
+     */
+    @Test
+    void testGenerateLivingInCityStatsInRegion(){
+        InOrOutCity first = app.generateLivingInCityStatsInRegion("Middle East").get(0);
+
+        assertEquals("Middle East", first.getPlace());
+        assertEquals(188380700, first.getPopulation());
+        assertEquals(70371374, first.getInCityPopulation());
+        assertEquals(37.355899810791016, first.getInCityPercentage());
+        assertEquals(118009326, first.getOutCityPopulation());
+        assertEquals(62.644100189208984, first.getOutCityPercentage());
     }
 
 
