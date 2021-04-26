@@ -441,8 +441,8 @@ public class IntegrationTest {
 
         assertEquals("Chinese", first.getLanguage());
         assertEquals("Hindi", second.getLanguage());
-        assertEquals(5.8405, third.getPercentage());
-        assertEquals(347077867, fourth.getPopulation());
-        assertEquals(3.8468, fifth.getPercentage());
+        assertEquals(5.8404998779296875, third.getPercentage());
+        assertEquals(347077867.30000, fourth.getPopulation());
+        assertEquals(3.846831300, fifth.getPercentage());
     }
 }
