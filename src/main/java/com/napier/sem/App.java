@@ -258,7 +258,7 @@ public class App {
     }
 
     /**
-     * Generates a list on the top N populated capital cities in a continent where N is provided by the user
+     * Generate a list on the top N populated capital cities in a continent where N is provided by the user
      * @param continent
      * @param number
      */
