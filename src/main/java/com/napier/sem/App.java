@@ -793,6 +793,35 @@ public class App {
     }
 
     /**
+     * Generates report on the population of people, people living in cities and people not living in cities in a specified country
+     * @param country
+     * @return
+     */
+    public ArrayList<InOrOutCity> generateLivingInCityStatsInCountry(String country){
+        ArrayList<InOrOutCity> statsList = new ArrayList<InOrOutCity>();
+        try{
+            Statement stmt = con.createStatement();
+            String strSelect =
+                    "SELECT co.name AS 'Country', co.population AS 'Population', SUM(ci.Population) AS 'InCitiesPopulation', (SUM(ci.Population) * 100 / co.Population) AS 'InCitiesPercentage', (co.Population - SUM(ci.Population)) AS 'OutCitiesPopulation',((co.Population - SUM(ci.Population)) * 100 / co.Population) AS 'OutCitiesPercentage' FROM country co, city ci WHERE co.name = '\"+country+' AND co.Code = ci.CountryCode LIMIT 1";
+            ResultSet rset = stmt.executeQuery(strSelect);
+            while(rset.next()){
+                InOrOutCity iooc = new InOrOutCity();
+                iooc.setPlace(rset.getString("Country"));
+                iooc.setPopulation(rset.getLong("Population"));
+                iooc.setInCityPopulation(rset.getLong("InCitiesPopulation"));
+                iooc.setInCityPercentage(rset.getFloat("InCitiesPercentage"));
+                iooc.setOutCityPopulation(rset.getLong("OutCitiesPopulation"));
+                iooc.setInCityPercentage(rset.getFloat("OutCitiesPercentage"));
+                statsList.add(iooc);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return statsList;
+    }
+
+    /**
      *******************************************************************************************************************
      ********************************************** END OF METHODS FOR COUNTRY *****************************************
      *******************************************************************************************************************
@@ -921,6 +950,35 @@ public class App {
             e.printStackTrace();
         }
         return regionPopulation;
+    }
+
+    /**
+     * Generates report on the population of people, people living in cities and people not living in cities in a specified region
+     * @param region
+     * @return
+     */
+    public ArrayList<InOrOutCity> generateLivingInCityStatsInRegion(String region){
+        ArrayList<InOrOutCity> statsList = new ArrayList<InOrOutCity>();
+        try{
+            Statement stmt = con.createStatement();
+            String strSelect =
+                    "SELECT co.Region, regionPop.Population, cityPop.Population AS 'InCitiesPopulation', (cityPop.Population * 100 / regionPop.Population) AS 'InCitiesPercentage', (regionPop.Population - cityPop.Population) AS 'OutCitiesPopulation', ((regionPop.Population - cityPop.Population) * 100 / regionPop.Population) AS 'OutCitiesPercentage' FROM country co, city ci, (SELECT SUM(ci.population) AS Population FROM country co, city ci WHERE co.region = '"+region+"' AND co.Code = ci.CountryCode) AS cityPop, (SELECT SUM(population) AS Population FROM country WHERE region = '"+region+"' ) AS regionPop WHERE co.Region = '"+region+"' AND co.Code = ci.CountryCode LIMIT 1";
+            ResultSet rset = stmt.executeQuery(strSelect);
+            while(rset.next()){
+                InOrOutCity iooc = new InOrOutCity();
+                iooc.setPlace(rset.getString("Region"));
+                iooc.setPopulation(rset.getLong("Population"));
+                iooc.setInCityPopulation(rset.getLong("InCitiesPopulation"));
+                iooc.setInCityPercentage(rset.getFloat("InCitiesPercentage"));
+                iooc.setOutCityPopulation(rset.getLong("OutCitiesPopulation"));
+                iooc.setInCityPercentage(rset.getFloat("OutCitiesPercentage"));
+                statsList.add(iooc);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return statsList;
     }
 
     /**

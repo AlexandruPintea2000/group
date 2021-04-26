@@ -361,6 +361,21 @@ public class IntegrationTest {
         assertEquals("SAU", third.getCountryCode());
     }
 
+    /**
+     * Testing generateLivingInCityStatsInCountry() to check if it returns the expected value
+     */
+    @Test
+    void testGenerateLivingInCityStatsInCountry(){
+        InOrOutCity first = app.generateLivingInCityStatsInCountry("India").get(0);
+
+        assertEquals("India", first.getPlace());
+        assertEquals(1013662000, first.getInCityPopulation());
+        assertEquals(123298526, first.getInCityPopulation());
+        assertEquals(12.1637, first.getInCityPercentage());
+        assertEquals(890363474, first.getOutCityPopulation());
+        assertEquals(87.8363, first.getOutCityPercentage());
+    }
+
 
     /*********************************
      ******* TESTS FOR CONTINENT *****
@@ -422,6 +437,21 @@ public class IntegrationTest {
         region.setRegionName("Caribbean");
 
         assertEquals(38140000, app.regionPopulation(region));
+    }
+
+    /**
+     * Testing generateLivingInCityStatsInRegion() to check if it returns the expected value
+     */
+    @Test
+    void testGenerateLivingInCityStatsInRegion(){
+        InOrOutCity first = app.generateLivingInCityStatsInRegion("Middle East").get(0);
+
+        assertEquals("Middle East", first.getPlace());
+        assertEquals(188380700, first.getPopulation());
+        assertEquals(70371374, first.getInCityPopulation());
+        assertEquals(37.3559, first.getInCityPercentage());
+        assertEquals(118009326, first.getOutCityPopulation());
+        assertEquals(62.6441, first.getOutCityPercentage());
     }
 
 
