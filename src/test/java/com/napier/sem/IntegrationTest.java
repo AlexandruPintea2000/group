@@ -402,7 +402,7 @@ public class IntegrationTest {
         assertEquals("Europe", first.getPlace());
         assertEquals(730074600, first.getPopulation());
         assertEquals(241942813, first.getInCityPopulation());
-        assertEquals(33.1395, first.getInCityPercentage());
+        assertEquals(33.13949966430664, first.getInCityPercentage());
         assertEquals(488131787, first.getOutCityPopulation());
         assertEquals(66.8605, first.getOutCityPercentage());
     }
@@ -451,7 +451,7 @@ public class IntegrationTest {
         assertEquals(70371374, first.getInCityPopulation());
         assertEquals(37.355899810791016, first.getInCityPercentage());
         assertEquals(118009326, first.getOutCityPopulation());
-        assertEquals(62.6441, first.getOutCityPercentage());
+        assertEquals(62.644100189208984, first.getOutCityPercentage());
     }
 
 
