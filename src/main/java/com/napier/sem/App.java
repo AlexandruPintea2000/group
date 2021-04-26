@@ -802,7 +802,7 @@ public class App {
         try{
             Statement stmt = con.createStatement();
             String strSelect =
-                    "SELECT co.name AS 'Country', co.population AS 'Population', SUM(ci.Population) AS 'InCitiesPopulation', (SUM(ci.Population) * 100 / co.Population) AS 'InCitiesPercentage', (co.Population - SUM(ci.Population)) AS 'OutCitiesPopulation',((co.Population - SUM(ci.Population)) * 100 / co.Population) AS 'OutCitiesPercentage' FROM country co, city ci WHERE co.name = '\"+country+' AND co.Code = ci.CountryCode LIMIT 1";
+                    "SELECT co.name AS 'Country', co.population AS 'Population', SUM(ci.Population) AS 'InCitiesPopulation', (SUM(ci.Population) * 100 / co.Population) AS 'InCitiesPercentage', (co.Population - SUM(ci.Population)) AS 'OutCitiesPopulation',((co.Population - SUM(ci.Population)) * 100 / co.Population) AS 'OutCitiesPercentage' FROM country co, city ci WHERE co.name = '"+country+"' AND co.Code = ci.CountryCode LIMIT 1";
             ResultSet rset = stmt.executeQuery(strSelect);
             while(rset.next()){
                 InOrOutCity iooc = new InOrOutCity();
@@ -971,7 +971,7 @@ public class App {
                 iooc.setInCityPopulation(rset.getLong("InCitiesPopulation"));
                 iooc.setInCityPercentage(rset.getFloat("InCitiesPercentage"));
                 iooc.setOutCityPopulation(rset.getLong("OutCitiesPopulation"));
-                iooc.setInCityPercentage(rset.getFloat("OutCitiesPercentage"));
+                iooc.setOutCityPercentage(rset.getFloat("OutCitiesPercentage"));
                 statsList.add(iooc);
             }
         } catch (Exception e) {
