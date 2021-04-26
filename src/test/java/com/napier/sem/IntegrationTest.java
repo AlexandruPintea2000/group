@@ -372,7 +372,7 @@ public class IntegrationTest {
         int y = (int)Math.ceil(first.getOutCityPercentage());
 
         assertEquals("India", first.getPlace());
-        assertEquals(1013662000, first.getInCityPopulation());
+        assertEquals(1013662000, first.getPopulation());
         assertEquals(123298526, first.getInCityPopulation());
         assertEquals(13, x);
         assertEquals(890363474, first.getOutCityPopulation());
