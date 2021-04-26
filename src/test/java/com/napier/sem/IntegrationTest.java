@@ -366,14 +366,17 @@ public class IntegrationTest {
      */
     @Test
     void testGenerateLivingInCityStatsInCountry(){
-        InOrOutCity first = app.generateLivingInCityStatsInCountry("India").get(0);
+        InOrOutCity first = app.generateLivingInCityStatsInCountry("IND").get(0);
+
+        int x = (int)Math.ceil(first.getInCityPercentage());
+        int y = (int)Math.ceil(first.getOutCityPercentage());
 
         assertEquals("India", first.getPlace());
         assertEquals(1013662000, first.getInCityPopulation());
         assertEquals(123298526, first.getInCityPopulation());
-        assertEquals(12.1637, first.getInCityPercentage());
+        assertEquals(13, x);
         assertEquals(890363474, first.getOutCityPopulation());
-        assertEquals(87.8363, first.getOutCityPercentage());
+        assertEquals(88, y);
     }
 
 
