@@ -449,7 +449,7 @@ public class IntegrationTest {
         assertEquals("Middle East", first.getPlace());
         assertEquals(188380700, first.getPopulation());
         assertEquals(70371374, first.getInCityPopulation());
-        assertEquals(37.3559, first.getInCityPercentage());
+        assertEquals(37.355899810791016, first.getInCityPercentage());
         assertEquals(118009326, first.getOutCityPopulation());
         assertEquals(62.6441, first.getOutCityPercentage());
     }

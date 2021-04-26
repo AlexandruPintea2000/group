@@ -811,7 +811,7 @@ public class App {
                 iooc.setInCityPopulation(rset.getLong("InCitiesPopulation"));
                 iooc.setInCityPercentage(rset.getFloat("InCitiesPercentage"));
                 iooc.setOutCityPopulation(rset.getLong("OutCitiesPopulation"));
-                iooc.setInCityPercentage(rset.getFloat("OutCitiesPercentage"));
+                iooc.setOutCityPercentage(rset.getFloat("OutCitiesPercentage"));
                 statsList.add(iooc);
             }
         } catch (Exception e) {
@@ -874,7 +874,7 @@ public class App {
                 iooc.setInCityPopulation(rset.getLong("InCitiesPopulation"));
                 iooc.setInCityPercentage(rset.getFloat("InCitiesPercentage"));
                 iooc.setOutCityPopulation(rset.getLong("OutCitiesPopulation"));
-                iooc.setInCityPercentage(rset.getFloat("OutCitiesPercentage"));
+                iooc.setOutCityPercentage(rset.getFloat("OutCitiesPercentage"));
                 statsList.add(iooc);
             }
         } catch (Exception e) {
