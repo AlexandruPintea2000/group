@@ -404,7 +404,7 @@ public class IntegrationTest {
         assertEquals(241942813, first.getInCityPopulation());
         assertEquals(33.13949966430664, first.getInCityPercentage());
         assertEquals(488131787, first.getOutCityPopulation());
-        assertEquals(66.8605, first.getOutCityPercentage());
+        assertEquals(66.8604965209961, first.getOutCityPercentage());
     }
 
 
