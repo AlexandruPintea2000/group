@@ -182,4 +182,172 @@ public class UnitTest {
 
         app.printCountryList(countryList);
     }
+
+    /*********************************
+     ******* TESTS FOR CONTINENT *****
+     *********************************/
+
+    /**
+     * Testing to check Continent methods work
+     */
+    @Test
+    void testContinent(){
+        Continent continent = new Continent();
+        continent.setContinentPopulation(748007090);
+        continent.setContinentName("Europe");
+
+        assertEquals(748007090, continent.getContinentPopulation());
+        assertEquals("Europe", continent.getContinentName());
+    }
+
+    /*********************************
+     ******* TESTS FOR DISTRICT  *****
+     *********************************/
+
+    /**
+     * Testing to check District methods work
+     */
+    @Test
+    void testDistrict(){
+        District district = new District();
+        district.setDistrictName("Texas");
+        district.setDistrictPopulation(29145505);
+
+        assertEquals(29145505, district.getDistrictPopulation());
+        assertEquals("Texas", district.getDistrictName());
+    }
+
+
+    /*********************************
+     ******* TESTS FOR REGION  *******
+     *********************************/
+
+    /**
+     * Testing to check Region methods work
+     */
+    @Test
+    void testRegion(){
+        Region region = new Region();
+        region.setRegionName("Middle East");
+        region.setRegionPopulation(411000000);
+
+        assertEquals("Middle East", region.getRegionName());
+        assertEquals(411000000, region.getRegionPopulation());
+    }
+
+    /*********************************
+     *******    MISC TESTS     *******
+     *********************************/
+
+    /**
+     * Testing InOrOutCity
+     */
+    @Test
+    void testInOrOutCity(){
+        InOrOutCity iooc = new InOrOutCity();
+        iooc.setPlace("India");
+        iooc.setPopulation(1013662000);
+        iooc.setInCityPopulation(123298526);
+        iooc.setInCityPercentage(12);
+        iooc.setOutCityPopulation(890363474);
+        iooc.setOutCityPercentage(87);
+
+        assertEquals("India", iooc.getPlace());
+        assertEquals(1013662000, iooc.getPopulation());
+        assertEquals(123298526, iooc.getInCityPopulation());
+        assertEquals(12, iooc.getInCityPercentage());
+        assertEquals(890363474, iooc.getOutCityPopulation());
+        assertEquals(87, iooc.getOutCityPercentage());
+    }
+
+    /**
+     * Testing Language
+     */
+    @Test
+    void testLanguage(){
+        Language language = new Language();
+        language.setLanguage("Hindi");
+        language.setPopulation(405633070);
+        language.setPercentage(6);
+
+        assertEquals("Hindi", language.getLanguage());
+        assertEquals(405633070, language.getPopulation());
+        assertEquals(6, language.getPercentage());
+    }
+
+    /**
+     * Testing to check printIOOCList() does not throw error with empty list
+     */
+    @Test
+    void printEmptyIOOCListTest(){
+        ArrayList<InOrOutCity> ioocList = new ArrayList<InOrOutCity>();
+        app.printIOOCList(ioocList);
+    }
+
+    /**
+     * Testing to check printIOOCList() does not throw error with null list
+     */
+    @Test
+    void printIOOCListContainsNull(){
+        ArrayList<InOrOutCity> ioocList = new ArrayList<InOrOutCity>();
+        ioocList.add(null);
+        app.printIOOCList(ioocList);
+    }
+
+    /**
+     * Testing to check the printIOOCList() method works
+     */
+    @Test
+    void printIOOCList(){
+        ArrayList<InOrOutCity> ioocList = new ArrayList<InOrOutCity>();
+
+        InOrOutCity india = new InOrOutCity("India", 1013662000, 123298526, 12, 890363474, 87);
+        ioocList.add(india);
+
+        app.printIOOCList(ioocList);
+    }
+
+    /**
+     * Testing to check printLanguageList() does not throw error with empty list
+     */
+    @Test
+    void printEmptyLanguageListTest(){
+        ArrayList<Language> languageList = new ArrayList<Language>();
+        app.printLanguageList(languageList);
+    }
+
+    /**
+     * Testing to check printLanguageList() does not throw error with null list
+     */
+    @Test
+    void printLanguageListContainsNull(){
+        ArrayList<Language> languageList = new ArrayList<Language>();
+        languageList.add(null);
+        app.printLanguageList(languageList);
+    }
+
+    /**
+     * Testing to check the printLanguageList() method works
+     */
+    @Test
+    void printLanguageList(){
+        ArrayList<Language> languageList = new ArrayList<Language>();
+
+        Language chinese = new Language("Chinese", 1191843539, 19);
+        languageList.add(chinese);
+
+        Language hindi = new Language("Hindi", 405633070, 6);
+        languageList.add(hindi);
+
+        Language spanish = new Language("Spanish", 355029462, 5);
+        languageList.add(spanish);
+
+        Language english = new Language("English", 347077867, 5);
+        languageList.add(english);
+
+        Language arabic = new Language("Arabic", 233839239, 3);
+        languageList.add(arabic);
+
+        app.printLanguageList(languageList);
+    }
 }

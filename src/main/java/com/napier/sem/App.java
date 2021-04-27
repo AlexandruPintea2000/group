@@ -1023,7 +1023,7 @@ public class App {
 
     /**
      *******************************************************************************************************************
-     ********************************************** METHODS FOR LANGUAGE **************************************************
+     ********************************************** METHODS FOR LANGUAGE ***********************************************
      *******************************************************************************************************************
      */
 
@@ -1046,5 +1046,57 @@ public class App {
         }
 
         return languageList;
+    }
+
+    /**
+     *******************************************************************************************************************
+     ********************************************** END OF METHODS FOR LANGUAGR ****************************************
+     *******************************************************************************************************************
+     */
+
+    /**
+     *******************************************************************************************************************
+     ********************************************** METHODS FOR MISC ***************************************************
+     *******************************************************************************************************************
+     */
+
+    /**
+     * Prints the ArrayList containing information regarding InOrOutCity to console
+     * @param ioocList
+     */
+    public void printIOOCList(ArrayList<InOrOutCity> ioocList){
+        if((ioocList == null) || (ioocList.isEmpty())){
+            System.out.println("Empty");
+            return;
+        }
+        System.out.println(String.format("%-10s %-15s %-20s %-20s %-20s %-20s", "Place", "Population", "InCitiesPop", "InCities(%)", "OutCitiesPop", "OutCities(%)"));
+        for(InOrOutCity iooc: ioocList){
+            if(iooc == null)
+                continue;
+            String str =
+                    String.format("%-10s %-15s %-20s %-20s %-20s %-20s",
+                            iooc.getPlace(), iooc.getPopulation(), iooc.getInCityPopulation(), iooc.getInCityPercentage(), iooc.getOutCityPopulation(), iooc.getOutCityPercentage());
+            System.out.println(str);
+        }
+    }
+
+    /**
+     * Prints the ArrayList containing information regarding Language to console
+     * @param languageList
+     */
+    public void printLanguageList(ArrayList<Language> languageList){
+        if((languageList == null) || (languageList.isEmpty())){
+            System.out.println("Empty");
+            return;
+        }
+        System.out.println(String.format("%-15s %-15s %-20s", "Language", "Population", "Total(%)"));
+        for(Language lng: languageList){
+            if(lng == null)
+                continue;
+            String str =
+                    String.format("%-15s %-15s %-20s",
+                            lng.getLanguage(), lng.getPopulation(), lng.getPercentage());
+            System.out.println(str);
+        }
     }
 }
