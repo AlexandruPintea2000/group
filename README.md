@@ -19,6 +19,8 @@ __Sprint review and retrospective__: 10:15 AM
 [__Product Backlog, Kamban, Individual contribution, Requirements__](https://docs.google.com/spreadsheets/d/1jDgYzGWdSvxJWKj4kr0p9f-xVH9wF1E7LJI6Ym2p2U4/edit?usp=sharing)
 ( what we have done and will do )
 
+__32 REQUIREMENTS OF 32 HAVE BEEN IMPLEMENTED, WHICH IS 100%.__
+
 |  ID  |                Name                                                                                                                                            |  Met  |   Screenshot  |
 |------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|-------|---------------|
 |1     |All the countries in the world organised by largest population to smallest.                                                                                     |Yes    |            
