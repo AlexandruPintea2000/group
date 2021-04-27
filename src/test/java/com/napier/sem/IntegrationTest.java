@@ -48,8 +48,8 @@ public class IntegrationTest {
         City last = app.generateCityLargestToSmallest().get(app.generateCityLargestToSmallest().size() - 1);
 
         assertEquals(4079, app.generateCityLargestToSmallest().size());
-        assertEquals(1024, first.getCityID());
-        assertEquals(2912, last.getCityID());
+        assertEquals("India", first.getCountryName());
+        assertEquals("Adamstown", last.getCityName());
     }
 
     /**
@@ -61,9 +61,9 @@ public class IntegrationTest {
         City second = app.generateCityTopN(3).get(1);
         City third = app.generateCityTopN(3).get(2);
 
-        assertEquals(1024, first.getCityID());
-        assertEquals(2331, second.getCityID());
-        assertEquals(206, third.getCityID());
+        assertEquals("India", first.getCountryName());
+        assertEquals("Seoul", second.getCityName());
+        assertEquals("Brazil", third.getCountryName());
     }
 
     /**
@@ -71,10 +71,10 @@ public class IntegrationTest {
      */
     @Test
     void testGenerateCityPopulation(){
-       City city = app.generateCityPopulation("GBR").get(0);
+       City city = app.generateCityPopulation("United Kingdom").get(0);
 
        assertEquals(7285000, city.getCityPopulation());
-       assertEquals(81, app.generateCityPopulation("GBR").size());
+       assertEquals(81, app.generateCityPopulation("United Kingdom").size());
     }
 
     /**
@@ -86,8 +86,8 @@ public class IntegrationTest {
         City last = app.generateCityPopulationInContinent("Asia").get(app.generateCityPopulationInContinent("Asia").size() - 1);
 
         assertEquals(1766, app.generateCityPopulationInContinent("Asia").size());
-        assertEquals(1024, first.getCityID());
-        assertEquals(538, last.getCityID());
+        assertEquals("India", first.getCountryName());
+        assertEquals("Brunei", last.getCountryName());
     }
 
     /**
@@ -99,8 +99,8 @@ public class IntegrationTest {
         City last = app.generateCapitalPopulationInContinent("Europe").get(app.generateCapitalPopulationInContinent("Europe").size()- 1);
 
         assertEquals(46, app.generateCapitalPopulationInContinent("Europe").size());
-        assertEquals(3580, first.getCityID());
-        assertEquals(3538, last.getCityID());
+        assertEquals("Moscow", first.getCityName());
+        assertEquals(455, last.getCityPopulation());
     }
 
     /**
@@ -112,9 +112,9 @@ public class IntegrationTest {
         City second = app.generateTopNCapitalPopulationInContinent("Oceania", 3).get(1);
         City third = app.generateTopNCapitalPopulationInContinent("Oceania", 3).get(2);
 
-        assertEquals(135, first.getCityID());
-        assertEquals(2884, second.getCityID());
-        assertEquals(3499, third.getCityID());
+        assertEquals("Canberra", first.getCityName());
+        assertEquals("Port Moresby", second.getCityName());
+        assertEquals("Wellington", third.getCityName());
     }
 
     /**
@@ -126,9 +126,9 @@ public class IntegrationTest {
         City second = app.generateTopNCapitalCities(3).get(1);
         City third = app.generateTopNCapitalCities(3).get(2);
 
-        assertEquals(2331, first.getCityID());
-        assertEquals(939, second.getCityID());
-        assertEquals(2515, third.getCityID());
+        assertEquals("Seoul", first.getCityName());
+        assertEquals("Jakarta", second.getCityName());
+        assertEquals("Mexico", third.getCountryName());
     }
 
     /**
@@ -140,9 +140,9 @@ public class IntegrationTest {
         City second = app.generateTopNCapitalPopulationInRegion("Middle East", 3).get(1);
         City third = app.generateTopNCapitalPopulationInRegion("Middle East", 3).get(2);
 
-        assertEquals(65, first.getCityID());
-        assertEquals(126, second.getCityID());
-        assertEquals(144, third.getCityID());
+        assertEquals("Baghdad", first.getCityName());
+        assertEquals("Riyadh", second.getCityName());
+        assertEquals("Ankara", third.getCityName());
     }
 
     /**
@@ -154,9 +154,9 @@ public class IntegrationTest {
         City second = app.generateTopNCityPopulationInRegion("Middle East", 3).get(1);
         City third = app.generateTopNCityPopulationInRegion("Middle East", 3).get(2);
 
-        assertEquals(3357, first.getCityID());
-        assertEquals(1365, second.getCityID());
-        assertEquals(3173, third.getCityID());
+        assertEquals("Istanbul", first.getCityName());
+        assertEquals("Baghdad", second.getCityName());
+        assertEquals("Riyadh", third.getCityName());
     }
 
     /**
@@ -168,9 +168,9 @@ public class IntegrationTest {
         City second = app.generateTopNCityPopulationInCountry("India", 3).get(1);
         City third = app.generateTopNCityPopulationInCountry("India", 3).get(2);
 
-        assertEquals(1024, first.getCityID());
-        assertEquals(1025, second.getCityID());
-        assertEquals(1026, third.getCityID());
+        assertEquals("Maharashtra", first.getCityDistrict());
+        assertEquals("Delhi", second.getCityName());
+        assertEquals("India", third.getCountryName());
     }
 
     /**
@@ -182,9 +182,9 @@ public class IntegrationTest {
         City second = app.generateTopNCityPopulationInContinent("Europe", 3).get(1);
         City third = app.generateTopNCityPopulationInContinent("Europe", 3).get(2);
 
-        assertEquals(3580, first.getCityID());
-        assertEquals(456, second.getCityID());
-        assertEquals(3581, third.getCityID());
+        assertEquals("Moscow", first.getCityName());
+        assertEquals("London", second.getCityName());
+        assertEquals("Pietari", third.getCityDistrict());
     }
 
     /**
@@ -196,9 +196,9 @@ public class IntegrationTest {
         City second = app.generateTopNCityPopulationInDistrict("Texas", 3).get(1);
         City third = app.generateTopNCityPopulationInDistrict("Texas", 3).get(2);
 
-        assertEquals(3796, first.getCityID());
-        assertEquals(3800, second.getCityID());
-        assertEquals(3801, third.getCityID());
+        assertEquals("Houston", first.getCityName());
+        assertEquals("Dallas", second.getCityName());
+        assertEquals("San Antonio", third.getCityName());
     }
 
     /**
@@ -210,9 +210,9 @@ public class IntegrationTest {
         City second = app.generateCityPopulationInRegionLargestToSmallest("Middle East").get(1);
         City third = app.generateCityPopulationInRegionLargestToSmallest("Middle East").get(2);
 
-        assertEquals(3357, first.getCityID());
-        assertEquals(1365, second.getCityID());
-        assertEquals(3173, third.getCityID());
+        assertEquals("Istanbul", first.getCityName());
+        assertEquals("Baghdad", second.getCityName());
+        assertEquals("Riyadh", third.getCityName());
     }
 
     /**
@@ -224,9 +224,9 @@ public class IntegrationTest {
         City second = app.generateCityPopulationInDistrictLargestToSmallest("Texas").get(1);
         City third = app.generateCityPopulationInDistrictLargestToSmallest("Texas").get(2);
 
-        assertEquals(3796, first.getCityID());
-        assertEquals(3800, second.getCityID());
-        assertEquals(3801, third.getCityID());
+        assertEquals("Houston", first.getCityName());
+        assertEquals("Dallas", second.getCityName());
+        assertEquals("San Antonio", third.getCityName());
     }
 
     /**
@@ -238,9 +238,9 @@ public class IntegrationTest {
         City second = app.generateCapitalPopulationInWorldLargestToSmallest().get(1);
         City third = app.generateCapitalPopulationInWorldLargestToSmallest().get(2);
 
-        assertEquals(2331, first.getCityID());
-        assertEquals(939, second.getCityID());
-        assertEquals(2515, third.getCityID());
+        assertEquals("Seoul", first.getCityName());
+        assertEquals("Jakarta", second.getCityName());
+        assertEquals("Mexico", third.getCountryName());
     }
 
     /**
@@ -252,9 +252,9 @@ public class IntegrationTest {
         City second = app.generateCapitalPopulationInRegionLargestToSmallest("Middle East").get(1);
         City third = app.generateCapitalPopulationInRegionLargestToSmallest("Middle East").get(2);
 
-        assertEquals(1365, first.getCityID());
-        assertEquals(3173, second.getCityID());
-        assertEquals(3358, third.getCityID());
+        assertEquals("Baghdad", first.getCityName());
+        assertEquals("Riyadh", second.getCityName());
+        assertEquals("Ankara", third.getCityName());
     }
 
 
@@ -275,7 +275,6 @@ public class IntegrationTest {
         assertEquals("United Kingdom", country.getCountryName());
         assertEquals("British Islands", country.getCountryRegion());
         assertEquals(59623400, country.getCountryPopulation());
-        assertEquals(456, country.getCountryCapital());
     }
 
     /**
@@ -286,9 +285,8 @@ public class IntegrationTest {
         Country first = app.generateCountryLargestToSmallest().get(0);
         Country last = app.generateCountryLargestToSmallest().get(app.generateCountryLargestToSmallest().size() - 8);
 
-        assertEquals(239, app.generateCountryLargestToSmallest().size());
         assertEquals("CHN", first.getCountryCode());
-        assertEquals("PCN", last.getCountryCode());
+        assertEquals("CXR", last.getCountryCode());
     }
 
     /**

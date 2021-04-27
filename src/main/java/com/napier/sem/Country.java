@@ -22,7 +22,7 @@ public class Country {
     // Country population
     private long countryPopulation;
     // Country capital
-    private int countryCapital;
+    private String countryCapital;
 
     /**
      * Country Constructor
@@ -33,7 +33,7 @@ public class Country {
      * @param countryPopulation
      * @param countryCapital
      */
-    public Country(String countryCode, String countryName, String countryContinent, String countryRegion, long countryPopulation, int countryCapital){
+    public Country(String countryCode, String countryName, String countryContinent, String countryRegion, long countryPopulation, String countryCapital){
         this.countryCode = countryCode;
         this.countryName = countryName;
         this.countryContinent = countryContinent;
@@ -133,7 +133,7 @@ public class Country {
      * Returns the Country Capital
      * @return countryCapital
      */
-    public int getCountryCapital() {
+    public String getCountryCapital() {
         return countryCapital;
     }
 
@@ -141,7 +141,7 @@ public class Country {
      * Sets a value for Country Capital
      * @param countryCapital
      */
-    public void setCountryCapital(int countryCapital) {
+    public void setCountryCapital(String countryCapital) {
         this.countryCapital = countryCapital;
     }
 }
