@@ -592,9 +592,10 @@ public class App {
         try {
             Statement stmt = con.createStatement();
             String strSelect =
-                    "select * from world.country where Code = '" + country.getCountryCode() + "'";
+                    "select country.Code AS 'Code', country.Name AS 'Name', country.Continent AS 'Continent', country.Region AS 'Region', country.Population AS 'Population', city.Name AS 'Capital' from country inner join city on city.Id = country.Capital where Code = '" + country.getCountryCode() + "'";
             ResultSet rset = stmt.executeQuery(strSelect);
             if(rset.next()){
+                country.setCountryCode(rset.getString("Code"));
                 country.setCountryName(rset.getString("Name"));
                 country.setCountryContinent(rset.getString("Continent"));
                 country.setCountryRegion(rset.getString("Region"));
@@ -621,13 +622,16 @@ public class App {
         try{
             Statement stmt = con.createStatement();
             String strSelect =
-                    "select Code, Name, Population from world.country order by Population desc";
+                    "select country.Code AS 'Code', country.Name AS 'Name', country.Continent AS 'Continent', country.Region AS 'Region', country.Population AS 'Population', city.Name AS 'Capital' from country inner join city on city.Id = country.Capital order by Population desc";
             ResultSet rset = stmt.executeQuery(strSelect);
             while(rset.next()){
                 Country ctry = new Country();
                 ctry.setCountryCode(rset.getString("Code"));
                 ctry.setCountryName(rset.getString("Name"));
+                ctry.setCountryContinent(rset.getString("Continent"));
+                ctry.setCountryRegion(rset.getString("Region"));
                 ctry.setCountryPopulation(rset.getLong("Population"));
+                ctry.setCountryCapital(rset.getInt("Capital"));
                 countryList.add(ctry);
             }
         } catch (Exception e) {
@@ -645,13 +649,16 @@ public class App {
         try{
             Statement stmt = con.createStatement();
             String strSelect =
-                    "select Code, Name, Population from world.country order by Population desc limit " + number;
+                    "select country.Code AS 'Code', country.Name AS 'Name', country.Continent AS 'Continent', country.Region AS 'Region', country.Population AS 'Population', city.Name AS 'Capital' from country inner join city on city.Id = country.Capital order by Population desc limit " + number;
             ResultSet rset = stmt.executeQuery(strSelect);
             while(rset.next()){
                 Country ctry = new Country();
                 ctry.setCountryCode(rset.getString("Code"));
                 ctry.setCountryName(rset.getString("Name"));
+                ctry.setCountryContinent(rset.getString("Continent"));
+                ctry.setCountryRegion(rset.getString("Region"));
                 ctry.setCountryPopulation(rset.getLong("Population"));
+                ctry.setCountryCapital(rset.getInt("Capital"));
                 countryList.add(ctry);
             }
         } catch (Exception e) {
@@ -690,13 +697,16 @@ public class App {
         try{
             Statement stmt = con.createStatement();
             String strSelect =
-                    "select Code, Name, Population from world.country where Continent = '"+continent+"' order by Population desc";
+                    "select country.Code AS 'Code', country.Name AS 'Name', country.Continent AS 'Continent', country.Region AS 'Region', country.Population AS 'Population', city.Name AS 'Capital' from country inner join city on city.Id = country.Capital where Continent = '"+continent+"' order by Population desc";
             ResultSet rset = stmt.executeQuery(strSelect);
             while(rset.next()){
                 Country ctry = new Country();
                 ctry.setCountryCode(rset.getString("Code"));
                 ctry.setCountryName(rset.getString("Name"));
+                ctry.setCountryContinent(rset.getString("Continent"));
+                ctry.setCountryRegion(rset.getString("Region"));
                 ctry.setCountryPopulation(rset.getLong("Population"));
+                ctry.setCountryCapital(rset.getInt("Capital"));
                 countryList.add(ctry);
             }
         } catch (Exception e) {
@@ -716,13 +726,16 @@ public class App {
         try{
             Statement stmt = con.createStatement();
             String strSelect =
-                    "select Code, Name, Population from world.country where Region = '"+region+"' order by Population desc";
+                    "select country.Code AS 'Code', country.Name AS 'Name', country.Continent AS 'Continent', country.Region AS 'Region', country.Population AS 'Population', city.Name AS 'Capital' from country inner join city on city.Id = country.Capital where Region = '"+region+"' order by Population desc";
             ResultSet rset = stmt.executeQuery(strSelect);
             while(rset.next()){
                 Country ctry = new Country();
                 ctry.setCountryCode(rset.getString("Code"));
                 ctry.setCountryName(rset.getString("Name"));
+                ctry.setCountryContinent(rset.getString("Continent"));
+                ctry.setCountryRegion(rset.getString("Region"));
                 ctry.setCountryPopulation(rset.getLong("Population"));
+                ctry.setCountryCapital(rset.getInt("Capital"));
                 countryList.add(ctry);
             }
         } catch (Exception e) {
@@ -743,13 +756,16 @@ public class App {
         try{
             Statement stmt = con.createStatement();
             String strSelect =
-                    "select Code, Name, Population from world.country where Continent = '"+continent+"' order by Population desc limit " + number;
+                    "select country.Code AS 'Code', country.Name AS 'Name', country.Continent AS 'Continent', country.Region AS 'Region', country.Population AS 'Population', city.Name AS 'Capital' from country inner join city on city.Id = country.Capital where Continent = '"+continent+"' order by Population desc limit " + number;
             ResultSet rset = stmt.executeQuery(strSelect);
             while(rset.next()){
                 Country ctry = new Country();
                 ctry.setCountryCode(rset.getString("Code"));
                 ctry.setCountryName(rset.getString("Name"));
+                ctry.setCountryContinent(rset.getString("Continent"));
+                ctry.setCountryRegion(rset.getString("Region"));
                 ctry.setCountryPopulation(rset.getLong("Population"));
+                ctry.setCountryCapital(rset.getInt("Capital"));
                 countryList.add(ctry);
             }
         } catch (Exception e) {
@@ -770,13 +786,16 @@ public class App {
         try{
             Statement stmt = con.createStatement();
             String strSelect =
-                    "select Code, Name, Population from world.country where Region = '"+region+"' order by Population desc limit " + number;
+                    "select country.Code AS 'Code', country.Name AS 'Name', country.Continent AS 'Continent', country.Region AS 'Region', country.Population AS 'Population', city.Name AS 'Capital' from country inner join city on city.Id = country.Capital where Region = '"+region+"' order by Population desc limit " + number;
             ResultSet rset = stmt.executeQuery(strSelect);
             while(rset.next()){
                 Country ctry = new Country();
                 ctry.setCountryCode(rset.getString("Code"));
                 ctry.setCountryName(rset.getString("Name"));
+                ctry.setCountryContinent(rset.getString("Continent"));
+                ctry.setCountryRegion(rset.getString("Region"));
                 ctry.setCountryPopulation(rset.getLong("Population"));
+                ctry.setCountryCapital(rset.getInt("Capital"));
                 countryList.add(ctry);
             }
         } catch (Exception e) {
