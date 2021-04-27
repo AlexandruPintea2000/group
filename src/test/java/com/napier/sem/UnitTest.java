@@ -140,13 +140,13 @@ public class UnitTest {
         country.setCountryContinent("Asia");
         country.setCountryRegion("Southern and Central Asia");
         country.setCountryPopulation(129155000);
-        country.setCountryCapital(150);
+        country.setCountryCapital("Dhaka");
 
         assertEquals("Bangladesh", country.getCountryName());
         assertEquals("Asia", country.getCountryContinent());
         assertEquals("Southern and Central Asia", country.getCountryRegion());
         assertEquals(129155000, country.getCountryPopulation());
-        assertEquals(150, country.getCountryCapital());
+        assertEquals("Dhaka", country.getCountryCapital());
     }
 
     /**
