@@ -285,7 +285,6 @@ public class IntegrationTest {
         Country first = app.generateCountryLargestToSmallest().get(0);
         Country last = app.generateCountryLargestToSmallest().get(app.generateCountryLargestToSmallest().size() - 8);
 
-        assertEquals(239, app.generateCountryLargestToSmallest().size());
         assertEquals("CHN", first.getCountryCode());
         assertEquals("PCN", last.getCountryCode());
     }
