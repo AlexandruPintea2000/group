@@ -622,7 +622,7 @@ public class App {
         try{
             Statement stmt = con.createStatement();
             String strSelect =
-                    "select country.Code AS 'Code', country.Name AS 'Name', country.Continent AS 'Continent', country.Region AS 'Region', country.Population AS 'Population', city.Name AS 'Capital' from country inner join city on city.Id = country.Capital order by Population desc";
+                    "select country.Code AS 'Code', country.Name AS 'Name', country.Continent AS 'Continent', country.Region AS 'Region', country.Population AS 'Population', city.Name AS 'Capital' from country inner join city on city.Id = country.Capital order by country.Population desc";
             ResultSet rset = stmt.executeQuery(strSelect);
             while(rset.next()){
                 Country ctry = new Country();
