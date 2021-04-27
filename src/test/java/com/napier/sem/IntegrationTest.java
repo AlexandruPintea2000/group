@@ -275,7 +275,6 @@ public class IntegrationTest {
         assertEquals("United Kingdom", country.getCountryName());
         assertEquals("British Islands", country.getCountryRegion());
         assertEquals(59623400, country.getCountryPopulation());
-        assertEquals(456, country.getCountryCapital());
     }
 
     /**

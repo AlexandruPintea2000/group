@@ -600,7 +600,7 @@ public class App {
                 country.setCountryContinent(rset.getString("Continent"));
                 country.setCountryRegion(rset.getString("Region"));
                 country.setCountryPopulation(rset.getLong("Population"));
-                country.setCountryCapital(rset.getInt("Capital"));
+                country.setCountryCapital(rset.getString("Capital"));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -631,7 +631,7 @@ public class App {
                 ctry.setCountryContinent(rset.getString("Continent"));
                 ctry.setCountryRegion(rset.getString("Region"));
                 ctry.setCountryPopulation(rset.getLong("Population"));
-                ctry.setCountryCapital(rset.getInt("Capital"));
+                ctry.setCountryCapital(rset.getString("Capital"));
                 countryList.add(ctry);
             }
         } catch (Exception e) {
@@ -658,7 +658,7 @@ public class App {
                 ctry.setCountryContinent(rset.getString("Continent"));
                 ctry.setCountryRegion(rset.getString("Region"));
                 ctry.setCountryPopulation(rset.getLong("Population"));
-                ctry.setCountryCapital(rset.getInt("Capital"));
+                ctry.setCountryCapital(rset.getString("Capital"));
                 countryList.add(ctry);
             }
         } catch (Exception e) {
@@ -706,7 +706,7 @@ public class App {
                 ctry.setCountryContinent(rset.getString("Continent"));
                 ctry.setCountryRegion(rset.getString("Region"));
                 ctry.setCountryPopulation(rset.getLong("Population"));
-                ctry.setCountryCapital(rset.getInt("Capital"));
+                ctry.setCountryCapital(rset.getString("Capital"));
                 countryList.add(ctry);
             }
         } catch (Exception e) {
@@ -735,7 +735,7 @@ public class App {
                 ctry.setCountryContinent(rset.getString("Continent"));
                 ctry.setCountryRegion(rset.getString("Region"));
                 ctry.setCountryPopulation(rset.getLong("Population"));
-                ctry.setCountryCapital(rset.getInt("Capital"));
+                ctry.setCountryCapital(rset.getString("Capital"));
                 countryList.add(ctry);
             }
         } catch (Exception e) {
@@ -765,7 +765,7 @@ public class App {
                 ctry.setCountryContinent(rset.getString("Continent"));
                 ctry.setCountryRegion(rset.getString("Region"));
                 ctry.setCountryPopulation(rset.getLong("Population"));
-                ctry.setCountryCapital(rset.getInt("Capital"));
+                ctry.setCountryCapital(rset.getString("Capital"));
                 countryList.add(ctry);
             }
         } catch (Exception e) {
@@ -795,7 +795,7 @@ public class App {
                 ctry.setCountryContinent(rset.getString("Continent"));
                 ctry.setCountryRegion(rset.getString("Region"));
                 ctry.setCountryPopulation(rset.getLong("Population"));
-                ctry.setCountryCapital(rset.getInt("Capital"));
+                ctry.setCountryCapital(rset.getString("Capital"));
                 countryList.add(ctry);
             }
         } catch (Exception e) {
