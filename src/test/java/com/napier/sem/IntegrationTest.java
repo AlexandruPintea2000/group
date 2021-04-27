@@ -240,7 +240,7 @@ public class IntegrationTest {
 
         assertEquals("Seoul", first.getCityName());
         assertEquals("Jakarta", second.getCityName());
-        assertEquals("Mexico", third.getCityName());
+        assertEquals("Mexico", third.getCountryName());
     }
 
     /**
