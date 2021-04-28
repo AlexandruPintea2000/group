@@ -24,6 +24,15 @@ public class IntegrationTest {
      ******************************/
 
     /**
+     * Testing getCityPopulation() to check if it returns the expected values
+     */
+    @Test
+    void testGetCityPopulation(){
+        long cityPopulation = app.getCityPopulation("London");
+        assertEquals(7285000, cityPopulation);
+    }
+
+    /**
      * Testing generateCityReport() to check if it returns the expected values
      */
     @Test
@@ -261,6 +270,15 @@ public class IntegrationTest {
     /*********************************
      ******* TESTS FOR COUNTRY *******
      *********************************/
+
+    /**
+     * Testing generateCountryPopulation() to check if it returns the expected values
+     */
+    @Test
+    void testGenerateCountryPopulation(){
+        long countryPopulation = app.generateCountryPopulation("United Kingdom");
+        assertEquals(59623400, countryPopulation);
+    }
 
     /**
      * Testing generateCountryReport() to check if it returns the expected value

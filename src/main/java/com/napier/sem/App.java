@@ -567,6 +567,45 @@ public class App {
     }
 
     /**
+     * Print out the contents of cityList for Capital Cities to console
+     * @param cityList
+     */
+    public void printCapitalList(ArrayList<City> cityList){
+        if((cityList == null)){
+            System.out.println("Empty Set");
+            return;
+        }
+        System.out.println(String.format("%-25s %-25s %-25s", "City", "Country", "Population"));
+        for(City city : cityList){
+            if(city == null)
+                continue;
+            String cityString =
+                    String.format("%-25s %-25s %-25s",
+                            city.getCityName(), city.getCountryName(), city.getCityPopulation());
+            System.out.println(cityString);
+        }
+    }
+
+    /**
+     * Generates the population of a city
+     */
+    public long getCityPopulation(String city) {
+        long population = 0;
+        try {
+            Statement stmt = con.createStatement();
+            String strSelect =
+                    "select Population from world.city where Name = '" + city + "'";
+            ResultSet rset = stmt.executeQuery(strSelect);
+            if (rset.next()) {
+                population = rset.getLong("Population");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return population;
+    }
+
+    /**
      *******************************************************************************************************************
      ********************************************** END OF METHODS FOR CITY ********************************************
      *******************************************************************************************************************
@@ -578,6 +617,25 @@ public class App {
      ********************************************** METHODS FOR COUNTRY ************************************************
      *******************************************************************************************************************
      */
+
+    /**
+     * Generates the population of a country
+     */
+    public long generateCountryPopulation(String country) {
+        long population = 0;
+        try {
+            Statement stmt = con.createStatement();
+            String strSelect =
+                    "select Population from world.country where Name = '" + country + "'";
+            ResultSet rset = stmt.executeQuery(strSelect);
+            if (rset.next()) {
+                population = rset.getLong("Population");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return population;
+    }
 
     /**
      Generates a full report of a country where code is specified, in the following format

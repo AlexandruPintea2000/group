@@ -106,6 +106,34 @@ public class UnitTest {
         app.printCityList(cityList);
     }
 
+    /**
+     * Testing to check the printCapitalList() method works
+     */
+    @Test
+    void testPrintCapitalList(){
+        ArrayList<City> cityList = new ArrayList<City>();
+
+        City del = new City();
+        del.setCityName("Delhi");
+        del.setCountryName("India");
+        del.setCityPopulation(7206704);
+        cityList.add(del);
+
+        City lag = new City();
+        lag.setCityName("Lagos");
+        lag.setCountryName("Nigeria");
+        lag.setCityPopulation(1518000);
+        cityList.add(lag);
+
+        City mos = new City();
+        mos.setCityName("Moscow");
+        mos.setCountryName("Russia");
+        mos.setCityPopulation(8389200);
+        cityList.add(mos);
+
+        app.printCapitalList(cityList);
+    }
+
 
     /*********************************
      ******* TESTS FOR COUNTRY *******
