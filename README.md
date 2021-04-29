@@ -3,6 +3,7 @@ __Software Engineering Methods__
 - Develop Build Status: [![Build Status](https://travis-ci.com/AlexPintea/group.svg?branch=develop)](https://travis-ci.com/AlexPintea/group)
 - Licence: [![LICENSE](https://img.shields.io/github/license/AlexPintea/group.svg?style=flat-square)](https://github.com/AlexPintea/group/blob/master/LICENSE)
 - Release: [![Releases](https://img.shields.io/github/release/AlexPintea/group/all.svg?style=flat-square)](https://github.com/AlexPintea/group/releases)
+- Codecov: [![codecov](https://codecov.io/gh/AlexPintea/group/branch/master/graph/badge.svg?token=U3KVR6PUQ7)](https://codecov.io/gh/AlexPintea/group)
 
 __Details of the group__
 
